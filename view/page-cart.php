@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="description" content="Type some info" />
 	<meta name="author" content="Type name" />
-
+ 
 	<title>Tailwind Ecommerce Kit</title>
 
 	<!-- Tailwind css -->
@@ -39,7 +39,7 @@
 
 				<!-- Actions -->
 				<div class="flex items-center space-x-2 ml-auto">
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/signIn"> 
 						<i class="text-gray-400 w-5 fa fa-user"></i> 
 						<span class="hidden lg:inline ml-1">Sign in</span>
 					</a>
@@ -49,7 +49,7 @@
 						<span class="hidden lg:inline ml-1">Wishlist</span> 
 					</a>
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/cart"> 
 						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
 						<span class="hidden lg:inline ml-1">My cart</span>
 					</a>

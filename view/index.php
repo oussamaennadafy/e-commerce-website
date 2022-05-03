@@ -32,7 +32,9 @@
           </div>
           <!-- Brand .//end -->
           <!-- Search -->
-          <div
+          <form
+            method="POST"
+            action="http://localhost/fill-rouge/user/items"
             class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4"
           >
             <input
@@ -41,19 +43,19 @@
               placeholder="Search"
             />
             <button
-              type="button"
+              type="submit"
               class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 rounded-md hover:bg-blue-700"
             >
               <i class="fa fa-search"></i>
             </button>
-          </div>
+          </form>
           <!-- Search .//end -->
 
           <!-- Actions -->
           <div class="flex items-center space-x-2 ml-auto">
             <a
               class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-              href="#"
+              href="http://localhost/fill-rouge/user/signIn"
             >
               <i class="text-gray-400 w-5 fa fa-user"></i>
               <span class="hidden lg:inline ml-1">Sign in</span>
@@ -69,7 +71,7 @@
 
             <a
               class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-              href="#"
+              href="http://localhost/fill-rouge/user/cart"
             >
               <i class="text-gray-400 w-5 fa fa-shopping-cart"></i>
               <span class="hidden lg:inline ml-1">My cart</span>

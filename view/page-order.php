@@ -25,7 +25,7 @@
         <div class="flex flex-wrap items-center">
           <!-- Brand -->
           <div class="flex-shrink-0 mr-5">
-            <a href="#">
+            <a href="http://localhost/fill-rouge/user/index">
               <img src="../view/images/logo.svg" height="38" alt="Brand" />
             </a>
           </div>
@@ -35,7 +35,7 @@
           <div class="flex items-center space-x-2 ml-auto">
             <a
               class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-              href="#"
+              href="http://localhost/fill-rouge/user/signIn"
             >
               <i class="text-gray-400 w-5 fa fa-user"></i>
               <span class="hidden lg:inline ml-1">Sign in</span>
@@ -69,7 +69,7 @@
           class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center"
         >
           <li class="inline-flex items-center">
-            <a class="text-gray-600 hover:text-blue-600" href="#">Home</a>
+            <a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/signIn">Home</a>
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center" aria-current="page">
