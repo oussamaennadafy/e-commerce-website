@@ -215,11 +215,13 @@
 					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
 						<div class="flex flex-col md:flex-row">
 							<div class="md:w-1/4">
-								<img class="mx-auto" src="../view/images/items/6.jpg" alt="Product name text">
+								<a href="http://localhost/fill-rouge/user/details">
+									<img class="mx-auto" src="../view/images/items/6.jpg" alt="Product name text">
+								</a>
 							</div> <!-- col.// -->
 							<div class="md:w-2/4">
 								<div class="p-4">
-									<a href="#" class="hover:text-blue-600">
+									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
 									Canon Cmera EOS 2000, Black 10x zoom
 									</a>
 									<div class="flex flex-wrap items-center space-x-2 mb-2">
@@ -246,13 +248,13 @@
 									</p>
 									<p class="text-green-500">Free Shipping</p>
 									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="#"> Buy now </a>
+										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
 										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
 												<i class="fa fa-heart"></i>
 										</a>
 									</div>
 									
-									<a class="font-medium text-blue-600 hover:text-blue-700" href="#">+ Add to compare</a>
+									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
 								</div>
 							</div> <!-- col.// -->
 						</div> <!-- flex.// -->
@@ -263,11 +265,13 @@
 					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
 						<div class="flex flex-col md:flex-row">
 							<div class="md:w-1/4">
-								<img class="mx-auto" src="../view/images/items/7.jpg" alt="Product name text">
+								<a href="http://localhost/fill-rouge/user/details">
+									<img class="mx-auto" src="../view/images/items/7.jpg" alt="Product name text">
+								</a>
 							</div> <!-- col.// -->
 							<div class="md:w-2/4">
 								<div class="p-4">
-									<a href="#" class="hover:text-blue-600">
+									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
 									Great name of this product just goes here
 									</a>
 									<div class="flex flex-wrap items-center space-x-2 mb-2">
@@ -294,13 +298,13 @@
 									</p>
 									<p class="text-green-500">Free Shipping</p>
 									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="#"> Buy now </a>
+										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
 										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
 												<i class="fa fa-heart"></i>
 										</a>
 									</div>
 									
-									<a class="font-medium text-blue-600 hover:text-blue-700" href="#">+ Add to compare</a>
+									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
 								</div>
 							</div> <!-- col.// -->
 						</div> <!-- flex.// -->
@@ -311,11 +315,13 @@
 					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
 						<div class="flex flex-col md:flex-row">
 							<div class="md:w-1/4">
-								<img class="mx-auto" src="../view/images/items/8.jpg" alt="Product name text">
+								<a href="http://localhost/fill-rouge/user/details">
+									<img class="mx-auto" src="../view/images/items/8.jpg" alt="Product name text">
+								</a>
 							</div> <!-- col.// -->
 							<div class="md:w-2/4">
 								<div class="p-4">
-									<a href="#" class="hover:text-blue-600">
+									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
 									Super item name of the product goes here
 									</a>
 									<div class="flex flex-wrap items-center space-x-2 mb-2">
@@ -341,13 +347,13 @@
 									</p>
 									<p class="text-green-500">Free Shipping</p>
 									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="#"> Buy now </a>
+										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
 										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
 												<i class="fa fa-heart"></i>
 										</a>
 									</div>
 									
-									<a class="font-medium text-blue-600 hover:text-blue-700" href="#">+ Add to compare</a>
+									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
 								</div>
 							</div> <!-- col.// -->
 						</div> <!-- flex.// -->
@@ -358,11 +364,13 @@
 					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
 						<div class="flex flex-col md:flex-row">
 							<div class="md:w-1/4">
-								<img class="mx-auto" src="../view/images/items/9.jpg" alt="Product name text">
+								<a href="http://localhost/fill-rouge/user/details">
+									<img class="mx-auto" src="../view/images/items/9.jpg" alt="Product name text">
+								</a>
 							</div> <!-- col.// -->
 							<div class="md:w-2/4">
 								<div class="p-4">
-									<a href="#" class="hover:text-blue-600">
+									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
 									Great name of this product just goes here as demo
 									</a>
 									<div class="flex flex-wrap items-center space-x-2 mb-2">
@@ -389,13 +397,13 @@
 									</p>
 									<p class="text-green-500">Free Shipping</p>
 									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="#"> Buy now </a>
+										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
 										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
 												<i class="fa fa-heart"></i>
 										</a>
 									</div>
 									
-									<a class="font-medium text-blue-600 hover:text-blue-700" href="#">+ Add to compare</a>
+									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
 								</div>
 							</div> <!-- col.// -->
 						</div> <!-- flex.// -->

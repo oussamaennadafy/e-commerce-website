@@ -28,17 +28,19 @@
 				<!-- Brand .//end -->
 				
 				<!-- Search -->
-				<div class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4">
+
+				<!-- <div class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4">
 					<input class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Search">
 					<button type="button" class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700">
 						Search
 					</button>
-				</div>
+				</div> -->
+				
 				<!-- Search .//end -->
 
 				<!-- Actions -->
 				<div class="flex items-center space-x-2 ml-auto">
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/signIn"> 
 						<i class="text-gray-400 w-5 fa fa-user"></i> 
 						<span class="hidden lg:inline ml-1">Sign in</span>
 					</a>
@@ -48,7 +50,7 @@
 						<span class="hidden lg:inline ml-1">Wishlist</span> 
 					</a>
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/cart"> 
 						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
 						<span class="hidden lg:inline ml-1">My cart</span>
 					</a>
@@ -89,7 +91,7 @@
 			<!-- breadcrumbs start -->
 			<ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
 				<li class="inline-flex items-center">
-					<a class="text-gray-600 hover:text-blue-600" href="#">Home</a>  
+					<a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/index">Home</a>  
 					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center" aria-current="page">
@@ -171,7 +173,7 @@
 
 					
 					<ul class="mb-5">
-						<li class="mb-1"> <b class="font-medium w-36 inline-block">Model#:</b> 
+						<li class="mb-1"> <b class="font-medium w-36 inline-block">Model:</b> 
 							<span  class="text-gray-500">Odsy-1000</span>
 						</li>
 						<li class="mb-1"> <b class="font-medium w-36 inline-block">Color:</b> 
@@ -215,11 +217,11 @@
 					</div>
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
-						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="#">
+						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">
     						Buy now
 						</a>
 						<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-							href="#">
+							href="http://localhost/fill-rouge/user/details">
 							<i class="fa fa-shopping-cart mr-2"></i> 
 							Add to cart 
 						</a>

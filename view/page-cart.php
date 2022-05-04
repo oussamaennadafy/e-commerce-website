@@ -24,17 +24,19 @@
 			<div class="flex flex-wrap items-center">
 				<!-- Brand -->
 				<div class="flex-shrink-0 mr-5">
-					<a href="#"> <img src="../view/images/logo.svg" height="38" alt="Brand" /> </a>
+					<a href="http://localhost/fill-rouge/user/index"> <img src="../view/images/logo.svg" height="38" alt="Brand" /> </a>
 				</div>
 				<!-- Brand .//end -->
 				
 				<!-- Search -->
-				<div class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4">
+
+				<!-- <div class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4">
 					<input class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Search">
 					<button type="button" class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700">
 						Search
 					</button>
-				</div>
+				</div> -->
+
 				<!-- Search .//end -->
 
 				<!-- Actions -->
@@ -267,9 +269,9 @@
 				</li>
 			</ul>
 
-			<a class="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#"> Checkout </a>
+			<a class="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="http://localhost/fill-rouge/user/order"> Checkout </a>
 
-			<a class="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href="#"> Back to shop </a>
+			<a class="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href="http://localhost/fill-rouge/user/index"> Back to shop </a>
 
 		</article> <!-- card end.// -->
 

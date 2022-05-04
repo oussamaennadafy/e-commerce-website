@@ -37,7 +37,7 @@ class UserController {
 
  public function details() {
   //logic of page
-  require_once __DIR__.'./../view/page-detail.php';
+  require_once __DIR__.'./../view/page-details.php';
  }
 
  public function cart() {

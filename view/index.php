@@ -6,7 +6,6 @@
     <meta name="description" content="Type some info" />
     <meta name="author" content="Type name" />
     <!-- <base href="/" /> -->
-
     <title>Tailwind Ecommerce Kit</title>
     <!-- Font awesome 5 -->
     <link
@@ -25,13 +24,14 @@
         <div class="flex flex-wrap items-center">
           <!-- Brand -->
           <div class="flex-shrink-0 mr-5">
-            <a href="#">
+            <a href="http://localhost/fill-rouge/user/index">
               <img src="../view/images/logo.svg" height="38" alt="Brand" />
               <!-- <img src="/view/" alt=""> -->
             </a>
           </div>
           <!-- Brand .//end -->
           <!-- Search -->
+
           <form
             method="POST"
             action="http://localhost/fill-rouge/user/items"
@@ -49,6 +49,7 @@
               <i class="fa fa-search"></i>
             </button>
           </form>
+
           <!-- Search .//end -->
 
           <!-- Actions -->
@@ -136,7 +137,7 @@
             <div>
               <a
                 class="px-4 py-2 inline-block font-semibold bg-yellow-500 text-white border border-transparent rounded-md hover:bg-yellow-600"
-                href="#"
+                href="http://localhost/fill-rouge/user/items"
               >
                 Discover
               </a>

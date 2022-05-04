@@ -31,17 +31,24 @@
           </div>
           <!-- Brand .//end -->
 
-          <!-- Actions -->
-          <div class="flex items-center space-x-2 ml-auto">
-            <a
-              class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-              href="http://localhost/fill-rouge/user/signIn"
-            >
-              <i class="text-gray-400 w-5 fa fa-user"></i>
-              <span class="hidden lg:inline ml-1">Sign in</span>
-            </a>
-          </div>
-          <!-- Actions .//end -->
+				<!-- Actions -->
+				<div class="flex items-center space-x-2 ml-auto">
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/profile"> 
+						<i class="text-gray-400 w-5 fa fa-user"></i> 
+						<span class="hidden lg:inline ml-1">profile</span>
+					</a>
+
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+						<i class="text-gray-400 w-5 fa fa-heart"></i> 
+						<span class="hidden lg:inline ml-1">Wishlist</span> 
+					</a>
+
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/cart"> 
+						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
+						<span class="hidden lg:inline ml-1">My cart</span>
+					</a>
+				</div>
+				<!-- Actions .//end -->
 
           <!-- mobile-only -->
           <div class="lg:hidden ml-2">
@@ -73,7 +80,7 @@
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center" aria-current="page">
-            <a class="text-gray-600 hover:text-blue-600" href="#"> Cart </a>
+            <a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/cart"> Cart </a>
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center">Order</li>
@@ -103,14 +110,14 @@
                 <div class="">
                   <a
                     class="px-4 py-2 inline-block text-blue-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600"
-                    href="#"
+                    href="http://localhost/fill-rouge/user/signIn"
                   >
                     Sign in
                   </a>
 
                   <a
                     class="px-4 py-2 inline-block text-white bg-blue-600 shadow-sm border border-transparent rounded-md hover:bg-blue-700"
-                    href="#"
+                    href="http://localhost/fill-rouge/user/signUp"
                   >
                     Create account
                   </a>
