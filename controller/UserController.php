@@ -12,6 +12,7 @@ class UserController {
 
  public function index() {
   //logic of page
+  if(isset($_POST['search_input']))
   include_once __DIR__.'./../view/index.php';
  }
 

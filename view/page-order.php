@@ -460,10 +460,8 @@
       <!-- container.// -->
     </section>
 
-    <footer class="py-6 bg-gray-200">
-      <p class="text-center">
-        <a href="https://tailwind-ecommerce.com">Tailwind ecommerce</a>
-      </p>
-    </footer>
+    <!-- footer -->
+    <?php include_once 'view\reusables\footer.php'; ?>
+    <!-- footer end -->
   </body>
 </html>
