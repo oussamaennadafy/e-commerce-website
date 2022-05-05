@@ -17,7 +17,6 @@ if (isset($params[0])&&!empty($params[0]))
 				if (isset($params[2])&&!empty($params[2])) 
 				{
 					$obj->$action($params[2]);
-
 				}
 				else
 				{

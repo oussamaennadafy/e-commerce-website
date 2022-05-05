@@ -12,8 +12,12 @@ class UserController {
 
  public function index() {
   //logic of page
-  if(isset($_POST['search_input']))
   include_once __DIR__.'./../view/index.php';
+ }
+
+ public function items() {
+  //logic of page
+  require_once __DIR__.'./../view/page-items-list.php';
  }
 
  public function signIn() {
@@ -31,10 +35,6 @@ class UserController {
   require_once __DIR__.'./../view/page-profile.php';
  }
 
- public function items() {
-  //logic of page
-  require_once __DIR__.'./../view/page-items-list.php';
- }
 
  public function details() {
   //logic of page

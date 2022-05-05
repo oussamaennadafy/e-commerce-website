@@ -36,7 +36,7 @@
           
           <form
             method="POST"
-            action="http://localhost/fill-rouge/user/index"
+            action="http://localhost/fill-rouge/user/items"
             class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4"
           >
             <input
@@ -47,7 +47,7 @@
             />
             <button
               type="submit"
-              name="search_button"
+              name="search_btn"
               class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 rounded-md hover:bg-blue-700"
             >
               <i class="fa fa-search"></i>
