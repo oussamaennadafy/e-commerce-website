@@ -126,7 +126,7 @@
     <!--  INTRO SECTION  -->
     <section class="bg bg-blue-500">
       <div class="container max-w-screen-xl mx-auto px-4">
-        <div class="pl-5 py-10 sm:py-20">
+        <div class="pl-5 py-10 sm:py-20 flex justify-between">
           <article class="my-10">
             <h1 class="text-3xl md:text-5xl text-white font-bold">
               Best products &amp; <br />brands in our store
@@ -149,6 +149,7 @@
               </a>
             </div>
           </article>
+            <img src="../view/images/shoe.png" alt="shoe" class="absolute top-100 left-100">
         </div>
       </div>
       <!-- container //end -->
