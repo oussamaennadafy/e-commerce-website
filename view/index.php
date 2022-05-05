@@ -149,7 +149,7 @@
               </a>
             </div>
           </article>
-            <img src="../view/images/shoe.png" alt="shoe" class="absolute top-100 left-100">
+            <img src="../view/images/shoe.png" alt="shoe" class="absolute top">
         </div>
       </div>
       <!-- container //end -->
