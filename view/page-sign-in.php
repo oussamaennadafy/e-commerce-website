@@ -66,25 +66,37 @@
 
 			<!--  COMPONENT: SIGN IN -->
 			<div style="max-width:360px" class="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg">
-				<form action="">
+				<form action="http://localhost/fill-rouge/user/signIn" method='POST'>
 					<h2 class="mb-5 text-2xl font-semibold">Sign in</h2>
 
 					<div class="mb-4">
 				      <label class="block mb-1"> Email </label>
-				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" type="text" placeholder="Type here">
+				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+										<?php if(isset($_POST['submit'])) { if($email || $userNotFound){echo 'border-red-500 hover:border-red-600 focus:border-red-600';}} ?>
+										" type="email" placeholder="Type here" name='email'
+										value='<?php if(isset($_POST['submit']) && !empty($_POST['email'])) {echo $_POST['email']; } ?>'
+										>
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['submit'])) { if($email){echo 'enter email';}} ?></p>
 				    </div>
 					
-					<div class="mb-4">
+					<div class=" <?php if(!$userNotFound) {echo 'mb-4'; } ?>">
 				      <label class="block mb-1"> Password </label>
-				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" type="password" placeholder="Type here">
-				    </div>
+				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full mb-2
+										<?php if(isset($_POST['submit'])) { if($password ||$userNotFound){echo 'border-red-500 hover:border-red-600 focus:border-red-600';}} ?>
+										" type="password" placeholder="Type here" name='password'
+										value='<?php if(isset($_POST['submit']) && !empty($_POST['password'])) {echo $_POST['password']; } ?>'
+										>
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['submit'])) { if($password){echo 'enter password';}} ?></p>
+									</div>
+									
+									<p class='text-red-500 mb-2'> <?php if($userNotFound) {echo 'invalid informations'; } ?></p>
 
-					<label class="flex items-center w-max mb-5">
+					<!-- <label class="flex items-center w-max mb-5">
 						<input checked name="" type="checkbox" class="h-4 w-4">
 						<span class="ml-2 inline-block text-gray-500"> Remember me </span>
-					</label>
+					</label> -->
 
-					<button type="submit" class="px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="#">  Sign in </button>
+					<button type="submit" class="px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" name='submit'>  Sign in </button>
 
 					<!-- Inline style for decoration -->
 					<div class="text-center border-b my-5" style="line-height: 0.1rem;">

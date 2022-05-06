@@ -34,24 +34,44 @@
       </div>
       <!-- Brand .//end -->
 
-				<!-- Actions -->
-				<div class="flex items-center space-x-2 ml-auto">
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/profile"> 
-						<i class="text-gray-400 w-5 fa fa-user"></i> 
-						<span class="hidden lg:inline ml-1">profile</span>
-					</a>
+				          <!-- Actions -->
+                  <div class="flex items-center space-x-2 ml-auto">
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
-						<i class="text-gray-400 w-5 fa fa-heart"></i> 
-						<span class="hidden lg:inline ml-1">Wishlist</span> 
-					</a>
+<?php if(isset($_SESSION['user'])): ?>
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="#"
+>
+		<i class="text-gray-400 w-5 fa fa-heart"></i>
+		<span class="hidden lg:inline ml-1">Wishlist</span>
+</a>
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/cart"> 
-						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
-						<span class="hidden lg:inline ml-1">My cart</span>
-					</a>
-				</div>
-				<!-- Actions .//end -->
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="http://localhost/fill-rouge/user/cart"
+>
+		<i class="text-gray-400 w-5 fa fa-shopping-cart"></i>
+		<span class="hidden lg:inline ml-1">My cart</span>
+</a>
+
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="http://localhost/fill-rouge/user/profile"
+>
+		<i class="text-gray-400 w-5 fa fa-user"></i>
+		<span class="hidden lg:inline ml-1">account</span>
+</a>
+</div>
+<?php else: ?>
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="http://localhost/fill-rouge/user/signIn"
+>
+		<i class="text-gray-400 w-5 fa fa-user"></i>
+		<span class="hidden lg:inline ml-1">Sign in</span>
+</a>
+<?php endif ?>
+<!-- Actions .//end -->
 
           <!-- mobile-only -->
           <div class="lg:hidden ml-2">
@@ -98,6 +118,7 @@
       <div class="container max-w-screen-xl mx-auto px-4">
         <div class="flex flex-col md:flex-row gap-4 lg:gap-8">
           <main class="md:w-2/3">
+            <?php if(!isset($_SESSION['user'])): ?>
             <article
               class="border border-gray-200 bg-white shadow-sm rounded p-4 lg:p-6 mb-5"
             >
@@ -127,12 +148,13 @@
                 </div>
               </div>
             </article>
+            <?php endif ?>
             <!-- card.// -->
 
             <article
               class="border border-gray-200 bg-white shadow-sm rounded p-4 lg:p-6 mb-5"
             >
-              <h2 class="text-xl font-semibold mb-5">Guest checkout</h2>
+              <h2 class="text-xl font-semibold mb-5"><?php if(!isset($_SESSION['user'])){echo'Guest checkout';}else { echo 'User checkout';} ?></h2>
 
               <div class="grid grid-cols-2 gap-x-3">
                 <div class="mb-4">

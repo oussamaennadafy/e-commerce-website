@@ -139,12 +139,12 @@
         <!-- container .// -->
       </section>
       <!-- section footer top end -->
-
+      
       <!-- section footer bottom  -->
       <section class="bg-blue-700 py-6 text-white">
         <div class="container max-w-screen-xl mx-auto px-4">
           <div class="lg:flex justify-between">
-            <div class="mb-3">
+            <div class="">
               <img
                 src="../view/images/misc/payments.png"
                 height="24"

@@ -13,6 +13,19 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!-- Font awesome 5 -->
 	<link href="../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
+	<style>
+				/* Chrome, Safari, Edge, Opera */
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+				margin: 0;
+		}
+
+		/* Firefox */
+		input[type=number] {
+				-moz-appearance: textfield;
+		}
+	</style>
 </head>
 
 <body>
@@ -66,18 +79,24 @@
 
 			<!--  COMPONENT: SIGN IN -->
 			<div style="max-width:480px" class="mt-10 mb-20 p-4 md:p-7 mx-auto rounded bg-white shadow-lg">
-				<form action="">
+				<form action="http://localhost/fill-rouge/user/signUp" method='POST'>
 					<h2 class="mb-5 text-2xl font-semibold">Sign up</h2>
 
 					<div class="grid md:grid-cols-2 gap-x-2">
 						<div class="mb-4">
 					      <label class="block mb-1"> First name </label>
-					      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" type="text" placeholder="Type here">
+					      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+											<?php if(isset($_POST['register'])) { if($first_name){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+											" type="text" placeholder="Type here" name="first_name" value="<?php if(isset($_POST['register']) && !empty($_POST['first_name'])) {echo $_POST['first_name']; } ?>">
+											<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($first_name){echo 'first name is required';}} ?></p>
 					    </div>
 						
 						<div class="mb-4">
 					      <label class="block mb-1"> Last name </label>
-					      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" type="text" placeholder="Type here">
+					      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+											<?php if(isset($_POST['register'])) { if($last_name){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+											" type="text" placeholder="Type here" name="last_name" value="<?php if(isset($_POST['register']) && !empty($_POST['last_name'])) {echo $_POST['last_name']; } ?>">
+											<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($last_name){echo 'last name is required';}} ?></p>
 					    </div>
 					</div> <!-- grid -->
 
@@ -85,27 +104,47 @@
 				      <label class="block mb-1"> Phone </label>
 
 				      <div class="flex  w-full">
-				      	<input class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Code" value="+998">
-				      	<input class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Type phone">
+				      	<input class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+											<?php if(isset($_POST['register'])) { if($number){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+											" type="text" placeholder="Code" value="<?php if(isset($_POST['register'])) {if(!empty($_POST['code_number'])) {echo $_POST['code_number'];} else {echo '+998';}} else {echo '+998';}?>" name="code_number">
+				      	<input class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+											<?php if(isset($_POST['register'])) { if($number){echo 'border-red-300 hover:border-red-400 focus:border-red-500';}} ?>
+											" type="number" placeholder="phone number" name="phone_number" value="<?php if(isset($_POST['register']) && !empty($_POST['phone_number'])) {echo $_POST['phone_number']; } ?>">
 				      </div>
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($number){echo 'invalid number';}} ?></p>
 				    </div>
 
 				    <div class="mb-4">
 				      <label class="block mb-1"> Email </label>
-				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" type="text" placeholder="Type here">
+				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+										<?php if(isset($_POST['register'])) { if($email){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+										" type="text" placeholder="Type here" name="email" value="<?php if(isset($_POST['register']) && !empty($_POST['email'])) {echo $_POST['email']; } ?>">
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($email){echo 'email is required';}} ?></p>
+				    </div>
+
+				    <div class="mb-4">
+				      <label class="block mb-1"> address </label>
+				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+										<?php if(isset($_POST['register'])) { if($address){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+										" type="text" placeholder="Type here" name="address" value="<?php if(isset($_POST['register']) && !empty($_POST['address'])) {echo $_POST['address']; } ?>">
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($address){echo 'address is required';}} ?></p>
 				    </div>
 					
 					<div class="mb-4">
 				      <label class="block mb-1"> Create password </label>
-				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full" type="password" placeholder="Type here">
+				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+										<?php if(isset($_POST['register'])) { if($password){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+										" type="password" placeholder="Type here" name="password" value="<?php if(isset($_POST['register']) && !empty($_POST['password'])) {echo $_POST['password']; } ?>">
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($password){echo 'password is required';}} ?></p>
 				    </div>
 
-					<button type="submit" class="my-2 px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"> Register </button>
+					<button type="submit" name="register" class="my-2 px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"> Register </button>
 
 					<label class="flex items-center w-max my-4">
-						<input checked name="" type="checkbox" class="h-4 w-4">
-						<span class="ml-2 inline-block"> I agree with Terms and Conditions </span>
+						<input checked name="terms_and_conditions" type="checkbox" class="h-4 w-4">
+						<p class="ml-2 inline-block mr-2 select-none">I agree with</p><a class='text-blue-500 underline' href="#">Terms and Conditions</a>
 					</label>
+					<p class='text-red-500 mt-2 mb-2'> <?php if(isset($_POST['register'])) { if($terms){echo 'read our Terms and Conditions';}} ?></p>
 
 					<hr>
 

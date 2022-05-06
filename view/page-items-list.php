@@ -52,24 +52,44 @@
 				</form>
 				<!-- Search .//end -->
 
-				<!-- Actions -->
-				<div class="flex items-center space-x-2 ml-auto">
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/signIn"> 
-						<i class="text-gray-400 w-5 fa fa-user"></i> 
-						<span class="hidden lg:inline ml-1">Sign in</span>
-					</a>
+				          <!-- Actions -->
+														<div class="flex items-center space-x-2 ml-auto">
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
-						<i class="text-gray-400 w-5 fa fa-heart"></i> 
-						<span class="hidden lg:inline ml-1">Wishlist</span> 
-					</a>
+<?php if(isset($_SESSION['user'])): ?>
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="#"
+>
+		<i class="text-gray-400 w-5 fa fa-heart"></i>
+		<span class="hidden lg:inline ml-1">Wishlist</span>
+</a>
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/cart"> 
-						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
-						<span class="hidden lg:inline ml-1">My cart</span>
-					</a>
-				</div>
-				<!-- Actions .//end -->
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="http://localhost/fill-rouge/user/cart"
+>
+		<i class="text-gray-400 w-5 fa fa-shopping-cart"></i>
+		<span class="hidden lg:inline ml-1">My cart</span>
+</a>
+
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="http://localhost/fill-rouge/user/profile"
+>
+		<i class="text-gray-400 w-5 fa fa-user"></i>
+		<span class="hidden lg:inline ml-1">account</span>
+</a>
+</div>
+<?php else: ?>
+<a
+		class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
+		href="http://localhost/fill-rouge/user/signIn"
+>
+		<i class="text-gray-400 w-5 fa fa-user"></i>
+		<span class="hidden lg:inline ml-1">Sign in</span>
+</a>
+<?php endif ?>
+<!-- Actions .//end -->
 				
 				<!-- mobile-only -->
 				<div class="lg:hidden ml-2">
@@ -84,20 +104,9 @@
 		</div> <!-- container //end -->
 	</header>
 	
-	<nav class="relative shadow-sm">
-		<div class="container max-w-screen-xl mx-auto px-4">
-			<!-- Bottom -->
-			<div class="hidden lg:flex flex-1 items-center py-1">
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Category </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> About </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Services </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Projects </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Offers </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Others </a>
-			</div>
-			<!-- Bottom //end -->
-		</div> <!-- container //end -->
-	</nav>
+    <!-- nav -->
+    <?php include_once 'view\reusables\navigation.php'; ?>
+    <!-- nav end -->
 	<!--  COMPONENT: HEADER //END -->
 
 	<!--  PAGE HEADER -->
@@ -109,10 +118,6 @@
 				<li class="inline-flex items-center">
 					<a class="text-gray-600 hover:text-blue-600" href="#">Home</a>  
 					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
-				</li>
-				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#">Clothings</a> 
-					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center"> Men’s wear </li>
 			</ol>

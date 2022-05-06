@@ -30,17 +30,6 @@
 							</a>
 					</div>
 					<!-- Brand .//end -->
-				
-				<!-- Search -->
-
-				<!-- <div class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4">
-					<input class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Search">
-					<button type="button" class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700">
-						Search
-					</button>
-				</div> -->
-				
-				<!-- Search .//end -->
 
 				<!-- Actions -->
 				<div class="flex items-center space-x-2 ml-auto">
@@ -54,7 +43,7 @@
 						<span class="hidden lg:inline ml-1">Wishlist</span> 
 					</a>
 
-					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="#"> 
+					<a class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300" href="http://localhost/fill-rouge/user/cart"> 
 						<i class="text-gray-400 w-5 fa fa-shopping-cart"></i> 
 						<span class="hidden lg:inline ml-1">My cart</span>
 					</a>
@@ -73,38 +62,17 @@
 			</div> <!-- flex grid //end -->
 		</div> <!-- container //end -->
 	</header>
-	<nav>
-		<div class="container max-w-screen-xl mx-auto px-4">
-			<!-- Bottom -->
-			<div class="hidden lg:flex flex-1 items-center py-1">
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Category </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> About </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Services </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Projects </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Offers </a>
-				<a class="px-3 py-2 rounded-md hover:bg-gray-100" href="#"> Others </a>
-			</div>
-			<!-- Bottom //end -->
-		</div> <!-- container //end -->
-	</nav>
+    <!-- nav -->
+    <?php include_once 'view\reusables\navigation.php'; ?>
+    <!-- nav end -->
 	<!--  COMPONENT: HEADER //END -->
 
 	<!--  PAGE HEADER -->
 	<section class="py-5 sm:py-7 bg-blue-100">
 		<div class="container max-w-screen-xl mx-auto px-4">
 			<!-- breadcrumbs start -->
-			<ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
-				<li class="inline-flex items-center">
-					<a class="text-gray-600 hover:text-blue-600" href="#">Home</a>  
-					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
-				</li>
-				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#"> Profile </a> 
-					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
-				</li>
-				<li class="inline-flex items-center"> Orders </li>
-			</ol>
-			<!-- breadcrumbs end -->
+			<h2 class="text-3xl font-semibold mb-2">My account</h2>
+			
 		</div><!-- /.container -->
 	</section>
 	<!--  PAGE HEADER .//END  -->
@@ -127,7 +95,7 @@
 			</li>
 			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Profile setting</a>
 			</li>
-			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Log out</a>
+			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/logout">Log out</a>
 			</li>
 		</ul>
 	</aside> <!-- col.// -->
@@ -136,12 +104,12 @@
 		<article class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
 			
 			<figure class="flex items-start sm:items-center">
-				<img class="w-16 rounded-full mr-4" src="../view/images/avatars/avatar3.jpg" alt="">
+				<img class="w-16 rounded-full mr-4" src="../view/images/avatars/avatar.jpg" alt="">
 				<figcaption>
-					<h5 class="font-semibold text-lg">Mr. Jackson Mike</h5>
+					<h5 class="font-semibold text-lg"><?php echo $_SESSION['user']['first_name'].' '.$_SESSION['user']['last_name'] ?></h5>
 					<p>	
-						Email: <a href="mailto:myusername@gmail.com">myusername@gmail.com</a> | 
-						Phone: <a href="tel:+1234567890988">+1234567890988</a>
+						Email: <a href="mailto:myusername@gmail.com"><?php echo $_SESSION['user']['email'] ?></a> | 
+						Phone: <a href="tel:+1234567890988"><?php echo $_SESSION['user']['phone'] ?></a>
 					</p>
 				</figcaption>
 			</figure>
@@ -156,24 +124,14 @@
 						</span>
 					</div>
 					<figcaption class="text-gray-600">
-						<p> Tashkent city, Street name, <br> Building 123, House 321 
+						<p> <?php echo $_SESSION['user']['address'] ?> </br>
 							<small class="text-gray-400">(Primary)</small>
 						</p>
 					</figcaption>
 				</figure>
-				<figure class="md:w-1/2 flex items-center relative bg-gray-100 p-4 rounded-md">
-					<div class="mr-3">
-						<span class="flex items-center justify-center text-yellow-500 w-12 h-12 bg-white rounded-full shadow"> 
-							<i class="fa fa-map-marker-alt"></i>
-						</span>
-					</div>
-					<figcaption class="text-gray-600">
-						<p> Washington DC, Street name, <br> Building 4343, Aprt 32   </p>
-					</figcaption>
-				</figure>
 			</div>
 			<button class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100">
-				<i class="mr-1 fa fa-plus"></i> Add new address
+				<i class="mr-1 fa fa-pen"></i> edit address
 			</button>
 			 
 			<hr class="my-4">
