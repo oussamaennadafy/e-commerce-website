@@ -31,7 +31,7 @@ class UserController {
   $userNotFound = false;
   if(!isset($_SESSION['user'])) {
    //code...
-   if(!empty($_POST['email'])) {
+   if(!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
     if(!empty($_POST['password'])) {
      //code...
      $User = User::checkUser($_POST['email'],$_POST['password']);
@@ -80,7 +80,7 @@ class UserController {
      if(!empty($_POST['last_name'])) {
       if(!empty($_POST['code_number']) && !empty($_POST['phone_number']) && is_numeric($_POST['code_number']) && is_numeric($_POST['phone_number'])) {
        $phone = $_POST['code_number'].$_POST['phone_number'];
-       if(!empty($_POST['email'])) {
+       if(!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         if(!empty($_POST['address'])) {
          if(!empty($_POST['password'])) {
           if(isset($_POST['terms_and_conditions'])) {

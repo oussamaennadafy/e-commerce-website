@@ -119,7 +119,7 @@
 				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
 										<?php if(isset($_POST['register'])) { if($email){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
 										" type="text" placeholder="Type here" name="email" value="<?php if(isset($_POST['register']) && !empty($_POST['email'])) {echo $_POST['email']; } ?>">
-										<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($email){echo 'email is required';}} ?></p>
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['register'])) { if($email){echo 'enter a valid email';}} ?></p>
 				    </div>
 
 				    <div class="mb-4">

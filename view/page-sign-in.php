@@ -76,7 +76,7 @@
 										" type="email" placeholder="Type here" name='email'
 										value='<?php if(isset($_POST['submit']) && !empty($_POST['email'])) {echo $_POST['email']; } ?>'
 										>
-										<p class='text-red-500 mt-2'> <?php if(isset($_POST['submit'])) { if($email){echo 'enter email';}} ?></p>
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['submit'])) { if($email){echo 'enter a valid email';}} ?></p>
 				    </div>
 					
 					<div class=" <?php if(!$userNotFound) {echo 'mb-4'; } ?>">
