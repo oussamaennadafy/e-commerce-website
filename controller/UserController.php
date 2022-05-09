@@ -16,6 +16,12 @@ class UserController {
   //logic of page
   session_start();
   $LastProducts = Product::selectLastProducts();
+  $products_ids = '';
+  foreach($LastProducts as $product) {
+    $products_ids.= $product['id'].',';
+  }
+  echo $products_ids = substr($products_ids, 0, -1);
+  $LastProductsImages = productImg::selectLastProductsImages();
   include_once __DIR__.'./../view/index.php';
  }
 

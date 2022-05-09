@@ -27,6 +27,8 @@ class Connection {
 }
 
 
+
+
  public function insert($table,$tableCln,$tableVal)
 	{
 		$names="";
@@ -46,6 +48,10 @@ class Connection {
 		$query->execute();
 	}
 
+
+
+
+
 	public function selectAll($table)
 	{
 		$query=$this->conn->prepare("SELECT * FROM `$table`");
@@ -53,12 +59,7 @@ class Connection {
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function selectLastProducts($table)
-	{
-		$query=$this->conn->prepare("SELECT `id`,`description_item`,`price_item` FROM `$table` ORDER BY id DESC LIMIT 12");
-		$query->execute();
-		return $query->fetchAll(PDO::FETCH_ASSOC);
-	}
+
 
 	public function selectOne($table,$id)
 	{
@@ -66,7 +67,34 @@ class Connection {
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
 	}
+
 	
+	
+	
+	
+	
+	public function selectLastProducts($table)
+	{
+		$query=$this->conn->prepare("SELECT `id`,`description_item`,`price_item` FROM `$table` ORDER BY id DESC LIMIT 12");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+
+
+
+
+	public function selectLastProductsImages()
+	{		
+		// $query=$this->conn->prepare("SELECT `id`,`description_item`,`price_item` FROM `$table` ORDER BY id DESC LIMIT 12");
+		// $query->execute();
+		// return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+	
+
+
+
+
 	public function update($table,$tableCln,$tableVal,$id)
 	{
 		$names="";
@@ -83,6 +111,10 @@ class Connection {
 		$query=$this->conn->prepare($str);
 		$query->execute();
 	}
+
+
+
+
 	public function delete($table,$id)
 	{
 		$query=$this->conn->prepare("DELETE FROM `$table` WHERE id=$id");

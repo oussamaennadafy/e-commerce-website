@@ -58,4 +58,10 @@ class productImg {
   }
 
 
+  public static function selectLastProductsImages() {
+    $ctn = new Connection();
+    return $ctn->selectLastProductsImages(); 
+   }
+
+
 }
