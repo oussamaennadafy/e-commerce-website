@@ -53,6 +53,13 @@ class Connection {
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function selectLastProducts($table)
+	{
+		$query=$this->conn->prepare("SELECT * FROM `$table` ORDER BY id DESC LIMIT 12");
+		$query->execute();
+		$query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	public function selectOne($table,$id)
 	{
 		$query=$this->conn->prepare("SELECT * FROM `$table` where id=$id");

@@ -29,21 +29,10 @@ Class Product {
 //   $this->quantity = $quantity;
 //  }
 
- public function selectLastProducts() {
+ public static function selectLastProducts() {
   $ctn = new Connection();
-  return $ctn->insertProduct(
-   $this->table,
-   ['name_item','description_item','tages_item','category_item','colors','price_item', 'sizes' , 'quantity'],
-   [$this->name_item,
-   $this->description_item,
-   $this->tages_item,
-   $this->category_item,
-   $this->colors,
-   $this->price_item,
-   $this->sizes,
-   $this->quantity]
-  ); 
-
+  $ctn->selectLastProducts('products'); 
+  // $ctn->selectLastProductsImages(); 
  }
 
 

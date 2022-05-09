@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__."./../model/user.php";
+require_once __DIR__."./../model/product.php";
 
 
 class UserController {
@@ -14,6 +15,7 @@ class UserController {
  public function index() {
   //logic of page
   session_start();
+  echo $LastProducts = Product::selectLastProducts();
   include_once __DIR__.'./../view/index.php';
  }
 
