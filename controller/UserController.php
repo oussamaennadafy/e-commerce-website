@@ -15,7 +15,7 @@ class UserController {
  public function index() {
   //logic of page
   session_start();
-  echo $LastProducts = Product::selectLastProducts();
+  $LastProducts = Product::selectLastProducts();
   include_once __DIR__.'./../view/index.php';
  }
 

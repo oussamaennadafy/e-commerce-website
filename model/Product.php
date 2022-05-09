@@ -31,8 +31,7 @@ Class Product {
 
  public static function selectLastProducts() {
   $ctn = new Connection();
-  $ctn->selectLastProducts('products'); 
-  // $ctn->selectLastProductsImages(); 
+  return $ctn->selectLastProducts('products'); 
  }
 
 
