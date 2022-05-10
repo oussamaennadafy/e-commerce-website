@@ -11,17 +11,24 @@ class UserController {
 
   
  }
-
+ 
  public function index() {
   //logic of page
   session_start();
   $LastProducts = Product::selectLastProducts();
+  /////////////format products ids//////////////
   $products_ids = '';
   foreach($LastProducts as $product) {
     $products_ids.= $product['id'].',';
   }
-  echo $products_ids = substr($products_ids, 0, -1);
-  $LastProductsImages = productImg::selectLastProductsImages();
+  $products_ids = substr($products_ids, 0, -1);
+  $array_products_ids = explode(',',$products_ids);
+  ////////////////////////////
+  $array_products_images = array();
+  foreach ($array_products_ids as $product_id) {
+    # code...
+    array_push($array_products_images,$LastProductsImages = productImg::selectLastProductsImages($product_id));
+  }
   include_once __DIR__.'./../view/index.php';
  }
 

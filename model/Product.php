@@ -58,9 +58,9 @@ class productImg {
   }
 
 
-  public static function selectLastProductsImages() {
+  public static function selectLastProductsImages($product_id) {
     $ctn = new Connection();
-    return $ctn->selectLastProductsImages(); 
+    return $ctn->selectLastProductsImages($product_id); 
    }
 
 
