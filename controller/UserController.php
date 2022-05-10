@@ -9,9 +9,9 @@ class UserController {
  public function __construct()
  {
 
-  
+
  }
- 
+
  public function index() {
   //logic of page
   session_start();
@@ -29,6 +29,13 @@ class UserController {
     # code...
     array_push($array_products_images,$LastProductsImages = productImg::selectLastProductsImages($product_id));
   }
+  for ($i=0; $i <count($array_products_images) ; $i++) { 
+      # code...
+      $combine_srcs_of_imgs = '../view/uploads/'.$array_products_images[$i][0]['name'];
+      array_push($LastProducts,$combine_srcs_of_imgs);
+  }
+  print_r($LastProducts);
+
   include_once __DIR__.'./../view/index.php';
  }
 
