@@ -16,26 +16,6 @@ class UserController {
   //logic of page
   session_start();
   $LastProducts = Product::selectLastProducts();
-  /////////////format products ids//////////////
-  $products_ids = '';
-  foreach($LastProducts as $product) {
-    $products_ids.= $product['id'].',';
-  }
-  $products_ids = substr($products_ids, 0, -1);
-  $array_products_ids = explode(',',$products_ids);
-  ////////////////////////////
-  $array_products_images = array();
-  foreach ($array_products_ids as $product_id) {
-    # code...
-    array_push($array_products_images,$LastProductsImages = productImg::selectLastProductsImages($product_id));
-  }
-  for ($i=0; $i <count($array_products_images) ; $i++) { 
-      # code...
-      $combine_srcs_of_imgs = '../view/uploads/'.$array_products_images[$i][0]['name'];
-      array_push($LastProducts,$combine_srcs_of_imgs);
-  }
-  print_r($LastProducts);
-
   include_once __DIR__.'./../view/index.php';
  }
 

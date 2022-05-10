@@ -156,13 +156,15 @@
         <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
-        <?php foreach ($LastProducts as $value) { ?>
+        <?php foreach ($LastProducts as $value) { 
+          
+          ?>
           <div>
             <!-- COMPONENT: PRODUCT CARD -->
             <article class="shadow-sm rounded bg-white border border-gray-200 h-full">
               <a href="#" class="block relative p-1">
                 <img
-                  src="../view/uploads/pese-personne-scale-100-verre (1).jpg"
+                  src="<?php echo '../view/uploads/'.$value['first_img']; ?>"
                   class="mx-auto w-auto"
                   height="240"
                   alt="Product title here"
