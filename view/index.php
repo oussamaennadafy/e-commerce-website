@@ -156,27 +156,26 @@
         <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
-        <?php foreach ($LastProducts as $value) { 
-          
+        <?php foreach ($LastProducts as $LastProduct) { 
           ?>
           <div>
             <!-- COMPONENT: PRODUCT CARD -->
             <article class="shadow-sm rounded bg-white border border-gray-200 h-full">
-              <a href="#" class="block relative p-1">
+              <a href="http://localhost/fill-rouge/user/details/<?php echo $LastProduct['id'] ?>" class="block relative p-1">
                 <img
-                  src="<?php echo '../view/uploads/'.$value['first_img']; ?>"
+                  src="<?php echo '../view/uploads/'.$LastProduct['first_img']; ?>"
                   class="mx-auto w-auto"
                   height="240"
                   alt="Product title here"
                 />
               </a>
               <div class="p-4 border-t border-t-gray-200">
-                <p class="font-semibold">$<?php echo $value['price_item'] ?></p>
+                <p class="font-semibold">$<?php echo $LastProduct['price_item'] ?></p>
                 <a
-                  href="#"
+                  href="http://localhost/fill-rouge/user/details"
                   class="block text-gray-600 mb-3 hover:text-blue-500"
                 >
-                <?php echo $value['name_item'] ?>
+                <?php echo $LastProduct['name_item'] ?>
                 </a>
                 <div>
                   <a

@@ -13,7 +13,7 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 
 	<!-- Font awesome 5 -->
-	<link href="../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
+	<link href="../../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -118,23 +118,23 @@
 				<aside>
 					<!-- gallery -->
 					<div class="border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img class="object-cover inline-block" width="400" src="../view/images/items/detail/big.jpg" alt="Product title">
+						<img class="object-cover inline-block" width="400" src="../../view/images/items/detail/big.jpg" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14" src="../view/images/items/detail/thumb.jpg" alt="Product title">
+							<img class="w-14 h-14" src="../../view/images/items/detail/thumb.jpg" alt="Product title">
 						</a>
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500 ">
-							<img class="w-14 h-14 object-cover" src="../view/images/items/detail/thumb1.jpg" alt="Product title">
+							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb1.jpg" alt="Product title">
 						</a>
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14 object-cover" src="../view/images/items/detail/thumb2.jpg" alt="Product title">
+							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb2.jpg" alt="Product title">
 						</a>
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14 object-cover" src="../view/images/items/detail/thumb3.jpg" alt="Product title">
+							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb3.jpg" alt="Product title">
 						</a>
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14 object-cover" src="../view/images/items/detail/thumb4.jpg" alt="Product title">
+							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb4.jpg" alt="Product title">
 						</a>
 					</div>
 					<!-- gallery end.// -->
@@ -146,7 +146,7 @@
 
 					<div class="flex flex-wrap items-center space-x-2 mb-2">
 
-						<img class="d-inline-block h-4" src="../view/images/misc/stars-active.svg" alt="Rating">
+						<img class="d-inline-block h-4" src="../../view/images/misc/stars-active.svg" alt="Rating">
 						<span class="text-yellow-500">9.3</span>
 
 						<svg width="6px" height="6px" viewbox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +296,7 @@
 						<figure class="flex flex-row mb-4">
 							<div>
 								<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-									<img src="../view/images/items/8.jpg" alt="Title">
+									<img src="../../view/images/items/8.jpg" alt="Title">
 								</a>
 							</div>
 							<figcaption class="ml-3">
@@ -308,7 +308,7 @@
 						<figure class="flex flex-row mb-4">
 							<div>
 								<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-									<img src="../view/images/items/9.jpg" alt="Title">
+									<img src="../../view/images/items/9.jpg" alt="Title">
 								</a>
 							</div>
 							<figcaption class="ml-3">
@@ -320,7 +320,7 @@
 						<figure class="flex flex-row mb-4">
 							<div>
 								<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-									<img src="../view/images/items/10.jpg" alt="Title">
+									<img src="../../view/images/items/10.jpg" alt="Title">
 								</a>
 							</div>
 							<figcaption class="ml-3">
@@ -332,7 +332,7 @@
 						<figure class="flex flex-row mb-4">
 							<div>
 								<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-									<img src="../view/images/items/11.jpg" alt="Title">
+									<img src="../../view/images/items/11.jpg" alt="Title">
 								</a>
 							</div>
 							<figcaption class="ml-3">
