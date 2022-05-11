@@ -102,7 +102,7 @@
 					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#"> Men's wear </a> 
+					<a class="text-gray-600 hover:text-blue-600" href="#"> <?php echo $product['category_item'] ?> wear </a> 
 					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center"> Detail </li>
@@ -118,7 +118,7 @@
 				<aside>
 					<!-- gallery -->
 					<div class="border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img class="object-cover inline-block" width="400" src="../../view/images/items/detail/big.jpg" alt="Product title">
+						<img class="object-cover inline-block" width="400" src="../../view/images/items/detail/<?php echo $product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
