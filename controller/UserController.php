@@ -145,7 +145,7 @@ class UserController {
  public function details($id) {
   //logic of page
   session_start();
-  Product::selectOneProduct($id);
+  $product = Product::selectOneProduct($id);
   require_once __DIR__.'./../view/page-details.php';
  }
 
