@@ -34,6 +34,11 @@ Class Product {
   return $ctn->selectLastProducts('products'); 
  }
 
+ public static function selectOneProduct($id) {
+  $ctn = new Connection();
+  return $ctn->selectOne($id); 
+ }
+
 
 
 }
