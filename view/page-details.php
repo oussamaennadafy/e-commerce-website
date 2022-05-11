@@ -102,7 +102,7 @@
 					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#"> <?php echo $product['category_item'] ?> wear </a> 
+					<a class="text-gray-600 hover:text-blue-600" href="#"> <?php echo $product['category_item']; if($product['category_item']) {echo'';} ?> </a> 
 					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center"> Detail </li>
@@ -118,7 +118,7 @@
 				<aside>
 					<!-- gallery -->
 					<div class="border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img class="object-cover inline-block" width="400" src="../../view/images/items/detail/<?php echo $product['first_img'] ?>" alt="Product title">
+						<img class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/'.$product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
@@ -141,7 +141,7 @@
 				</aside>
 				<main>
 					<h2 class="font-semibold text-2xl mb-4">
-						Sweater Men New Arrival Casual Pullover <br> Men Long Sleeve
+						<?php echo $product['name_item'] ?>
 					</h2>
 
 					<div class="flex flex-wrap items-center space-x-2 mb-2">
@@ -154,7 +154,7 @@
 						</svg>
 
 						<span class="text-gray-400">
-							<i class="fa fa-shopping-bag mr-2"></i> 154 orders
+							<i class="fa fa-shopping-bag mr-2"></i> <?php echo $product['orders']; if($product['orders'] == 0 || $product['orders'] == 1){echo ' order';}else{echo ' orders';} ?>
 						</span>
 
 						<svg width="6px" height="6px" viewbox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
@@ -165,13 +165,12 @@
 
 					</div>
 
-					<p class="mb-4 font-semibold text-xl">$98.00 
-						<span class="text-base font-normal">/1 box</span>
+					<p class="mb-4 font-semibold text-xl">$<?php echo $product['price_item'] ?>
+						<span class="text-base font-normal">/1 Item</span>
 					</p>
 
-					<p class="mb-4 text-gray-500">
-						Virgil Abloh’s Off-White is a streetwear-inspired collection that
-						continues to break away from the conventions of mainstream fashion. Made in Italy, these black and brown Odsy-1000 low-top sneakers. 
+					<p class="mb-4 text-gray-500 pr-20">
+     <?php echo $product['description_item']; ?>
 					</p>
 
 					
