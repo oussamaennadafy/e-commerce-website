@@ -146,12 +146,14 @@ class UserController {
   //logic of page
   session_start();
   $product = Product::selectOneProduct($id);
-//   foreach ($product as $key => $value) {
-//       # code...
-//       echo 'key : '.$key.' --------> ';
-//       echo 'value : '.$value;
-//       echo '<br>';
-//   }
+  foreach ($product as $key => $value) {
+      # code...
+      echo 'key : '.$key.' --------> ';
+      echo 'value : '.$value;
+      echo '<br>';
+  }
+  $product['sizes'] = explode(',', $product['sizes']);
+  $product['colors'] = explode(',', $product['colors']);
   require_once __DIR__.'./../view/page-details.php';
  }
 

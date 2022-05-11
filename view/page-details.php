@@ -14,6 +14,13 @@
 
 	<!-- Font awesome 5 -->
 	<link href="../../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
+	<style>
+		input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+	</style>
 </head>
 
 <body>
@@ -175,47 +182,72 @@
 
 					
 					<ul class="mb-5">
-						<li class="mb-1"> <b class="font-medium w-36 inline-block">Model:</b> 
-							<span  class="text-gray-500">Odsy-1000</span>
+						<li class="mb-1"> <b class="font-medium w-36 inline-block">Brand:</b> 
+							<span  class="text-gray-500"><?php echo $product['Brand'] ?></span>
 						</li>
-						<li class="mb-1"> <b class="font-medium w-36 inline-block">Color:</b> 
-							<span  class="text-gray-500">Brown</span>
+						<li class="mb-1"> <b class="font-medium w-36 inline-block">quantity:</b> 
+							<?php
+							if($product['quantity'] == 1){
+								echo '<span class="text-red-500"> Only 1 Piece Left in Stock </span>';
+							}elseif($product['quantity'] <= 20) {
+							 echo '<span class="text-red-500"> Only '.$product['quantity'].' Pcs Left in Stock </span>';
+							} else {
+								echo '<span class="text-gray-500">'. $product['quantity'].' Pcs Left in Stock </span>';
+							}
+								?>
 						</li>
 						<li class="mb-1"> <b class="font-medium w-36 inline-block">Delivery:</b> 
 							<span  class="text-gray-500">Russia, USA & Europe</span></li>
-						<li class="mb-1"> <b class="font-medium w-36 inline-block">Color:</b> 
+						<!-- <li class="mb-1"> <b class="font-medium w-36 inline-block">Colors:</b> 
 							<span  class="text-gray-500">Brown</span>
-						</li>
+						</li> -->
 					</ul>
+					<!-- quantity  -->
+					<div class='mb-5'>
+						<b class="font-medium w-36 inline-block mb-4">Quantity:</b> 
 
+						<button id='minus' class='p-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+						<i class="fa fa-minus"></i> 
+						</button>
+							<input id='input' value='1' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16'>
+						<button id='plus' class='p-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+						<i class="fa fa-plus"></i> 
+						</button>
+
+					</div>
+					<!-- quantity-end  -->
 					<div class="flex flex-wrap mb-4">
+						<?php if(!empty($product['sizes'])){ ?>
 						<!-- select-custom -->
 						<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
 					      <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-					        <option>Select size</option>
-					        <option>Extra large</option>
-					        <option>Medium size</option>
-					        <option>Normal size</option>
+											<option>Select Size</option>
+												<?php foreach ($product['sizes'] as $size) {?>
+					        <option><?php echo $size; ?></option>
+													<?php } ?>
 					      </select>
 					      <i class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
 					        <svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
 					      </i>
 					    </div>
 					    <!-- select-custom .//end  -->
-
+									<?php } ?>
+									<?php if(!empty($product['colors'])){ ?>
 					    <!-- select-custom -->
 						<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
 					      <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-					        <option>Select color</option>
-					        <option>Lightblue</option>
-					        <option>Green</option>
-					        <option>Black</option>
+											<option>Select color</option>
+											<?php foreach ($product['colors'] as $color) {?>
+					        <option><?php echo $color; ?></option>
+													<?php } ?>
 					      </select>
 					      <i class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
 					        <svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5H7z"/></svg>
 					      </i>
 					    </div>
 					    <!-- select-custom .//end  -->
+									<?php } ?>
+
 					</div>
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
@@ -281,8 +313,7 @@
 								Consectetur adipisicing elit, sed do eiusmod
 								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-								consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-								cillum dolore eu fugiat nulla pariatur. 
+								consequat. Duis aute irure dolor
 							</p>
 						</div>
 					</article>
@@ -351,6 +382,8 @@
     <!-- footer -->
     <?php include_once 'view\reusables\footer.php'; ?>
     <!-- footer end -->
+<script>
 
+</script>
 </body>
 </html>
