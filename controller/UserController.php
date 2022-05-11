@@ -146,6 +146,17 @@ class UserController {
   //logic of page
   session_start();
   $product = Product::selectOneProduct($id);
+//   for ($i=0; $i <count($product) ; $i++) { 
+//       # code...
+//       echo $product[$i];
+//       echo '<br>';
+//   }
+  foreach ($product as $key => $value) {
+      # code...
+      echo 'key : '.$key.' --------> ';
+      echo 'value : '.$value;
+      echo '<br>';
+  }
   require_once __DIR__.'./../view/page-details.php';
  }
 
