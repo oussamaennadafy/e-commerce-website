@@ -65,7 +65,7 @@ class Connection {
 	{
 		$query=$this->conn->prepare("SELECT * FROM `$table` where id=$id");
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_ASSOC)[0];
+		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
 	
