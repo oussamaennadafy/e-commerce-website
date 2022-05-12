@@ -115,12 +115,12 @@
 				<aside>
 					<!-- gallery -->
 					<div class=" border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
+						<img id="parent" class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<?php foreach ($imgs as $img) { ?>
-							<a id='imgAnchor' href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-								<img class="w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
+							<a class="cursor-pointer inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
+								<img id='child' class="w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
 							</a>
 						<?php } ?>
 						<!-- <a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500 ">
@@ -423,10 +423,14 @@
 			}
 		});
 		/////////////////////////////////////
-		const a = <?php echo json_encode($imgs) ?>;
-		a.forEach(element => {
-			console.log(element.name);
-		});
+		const parent = document.querySelector('#parent');
+		const child = document.querySelectorAll('#child');
+		parent.addEventListener('click', () => {
+			console.log('parent');
+		})
+		child.addEventListener('click', () => {
+			console.log('child');
+		})
 	</script>
 </body>
 
