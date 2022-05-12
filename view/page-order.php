@@ -6,7 +6,7 @@
     <meta name="description" content="Type some info" />
     <meta name="author" content="Type name" />
 
-    <title>Tailwind Ecommerce Kit</title>
+    <title>ENSONE | Order</title>
 
     <!-- Tailwind css -->
     <script src="https://cdn.tailwindcss.com"></script>

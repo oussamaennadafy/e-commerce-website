@@ -68,6 +68,14 @@ class Connection {
 		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
+
+	public function SelectProductImgs($id)
+	{
+		$query=$this->conn->prepare("SELECT * FROM `product_images` where product_id=$id");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	
 	
 	

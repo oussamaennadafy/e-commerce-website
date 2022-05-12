@@ -7,7 +7,7 @@
 	<meta name="description" content="Type some info" />
 	<meta name="author" content="Type name" />
 
-	<title>Tailwind Ecommerce Kit</title>
+	<title>ENSON | Product</title>
 
 	<!-- Tailwind css -->
 	<script src="https://cdn.tailwindcss.com"></script>
@@ -22,7 +22,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 	</style>
 </head>
-
 <body>
 	<!--  COMPONENT: HEADER -->
 	<header class="bg-white py-3 border-b">
@@ -105,14 +104,16 @@ input[type=number]::-webkit-outer-spin-button {
 					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#"> Clothes </a> 
+					<a class="text-gray-600 hover:text-blue-600" href="#"> <?php
+					if($product['category_item'] == 'OurSports') {
+						echo 'Our Sports';
+					} else {
+						echo ucfirst($product['category_item']);
+					}
+						?> </a> 
 					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
-				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#"> <?php echo $product['category_item']; if($product['category_item']) {echo'';} ?> </a> 
-					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
-				</li>
-				<li class="inline-flex items-center"> Detail </li>
+				<li class="inline-flex items-center"> Details </li>
 			</ol>
 			<!-- breadcrumbs end -->
 		</div> <!-- container .// -->
@@ -128,10 +129,12 @@ input[type=number]::-webkit-outer-spin-button {
 						<img class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/'.$product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
-						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14" src="../../view/images/items/detail/thumb.jpg" alt="Product title">
-						</a>
-						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500 ">
+						<?php foreach ($imgs as $img) { ?>
+							<a id='imgAnchor' href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
+								<img class="w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
+							</a>
+							<?php } ?>
+						<!-- <a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500 ">
 							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb1.jpg" alt="Product title">
 						</a>
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
@@ -142,7 +145,7 @@ input[type=number]::-webkit-outer-spin-button {
 						</a>
 						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
 							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb4.jpg" alt="Product title">
-						</a>
+						</a> -->
 					</div>
 					<!-- gallery end.// -->
 				</aside>
@@ -206,21 +209,21 @@ input[type=number]::-webkit-outer-spin-button {
 					<div class='mb-5'>
 						<b class="font-medium w-36 inline-block mb-4">Quantity:</b> 
 
-						<button id='minus' class='p-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
-						<i class="fa fa-minus"></i> 
+						<button id='minus' class='py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+						<i class="fa fa-minus text-gray-500"></i> 
 						</button>
-							<input id='input' value='1' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16'>
-						<button id='plus' class='p-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
-						<i class="fa fa-plus"></i> 
+							<input id='input' value='1' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16'>
+						<button id='plus' class='py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+						<i class="fa fa-plus text-gray-500"></i> 
 						</button>
 
 					</div>
 					<!-- quantity-end  -->
 					<div class="flex flex-wrap mb-4">
-						<?php if(!empty($product['sizes'])){ ?>
+						<?php if(!empty($product['sizes'][0])){ ?>
 						<!-- select-custom -->
 						<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
-					      <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
+					      <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer">
 											<option>Select Size</option>
 												<?php foreach ($product['sizes'] as $size) {?>
 					        <option><?php echo $size; ?></option>
@@ -232,10 +235,10 @@ input[type=number]::-webkit-outer-spin-button {
 					    </div>
 					    <!-- select-custom .//end  -->
 									<?php } ?>
-									<?php if(!empty($product['colors'])){ ?>
+									<?php if(!empty($product['colors'][0])){ ?>
 					    <!-- select-custom -->
 						<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
-					      <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
+					      <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer">
 											<option>Select color</option>
 											<?php foreach ($product['colors'] as $color) {?>
 					        <option><?php echo $color; ?></option>
@@ -254,16 +257,18 @@ input[type=number]::-webkit-outer-spin-button {
 						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">
     						Buy now
 						</a>
-						<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-							href="http://localhost/fill-rouge/user/details">
+						<a class=" cursor-pointer px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
+							<?php if(!isset($_SESSION['user'])) {echo "href='http://localhost/fill-rouge/user/signIn'";} ?>
+							>
 							<i class="fa fa-shopping-cart mr-2"></i> 
 							Add to cart 
 						</a>
-						<a class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-							href="#">
-							<i class="fa fa-heart mr-2"></i> 
-							Save for later 
-						</a>
+						<a id='wish_btn' class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100 "
+						<?php if(!isset($_SESSION['user'])) {echo "href='http://localhost/fill-rouge/user/signIn'";} ?>
+						>
+						<i id='heart_wish' class="fa fa-heart mr-2 text-gray-200 transition"></i> 
+						<span class='text-blue-600 select-none'>Save for later</span>
+					</a>
 					</div>
 					<!-- action buttons .//end -->
 				</main>
@@ -383,6 +388,41 @@ input[type=number]::-webkit-outer-spin-button {
     <?php include_once 'view\reusables\footer.php'; ?>
     <!-- footer end -->
 <script>
+const muinus = document.getElementById("minus");
+const input = document.getElementById("input");
+const plus = document.getElementById("plus");
+const wish_btn = document.getElementById("wish_btn");
+const heart_wish = document.getElementById("heart_wish");
+const imgAnchor = document.getElementById("imgAnchor");
+
+muinus.addEventListener("click", () => {
+  console.log("minus");
+  if (input.value > 1) {
+    input.value--;
+  }
+});
+
+
+plus.addEventListener("click", () => {
+  console.log("plus");
+  input.value++;
+});
+
+
+imgAnchor.addEventListener("click", () => {
+  console.log("imgAnchor");
+});
+
+wish_btn.addEventListener("click", () => {
+	if(heart_wish.classList.contains('text-gray-200')) {
+		heart_wish.classList.remove('text-gray-200');
+		heart_wish.classList.add('text-blue-600');
+	} else {
+		heart_wish.classList.add('text-gray-200');
+		heart_wish.classList.remove('text-blue-600');
+
+	}
+});
 
 </script>
 </body>

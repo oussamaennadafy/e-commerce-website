@@ -6,7 +6,7 @@
     <meta name="description" content="Type some info" />
     <meta name="author" content="Type name" />
     <!-- <base href="/" /> -->
-    <title>Tailwind Ecommerce Kit</title>
+    <title>Welcome to ENSON</title>
     <!-- Font awesome 5 -->
     <link
       href="../view/fonts/fontawesome/css/all.min.css"
@@ -14,6 +14,7 @@
       rel="stylesheet"
     />
     <script src="https://cdn.tailwindcss.com"></script>
+    
 
   </head>
 
