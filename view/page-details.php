@@ -114,27 +114,15 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
 				<aside>
 					<!-- gallery -->
-					<div class=" border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img id="parent" class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
+					<div id="parent" class=" border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
+						<img class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<?php foreach ($imgs as $img) { ?>
-							<a class="cursor-pointer inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-								<img id='child' class="w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
+							<a class="child cursor-pointer inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
+								<img class="w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
 							</a>
 						<?php } ?>
-						<!-- <a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500 ">
-							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb1.jpg" alt="Product title">
-						</a>
-						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb2.jpg" alt="Product title">
-						</a>
-						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb3.jpg" alt="Product title">
-						</a>
-						<a href="#" class="inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-							<img class="w-14 h-14 object-cover" src="../../view/images/items/detail/thumb4.jpg" alt="Product title">
-						</a> -->
 					</div>
 					<!-- gallery end.// -->
 				</aside>
@@ -423,14 +411,8 @@
 			}
 		});
 		/////////////////////////////////////
-		const parent = document.querySelector('#parent');
-		const child = document.querySelectorAll('#child');
-		parent.addEventListener('click', () => {
-			console.log('parent');
-		})
-		child.addEventListener('click', () => {
-			console.log('child');
-		})
+		const parent = document.getElementById('parent');
+		const child = document.querySelectorAll('.child');
 	</script>
 </body>
 
