@@ -114,13 +114,13 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
 				<aside>
 					<!-- gallery -->
-					<div id="parent" class=" border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img class="object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
+					<div class="border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
+						<img class="parent object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<?php foreach ($imgs as $img) { ?>
-							<a class="child cursor-pointer inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
-								<img class="w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
+							<a class="cursor-pointer inline-block border border-gray-200 p-1 rounded-md hover:border-blue-500">
+								<img class="child w-14 h-14" src="../../view/uploads/<?php echo $img['name'] ?>" alt="<?php echo $img['name'] ?>">
 							</a>
 						<?php } ?>
 					</div>
@@ -396,9 +396,9 @@
 		});
 
 
-		imgAnchor.addEventListener("click", () => {
-			console.log("imgAnchor");
-		});
+		// imgAnchor.addEventListener("click", () => {
+		// 	console.log("imgAnchor");
+		// });
 
 		wish_btn.addEventListener("click", () => {
 			if (heart_wish.classList.contains('text-gray-200')) {
@@ -411,8 +411,20 @@
 			}
 		});
 		/////////////////////////////////////
-		const parent = document.getElementById('parent');
+		const parent = document.querySelector('.parent');
 		const child = document.querySelectorAll('.child');
+
+		parent.addEventListener('click', () => {
+			console.log('parent');
+		})
+		child.forEach(item => {
+			item.addEventListener('click', event => {
+				//handle click
+				// parent.setAttribute('href', item.getAttribute('href'))
+				let a = item.getAttribute(src);
+				console.log(a);
+			})
+		})
 	</script>
 </body>
 
