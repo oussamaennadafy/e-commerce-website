@@ -413,16 +413,9 @@
 		/////////////////////////////////////
 		const parent = document.querySelector('.parent');
 		const child = document.querySelectorAll('.child');
-
-		parent.addEventListener('click', () => {
-			console.log('parent');
-		})
 		child.forEach(item => {
 			item.addEventListener('click', event => {
-				//handle click
-				// parent.setAttribute('href', item.getAttribute('href'))
-				let a = item.getAttribute(src);
-				console.log(a);
+				parent.setAttribute('src', item.getAttribute('src'))
 			})
 		})
 	</script>
