@@ -24,9 +24,9 @@ class UserController
         //logic of page
         $products = Product::SelectProductsByCategoty($category);
         foreach ($products as $product) {
-            print_r($product);
-            echo '<br>';
+            $product['tages_item'] = explode(',', $product['tages_item']);
         }
+        print_r($products[0]['tages_item']);
         require_once __DIR__ . './../view/page-items-list.php';
     }
 

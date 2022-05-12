@@ -226,207 +226,57 @@
 				</aside> <!-- col.// -->
 				<main class="md:w-2/3 lg:w-3/4 px-3">
 
-
-					<!-- COMPONENT: PRODUCT ITEM -->
-					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
-						<div class="flex flex-col md:flex-row">
-							<div class="md:w-1/4">
-								<a href="http://localhost/fill-rouge/user/details">
-									<img class="mx-auto" src="../../view/images/items/6.jpg" alt="Product name text">
-								</a>
-							</div> <!-- col.// -->
-							<div class="md:w-2/4">
-								<div class="p-4">
-									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
-										Canon Cmera EOS 2000, Black 10x zoom
+					<?php foreach ($products as $product) { ?>
+						<!-- COMPONENT: PRODUCT ITEM -->
+						<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
+							<div class="flex flex-col md:flex-row">
+								<div class="md:w-1/4">
+									<a href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>">
+										<img class="mx-auto" src="../../view/uploads/<?php echo $product['first_img'] ?>" alt="<?php echo $product['first_img'] ?>">
 									</a>
-									<div class="flex flex-wrap items-center space-x-2 mb-2">
-										<img src="../../view/images/misc/stars-active.svg" alt="">
-										<b class="text-gray-300">•</b>
-										<span class="ml-1 text-yellow-500">9.3</span>
-									</div>
-									<p class="text-gray-500 mb-2">
-										The largest Canon Camera display yet. Electrical heart sensor. Re-engineered Digital Crown with haptic feedback. Entirely familiar, yet completely redesigned
-									</p>
-									<p class="space-y-2">
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Leather </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span>
-									</p>
-								</div>
-							</div> <!-- col.// -->
-							<div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
-								<div class="p-5">
-									<p>
-										<span class="text-xl font-semibold text-black">$120.50</span>
-										<del class="line-through text-sm text-gray-400"> $230.00</del>
-									</p>
-									<p class="text-green-500">Free Shipping</p>
-									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
-										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
-											<i class="fa fa-heart"></i>
+								</div> <!-- col.// -->
+								<div class="md:w-2/4">
+									<div class="p-4">
+										<a href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>" class="hover:text-blue-600">
+											<?php echo $product['name_item'] ?>
 										</a>
+										<div class="flex flex-wrap items-center space-x-2 mb-2">
+											<img src="../../view/images/misc/stars-active.svg" alt="">
+											<b class="text-gray-300">•</b>
+											<span class="ml-1 text-yellow-500">9.3</span>
+										</div>
+										<p class="text-gray-500 mb-2">
+											<?php echo $product['description_item'] ?>
+										</p>
+										<p class="space-y-2">
+											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Leather </span>
+											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
+											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
+											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span>
+										</p>
 									</div>
+								</div> <!-- col.// -->
+								<div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
+									<div class="p-5">
+										<p>
+											<span class="text-xl font-semibold text-black">$<?php echo $product['price_item'] ?></span>
+											<del class="line-through text-sm text-gray-400"> $<?php echo $product['price_item'] + 20 ?></del>
+										</p>
+										<p class="text-green-500">Free Shipping</p>
+										<div class="my-3">
+											<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
+											<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
+												<i class="fa fa-heart"></i>
+											</a>
+										</div>
 
-									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
-								</div>
-							</div> <!-- col.// -->
-						</div> <!-- flex.// -->
-					</article>
-					<!-- COMPONENT: PRODUCT ITEM //END -->
-
-					<!-- COMPONENT: PRODUCT ITEM -->
-					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
-						<div class="flex flex-col md:flex-row">
-							<div class="md:w-1/4">
-								<a href="http://localhost/fill-rouge/user/details">
-									<img class="mx-auto" src="../../view/images/items/7.jpg" alt="Product name text">
-								</a>
-							</div> <!-- col.// -->
-							<div class="md:w-2/4">
-								<div class="p-4">
-									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
-										Great name of this product just goes here
-									</a>
-									<div class="flex flex-wrap items-center space-x-2 mb-2">
-										<img src="../../view/images/misc/stars-active.svg" alt="">
-										<b class="text-gray-300">•</b>
-										<span class="ml-1 text-yellow-500">9.3</span>
+										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
 									</div>
-									<p class="text-gray-500 mb-2">
-										The largest Canon Camera display yet. Electrical heart sensor. Re-engineered Digital Crown with haptic feedback. Entirely familiar, yet completely redesigned
-									</p>
-									<p class="space-y-2">
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Leather </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
-
-									</p>
-								</div>
-							</div> <!-- col.// -->
-							<div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
-								<div class="p-5">
-									<p>
-										<span class="text-xl font-semibold text-black">$120.50</span>
-										<del class="line-through text-sm text-gray-400"> $230.00</del>
-									</p>
-									<p class="text-green-500">Free Shipping</p>
-									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
-										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
-											<i class="fa fa-heart"></i>
-										</a>
-									</div>
-
-									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
-								</div>
-							</div> <!-- col.// -->
-						</div> <!-- flex.// -->
-					</article>
-					<!-- COMPONENT: PRODUCT ITEM //END -->
-
-					<!-- COMPONENT: PRODUCT ITEM -->
-					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
-						<div class="flex flex-col md:flex-row">
-							<div class="md:w-1/4">
-								<a href="http://localhost/fill-rouge/user/details">
-									<img class="mx-auto" src="../../view/images/items/8.jpg" alt="Product name text">
-								</a>
-							</div> <!-- col.// -->
-							<div class="md:w-2/4">
-								<div class="p-4">
-									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
-										Super item name of the product goes here
-									</a>
-									<div class="flex flex-wrap items-center space-x-2 mb-2">
-										<img src="../../view/images/misc/stars-active.svg" alt="">
-										<b class="text-gray-300">•</b>
-										<span class="ml-1 text-yellow-500">9.3</span>
-									</div>
-									<p class="text-gray-500 mb-2">
-										The largest Canon Camera display yet. Electrical heart sensor. Re-engineered Digital Crown with haptic feedback. Entirely familiar, yet completely redesigned
-									</p>
-									<p class="space-y-2">
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Leather </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span>
-									</p>
-								</div>
-							</div> <!-- col.// -->
-							<div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
-								<div class="p-5">
-									<p>
-										<span class="text-xl font-semibold text-black">$120.50</span>
-										<del class="line-through text-sm text-gray-400"> $230.00</del>
-									</p>
-									<p class="text-green-500">Free Shipping</p>
-									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
-										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
-											<i class="fa fa-heart"></i>
-										</a>
-									</div>
-
-									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
-								</div>
-							</div> <!-- col.// -->
-						</div> <!-- flex.// -->
-					</article>
-					<!-- COMPONENT: PRODUCT ITEM //END -->
-
-					<!-- COMPONENT: PRODUCT ITEM -->
-					<article class="border border-gray-200 overflow-hidden bg-white shadow-sm rounded mb-5">
-						<div class="flex flex-col md:flex-row">
-							<div class="md:w-1/4">
-								<a href="http://localhost/fill-rouge/user/details">
-									<img class="mx-auto" src="../../view/images/items/9.jpg" alt="Product name text">
-								</a>
-							</div> <!-- col.// -->
-							<div class="md:w-2/4">
-								<div class="p-4">
-									<a href="http://localhost/fill-rouge/user/details" class="hover:text-blue-600">
-										Great name of this product just goes here as demo
-									</a>
-									<div class="flex flex-wrap items-center space-x-2 mb-2">
-										<img src="../../view/images/misc/stars-active.svg" alt="">
-										<b class="text-gray-300">•</b>
-										<span class="ml-1 text-yellow-500">9.3</span>
-									</div>
-									<p class="text-gray-500 mb-2">
-										The largest Canon Camera display yet. Electrical heart sensor. Re-engineered Digital Crown with haptic feedback. Entirely familiar, yet completely redesigned
-									</p>
-									<p class="space-y-2">
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Leather </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
-										<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span>
-									</p>
-								</div>
-							</div> <!-- col.// -->
-							<div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
-								<div class="p-5">
-									<p>
-										<span class="text-xl font-semibold text-black">$120.50</span>
-										<del class="line-through text-sm text-gray-400"> $230.00</del>
-									</p>
-									<p class="text-green-500">Free Shipping</p>
-									<div class="my-3">
-										<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
-										<a class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100" href="#">
-											<i class="fa fa-heart"></i>
-										</a>
-									</div>
-
-									<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
-								</div>
-							</div> <!-- col.// -->
-						</div> <!-- flex.// -->
-					</article>
-					<!-- COMPONENT: PRODUCT ITEM //END -->
-
-
+								</div> <!-- col.// -->
+							</div> <!-- flex.// -->
+						</article>
+						<!-- COMPONENT: PRODUCT ITEM //END -->
+					<?php } ?>
 
 				</main> <!-- col.// -->
 			</div> <!-- grid.// -->

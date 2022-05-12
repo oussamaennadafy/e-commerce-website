@@ -116,8 +116,8 @@
 			<div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
 				<aside>
 					<!-- gallery -->
-					<div class="border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
-						<img class="parent object-cover inline-block" width="600" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
+					<div class="overflow-hidden transition ctn border border-gray-200 shadow-sm p-3 text-center rounded mb-5">
+						<img class="parent transition duration-300 object-cover inline-block" width="900" src="<?php echo '../../view/uploads/' . $product['first_img'] ?>" alt="Product title">
 					</div>
 					<div class="space-x-2 overflow-auto text-center whitespace-nowrap">
 						<?php foreach ($imgs as $img) { ?>
@@ -399,9 +399,6 @@
 		});
 
 
-		// imgAnchor.addEventListener("click", () => {
-		// 	console.log("imgAnchor");
-		// });
 
 		wish_btn.addEventListener("click", () => {
 			if (heart_wish.classList.contains('text-gray-200')) {
@@ -417,10 +414,28 @@
 		const parent = document.querySelector('.parent');
 		const child = document.querySelectorAll('.child');
 		child.forEach(item => {
-			item.addEventListener('click', event => {
+			item.addEventListener('mouseover', event => {
 				parent.setAttribute('src', item.getAttribute('src'))
 			})
 		})
+		//////////////////////////////////////////
+
+		const container = document.querySelector(".ctn");
+		container.addEventListener("mousemove", onZoom);
+		container.addEventListener("mouseover", onZoom);
+		container.addEventListener("mouseleave", offZoom);
+
+		function onZoom(e) {
+			const x = e.clientX - e.target.offsetLeft;
+			const y = e.clientY - e.target.offsetTop;
+			parent.style.transformOrigin = `${x}px ${y}px`;
+			parent.style.transform = "scale(1.4)";
+		}
+
+		function offZoom(e) {
+			parent.style.transformOrigin = `center center`;
+			parent.style.transform = "scale(1)";
+		}
 	</script>
 </body>
 
