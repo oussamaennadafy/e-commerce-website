@@ -58,13 +58,13 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-
+	//`id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item`
 
 	public function SelectProductsByCategoty($category)
 	{
-		$query = $this->conn->prepare("SELECT `id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item` FROM `products` where category_item = $category");
+		$query = $this->conn->prepare("SELECT * FROM `products` where category_item='$category'");
 		$query->execute();
-		return $query->fetch(PDO::FETCH_ASSOC);
+		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 
