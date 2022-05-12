@@ -22,8 +22,8 @@ class UserController
     public function nav($category)
     {
         //logic of page
-        $Products = Product::SelectProductsByCategoty($category);
-        foreach ($Products as $product) {
+        $products = Product::SelectProductsByCategoty($category);
+        foreach ($products as $product) {
             print_r($product);
             echo '<br>';
         }

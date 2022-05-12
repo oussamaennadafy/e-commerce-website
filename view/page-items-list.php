@@ -92,7 +92,9 @@
 	<section class="py-5 sm:py-7 bg-blue-100">
 		<div class="container max-w-screen-xl mx-auto px-4">
 			<!-- breadcrumbs start -->
-			<h2 class="text-3xl font-semibold mb-2">Men’s wear</h2>
+			<h2 class="text-3xl font-semibold mb-2">Men’s wear <?php if ($category == 'OurSports') {
+																																																							echo 'Our Sports';
+																																																						} ?></h2>
 			<ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
 				<li class="inline-flex items-center">
 					<a class="text-gray-600 hover:text-blue-600" href="#">Home</a>
