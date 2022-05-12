@@ -3,38 +3,45 @@
 require_once 'Connection.php';
 
 
-Class Product {
+class Product
+{
 
- private $table= 'products';
- private $id;
- private $name_item;
- private $description_item;
- private $tags_item;
- private $category_item;
- private $colors;
- private $price_item;
- private $orders;
- private $sizes;
- private $quantity;
- 
-
- public static function selectLastProducts() {
-  $ctn = new Connection();
-  return $ctn->selectLastProducts('products'); 
- }
-
- public static function selectOneProduct($id) {
-  $ctn = new Connection();
-  return $ctn->selectOne('products',$id); 
- }
+  private $table = 'products';
+  private $id;
+  private $name_item;
+  private $description_item;
+  private $tags_item;
+  private $category_item;
+  private $colors;
+  private $price_item;
+  private $orders;
+  private $sizes;
+  private $quantity;
 
 
+  public static function selectLastProducts()
+  {
+    $ctn = new Connection();
+    return $ctn->selectLastProducts('products');
+  }
 
+  public static function selectOneProduct($id)
+  {
+    $ctn = new Connection();
+    return $ctn->selectOne('products', $id);
+  }
+
+  public static function SelectProductsByCategoty($categoty)
+  {
+    $ctn = new Connection();
+    return $ctn->SelectProductsByCategoty($categoty);
+  }
 }
 
 
-class productImg {
-  private $table= 'product_images';
+class productImg
+{
+  private $table = 'product_images';
   private $id;
   private $name;
   private $img_dir;
@@ -51,10 +58,9 @@ class productImg {
   //   $ctn->insert($this->table,['name','img_dir','product_id'],[$this->name,$this->img_dir,$this->product_id]);
   // }
 
-  public static function SelectProductImgs($id) {
+  public static function SelectProductImgs($id)
+  {
     $ctn = new Connection;
     return $ctn->SelectProductImgs($id);
   }
-
-
 }
