@@ -93,13 +93,15 @@
 					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center" aria-current="page">
-					<a class="text-gray-600 hover:text-blue-600" href="#"> <?php
-																																																												if ($product['category_item'] == 'OurSports') {
-																																																													echo 'Our Sports';
-																																																												} else {
-																																																													echo ucfirst($product['category_item']);
-																																																												}
-																																																												?> </a>
+					<a class="text-gray-600 hover:text-blue-600" href="#">
+						<?php
+						if ($product['category_item'] == 'OurSports') {
+							echo 'Our Sports';
+						} else {
+							echo ucfirst($product['category_item']);
+						}
+						?>
+					</a>
 					<i class="ml-3 text-gray-400  fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center"> Details </li>
@@ -141,12 +143,13 @@
 						</svg>
 
 						<span class="text-gray-400">
-							<i class="fa fa-shopping-bag mr-2"></i> <?php echo $product['orders'];
-																																															if ($product['orders'] == 0 || $product['orders'] == 1) {
-																																																echo ' order';
-																																															} else {
-																																																echo ' orders';
-																																															} ?>
+							<i class="fa fa-shopping-bag mr-2"></i>
+							<?php echo $product['orders'];
+							if ($product['orders'] == 0 || $product['orders'] == 1) {
+								echo ' order';
+							} else {
+								echo ' orders';
+							} ?>
 						</span>
 
 						<svg width="6px" height="6px" viewbox="0 0 6 6" xmlns="http://www.w3.org/2000/svg">
