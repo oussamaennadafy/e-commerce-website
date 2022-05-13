@@ -144,30 +144,6 @@
 					</a>
 
 					<div class="hidden md:block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm">
-						<h3 class="font-semibold mb-2">Price</h3>
-
-						<ul class="text-gray-500 space-y-1">
-							<div class='flex justify-between'>
-								<li class='mb-6 w-20'>
-									<a class="px-1 w-full block hover:bg-gray-200 transition rounded py-2 bg-gray-100 border border-gray-200" href="#">0 - $20 </a>
-								</li>
-								<li class='w-20'><a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $20 - $50 </a></li>
-							</div>
-							<div class='flex justify-between'>
-								<li class='mb-6'>
-									<a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#">$50 - $100 </a>
-								</li>
-								<li><a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $100 - $200 </a></li>
-							</div>
-							<div class='flex justify-between'>
-								<li>
-									<a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#">$200 - $500 </a>
-								</li>
-								<li><a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> + $500 </a></li>
-							</div>
-						</ul>
-
-						<hr class="my-4">
 
 						<h3 class="font-semibold mb-2">Brand</h3>
 						<ul class="space-y-1">
@@ -202,6 +178,31 @@
 								</label>
 							</li>
 						</ul>
+
+						<hr class="my-4">
+
+						<h3 class="font-semibold mb-2">Price</h3>
+						<ul class="text-gray-500 space-y-1">
+							<div class='flex justify-between'>
+								<li class='mb-4'>
+									<a class="text-center w-28 w-full block hover:bg-gray-200 transition rounded py-2 bg-gray-100 border border-gray-200" href="#">0 - $20 </a>
+								</li>
+								<li class='mb-4'><a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $20 - $50 </a></li>
+							</div>
+							<div class='flex justify-between'>
+								<li class='mb-4'>
+									<a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#">$50 - $100 </a>
+								</li>
+								<li class='mb-4'><a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $100 - $200 </a></li>
+							</div>
+							<div class='flex justify-between'>
+								<li>
+									<a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#">$200 - $500 </a>
+								</li>
+								<li><a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> + $500 </a></li>
+							</div>
+						</ul>
+
 
 						<hr class="my-4">
 
