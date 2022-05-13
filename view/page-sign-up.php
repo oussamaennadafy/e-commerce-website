@@ -106,7 +106,7 @@
 				      <div class="flex  w-full">
 				      	<input class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
 											<?php if(isset($_POST['register'])) { if($number){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
-											" type="text" placeholder="Code" value="<?php if(isset($_POST['register'])) {if(!empty($_POST['code_number'])) {echo $_POST['code_number'];} else {echo '+998';}} else {echo '+998';}?>" name="code_number">
+											" type="text" placeholder="Code" value="<?php if(isset($_POST['register'])) {if(!empty($_POST['code_number'])) {echo $_POST['code_number'];} else {echo '+212';}} else {echo '+212';}?>" name="code_number">
 				      	<input class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
 											<?php if(isset($_POST['register'])) { if($number){echo 'border-red-300 hover:border-red-400 focus:border-red-500';}} ?>
 											" type="number" placeholder="phone number" name="phone_number" value="<?php if(isset($_POST['register']) && !empty($_POST['phone_number'])) {echo $_POST['phone_number']; } ?>">
