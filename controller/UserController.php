@@ -23,14 +23,14 @@ class UserController
     {
         //logic of page
         $products = Product::SelectProductsByCategoty($category);
-        require_once __DIR__ . './../view/page-items-list.php';
+        require_once __DIR__ . './../view/page-items-nav.php';
     }
 
-    public function items()
+    public function search()
     {
         //logic of page
         session_start();
-        require_once __DIR__ . './../view/page-items-list.php';
+        require_once __DIR__ . './../view/page-items-search.php';
     }
 
     public function signIn()

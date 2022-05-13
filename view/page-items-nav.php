@@ -347,15 +347,20 @@
 											<?php echo $product['description_item'] ?>
 										</p>
 										<p class="space-y-2">
-											<?php $product['tages_item'] = explode(',',$product['tages_item']);
+											<?php 
+											$count = 0;
+											$product['tages_item'] = explode(',',$product['tages_item']);
 											foreach ($product['tages_item'] as $value) {
-												if(!empty($value)) {
+												if(!empty($value) && $count < 4) {
 												?>
 											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full">
-												<?php echo $value; ?>
+												 <?php 
+													echo $value; 
+													$count ++;
+													?> 
 											</span>
-											<?php } ?>
-											<?php } ?>
+											 <?php } ?>
+											<?php } ?> 
 											<!-- <span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
 											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
 											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span> -->
