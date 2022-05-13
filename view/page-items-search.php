@@ -93,17 +93,18 @@
 		<div class="container max-w-screen-xl mx-auto px-4">
 			<!-- breadcrumbs start -->
 			<h2 class="text-3xl font-semibold mb-2">
-				<?php if ($category == 'OurSports') {
-					echo 'Our Sports';
-				} elseif ($category == 'mens') {
-					echo 'Men’s';
-				} elseif ($category == 'womens') {
-					echo 'Women’s';
-				} elseif ($category == 'kids') {
-					echo 'Kid’s';
-				} elseif ($category == 'accessoires') {
-					echo 'Accessoires';
-				}
+				<?php 
+				// if ($category == 'OurSports') {
+				// 	echo 'Our Sports';
+				// } elseif ($category == 'mens') {
+				// 	echo 'Men’s';
+				// } elseif ($category == 'womens') {
+				// 	echo 'Women’s';
+				// } elseif ($category == 'kids') {
+				// 	echo 'Kid’s';
+				// } elseif ($category == 'accessoires') {
+				// 	echo 'Accessoires';
+				// }
 				?>
 			</h2>
 			<ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
@@ -112,17 +113,18 @@
 					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
 				</li>
 				<li class="inline-flex items-center">
-					<?php if ($category == 'OurSports') {
-						echo 'Our Sports';
-					} elseif ($category == 'mens') {
-						echo 'Men’s';
-					} elseif ($category == 'womens') {
-						echo 'Women’s';
-					} elseif ($category == 'kids') {
-						echo 'Kid’s';
-					} elseif ($category == 'accessoires') {
-						echo 'Accessoires';
-					}
+					<?php 
+					// if ($category == 'OurSports') {
+					// 	echo 'Our Sports';
+					// } elseif ($category == 'mens') {
+					// 	echo 'Men’s';
+					// } elseif ($category == 'womens') {
+					// 	echo 'Women’s';
+					// } elseif ($category == 'kids') {
+					// 	echo 'Kid’s';
+					// } elseif ($category == 'accessoires') {
+					// 	echo 'Accessoires';
+					// }
 					?>
 				</li>
 			</ol>

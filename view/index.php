@@ -37,7 +37,7 @@
           
           <form
             method="POST"
-            action="http://localhost/fill-rouge/user/items"
+            action="http://localhost/fill-rouge/user/search"
             class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4"
           >
             <input
