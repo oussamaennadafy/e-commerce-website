@@ -429,7 +429,7 @@
 			const x = e.clientX - e.target.offsetLeft;
 			const y = e.clientY - e.target.offsetTop;
 			parent.style.transformOrigin = `${x}px ${y}px`;
-			parent.style.transform = "scale(1.4)";
+			parent.style.transform = "scale(1.3)";
 		}
 
 		function offZoom(e) {

@@ -144,79 +144,91 @@
 					</a>
 
 					<div class="hidden md:block px-6 py-4 border border-gray-200 bg-white rounded shadow-sm">
-						<h3 class="font-semibold mb-2">Category</h3>
+						<h3 class="font-semibold mb-2">Price</h3>
 
 						<ul class="text-gray-500 space-y-1">
-							<li><a class="hover:text-blue-600 hover:underline" href="#">Electronics </a></li>
-							<li><a class="hover:text-blue-600 hover:underline" href="#">Watches </a></li>
-							<li><a class="hover:text-blue-600 hover:underline" href="#">Cinema </a></li>
-							<li><a class="hover:text-blue-600 hover:underline" href="#">Clothes </a></li>
-							<li><a class="hover:text-blue-600 hover:underline" href="#">Home items </a></li>
-							<li><a class="hover:text-blue-600 hover:underline" href="#">Smartwatches </a></li>
+							<div class='flex justify-between'>
+								<li class='mb-6 w-20'>
+									<a class="px-1 w-full block hover:bg-gray-200 transition rounded py-2 bg-gray-100 border border-gray-200" href="#">0 - $20 </a>
+								</li>
+								<li class='w-20'><a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $20 - $50 </a></li>
+							</div>
+							<div class='flex justify-between'>
+								<li class='mb-6'>
+									<a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#">$50 - $100 </a>
+								</li>
+								<li><a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $100 - $200 </a></li>
+							</div>
+							<div class='flex justify-between'>
+								<li>
+									<a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#">$200 - $500 </a>
+								</li>
+								<li><a class="px-1 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> + $500 </a></li>
+							</div>
 						</ul>
 
 						<hr class="my-4">
 
-						<h3 class="font-semibold mb-2">Filter by</h3>
+						<h3 class="font-semibold mb-2">Brand</h3>
 						<ul class="space-y-1">
 							<li>
 								<label class="flex items-center">
 									<input name="" type="checkbox" checked="" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Samsung </span>
+									<span class="ml-2 text-gray-500"> KALENJI </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="" type="checkbox" checked="" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Huawei </span>
+									<span class="ml-2 text-gray-500"> KIPRUN </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="" type="checkbox" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Tesla model </span>
+									<span class="ml-2 text-gray-500"> QUECHUA </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="" type="checkbox" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Best brand </span>
+									<span class="ml-2 text-gray-500"> KIPSTA </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="" type="checkbox" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Other brands </span>
+									<span class="ml-2 text-gray-500"> TARMAK </span>
 								</label>
 							</li>
 						</ul>
 
 						<hr class="my-4">
 
-						<h3 class="font-semibold mb-2">Sort by</h3>
+						<h3 class="font-semibold mb-2">Colors</h3>
 						<ul class="space-y-1">
 							<li>
 								<label class="flex items-center">
 									<input name="myselection" type="radio" checked="" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Lightblue </span>
+									<span class="ml-2 text-gray-500"> White </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="myselection" type="radio" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Orange </span>
+									<span class="ml-2 text-gray-500"> Black </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="myselection" type="radio" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Silver </span>
+									<span class="ml-2 text-gray-500"> Red </span>
 								</label>
 							</li>
 							<li>
 								<label class="flex items-center">
 									<input name="myselection" type="radio" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> Darkblue </span>
+									<span class="ml-2 text-gray-500"> Blue </span>
 								</label>
 							</li>
 						</ul>

@@ -255,8 +255,7 @@
               <figcaption>
                 <h5 class="font-semibold">Worldwide shipping</h5>
                 <p class="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
+                  We Ship Our Products For Free In Almost All Places The World
                 </p>
               </figcaption>
             </figure>
@@ -273,8 +272,7 @@
               <figcaption>
                 <h5 class="font-semibold">Customer satisfaction</h5>
                 <p class="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
+                  We Are Proud Of Our Customer's satisfaction Including You
                 </p>
               </figcaption>
             </figure>
@@ -291,8 +289,7 @@
               <figcaption>
                 <h5 class="font-semibold">Happy customers</h5>
                 <p class="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
+                   The Happiness Of Our customers Make Us More Productif   
                 </p>
               </figcaption>
             </figure>
@@ -309,8 +306,7 @@
               <figcaption>
                 <h5 class="font-semibold">Thousand items</h5>
                 <p class="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
+                  We Have Lot Of Choices To Let Our customers Choose 
                 </p>
               </figcaption>
             </figure>
