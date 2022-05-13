@@ -173,7 +173,7 @@
               <div class="p-4 border-t border-t-gray-200">
                 <p class="font-semibold">$<?php echo $LastProduct['price_item'] ?></p>
                 <a
-                  href="http://localhost/fill-rouge/user/details"
+                  href="http://localhost/fill-rouge/user/details/<?php echo $LastProduct['id'] ?>"
                   class="block text-gray-600 mb-3 hover:text-blue-500"
                 >
                 <?php echo $LastProduct['name_item'] ?>
