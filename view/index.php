@@ -221,8 +221,7 @@
               <figcaption>
                 <h5 class="font-semibold">Reasonable prices</h5>
                 <p class="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
+                  We Have The Best Prices and Deals Speacialy Our Black Friday And More 
                 </p>
               </figcaption>
             </figure>
@@ -239,8 +238,7 @@
               <figcaption>
                 <h5 class="font-semibold">Best quality</h5>
                 <p class="text-gray-500">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do
+                  We Have The Best Products Quality As Our Costumers Says
                 </p>
               </figcaption>
             </figure>

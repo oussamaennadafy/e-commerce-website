@@ -249,10 +249,18 @@
 											<?php echo $product['description_item'] ?>
 										</p>
 										<p class="space-y-2">
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Leather </span>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
+											<?php $product['tages_item'] = explode(',',$product['tages_item']);
+											foreach ($product['tages_item'] as $value) {
+												if(!empty($value)) {
+												?>
+											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full">
+												<?php echo $value; ?>
+											</span>
+											<?php } ?>
+											<?php } ?>
+											<!-- <span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
 											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span>
+											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span> -->
 										</p>
 									</div>
 								</div> <!-- col.// -->

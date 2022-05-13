@@ -26,7 +26,6 @@ class UserController
         foreach ($products as $product) {
             $product['tages_item'] = explode(',', $product['tages_item']);
         }
-        print_r($products[0]['tages_item']);
         require_once __DIR__ . './../view/page-items-list.php';
     }
 
