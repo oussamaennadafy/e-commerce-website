@@ -14,6 +14,9 @@ class UserController
     public function index()
     {
         //logic of page
+        if(isset($_POST['search_btn']) and !empty($_POST['search_input'])) {
+            header("Location: http://localhost/fill-rouge/user/search/".$_POST['search_input']);
+        }
         session_start();
         $LastProducts = Product::selectLastProducts();
         include_once __DIR__ . './../view/index.php';
@@ -22,14 +25,16 @@ class UserController
     public function nav($category)
     {
         //logic of page
+        session_start();
         $products = Product::SelectProductsByCategoty($category);
         require_once __DIR__ . './../view/page-items-nav.php';
     }
 
-    public function search()
+    public function search($searchSentence)
     {
         //logic of page
         session_start();
+        $products = Product::selectLastProducts();
         require_once __DIR__ . './../view/page-items-search.php';
     }
 

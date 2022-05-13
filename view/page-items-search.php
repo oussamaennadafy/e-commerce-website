@@ -1,3 +1,4 @@
+<?php echo $searchSentence ?>
 <!DOCTYPE html>
 <html lang="en">
 
