@@ -186,10 +186,10 @@
                     Add to cart
                   </a>
                   <a
-                    class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                    href="#"
+                    class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer"
+                    id="heart_link"
                   >
-                    <i class="fa fa-heart"></i>
+                    <i id="heart_icon" class="fa fa-heart transition"></i>
                   </a>
                 </div>
               </div>
@@ -320,5 +320,17 @@
     <!-- footer -->
     <?php include_once 'view\reusables\footer.php'; ?>
     <!-- footer end -->
+    <script>
+      const heart_link = document.querySelectorAll('#heart_link');
+      const heart_icon = document.querySelectorAll('#heart_icon');
+
+
+      heart_link.forEach(item => {
+        item.addEventListener('click', event => {
+          //handle click
+          item.classList.toggle('text-blue-400');
+        })
+      })
+    </script>
   </body>
 </html>
