@@ -131,7 +131,7 @@
             <div>
               <a
                 class="px-4 py-2 inline-block font-semibold bg-yellow-500 text-white border border-transparent rounded-md hover:bg-yellow-600"
-                href="http://localhost/fill-rouge/user/items"
+                href="http://localhost/fill-rouge/user/nav/OurSports"
               >
                 Discover
               </a>
