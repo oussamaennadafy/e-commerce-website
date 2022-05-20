@@ -37,11 +37,11 @@ class Product
     return $ctn->SelectProductsByCategory($categoty);
   }
 
-  // public static function SelectWishedProducts($user_id)
-  // {
-  //   $ctn = new Connection();
-  //   return $ctn->SelectProductsByWishState($user_id);
-  // }
+  public static function SelectWishedProducts($user_id)
+  {
+    $ctn = new Connection();
+    return $ctn->SelectProductsByWishState($user_id);
+  }
 }
 
 

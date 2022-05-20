@@ -87,13 +87,13 @@ class Connection
 	}
 
 
-	// public function SelectProductsByWishState($user_id)
-	// {
-	// 	$query = $this->conn->prepare("SELECT `id`,`first_img`,`price_item`,`description_item` FROM `wished_products` 
-	// 	where user_id=$user_id");
-	// 	$query->execute();
-	// 	return $query->fetchAll(PDO::FETCH_ASSOC);
-	// }
+	public function SelectProductsByWishState($user_id)
+	{
+		$query = $this->conn->prepare("SELECT * FROM `wished_products` 
+		where user_id=$user_id");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 
 

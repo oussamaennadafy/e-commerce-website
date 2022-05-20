@@ -118,26 +118,27 @@
             <div
               class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             >
+            <?php foreach ($wished_products as $product) { ?>
               <div>
                 <!-- COMPONENT: PRODUCT CARD -->
                 <article
                   class="shadow-sm rounded bg-white border border-gray-200"
                 >
-                  <a href="#" class="block relative p-1">
+                  <a href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>" class="block relative p-1">
                     <img
-                      src="images/items/10.jpg"
+                      src="<?php echo $product['first_img'] ?>"
                       class="mx-auto w-auto"
                       height="240"
                       alt="Product title here"
                     />
                   </a>
                   <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
+                    <p class="font-semibold"><?php echo $product['price_item'] ?></p>
                     <a
                       href="#"
                       class="block text-gray-600 mb-3 hover:text-blue-500"
                     >
-                      Great name of this product just goes here as demo
+                    <?php echo $product['description_item'] ?>
                     </a>
                     <div>
                       <a
@@ -157,279 +158,7 @@
                 </article>
                 <!-- COMPONENT: PRODUCT CARD //END -->
               </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/11.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/12.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/13.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/8.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/6.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/1.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
-              <div>
-                <!-- COMPONENT: PRODUCT CARD -->
-                <article
-                  class="shadow-sm rounded bg-white border border-gray-200"
-                >
-                  <a href="#" class="block relative p-1">
-                    <img
-                      src="images/items/2.jpg"
-                      class="mx-auto w-auto"
-                      height="240"
-                      alt="Product title here"
-                    />
-                  </a>
-                  <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold">$99.50</p>
-                    <a
-                      href="#"
-                      class="block text-gray-600 mb-3 hover:text-blue-500"
-                    >
-                      Great name of this product just goes here as demo
-                    </a>
-                    <div>
-                      <a
-                        class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
-                        href="#"
-                      >
-                        Add to cart
-                      </a>
-                      <a
-                        class="px-3 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100"
-                        href="#"
-                      >
-                        <i class="fa fa-heart"></i>
-                      </a>
-                    </div>
-                  </div>
-                </article>
-                <!-- COMPONENT: PRODUCT CARD //END -->
-              </div>
+              <?php } ?>
             </div>
             <!-- grid .// -->
           </main>

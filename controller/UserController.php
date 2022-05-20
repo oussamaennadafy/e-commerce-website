@@ -187,8 +187,7 @@ class UserController
     {
         //logic of page
         session_start();
-        // $wished_products = Product::SelectWishedProducts();
-        print_r($_SESSION['user']);
+        $wished_products = Product::SelectWishedProducts($_SESSION['user']['id']);
         require_once __DIR__ . './../view/wish-page.php';
     }
 
