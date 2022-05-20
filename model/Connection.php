@@ -95,6 +95,13 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function wishProduct($user_id,$product_id,$price_item,$name_item,$firs_img)
+	{
+		$query = $this->conn->prepare("INSERT INTO `wished_products`(`user_id`, `product_id`, `price_item`, `name_item`, `first_img`) VALUES ('$user_id','$product_id','$price_item','$name_item','$firs_img')");
+		$query->execute();
+		// $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 
 
 

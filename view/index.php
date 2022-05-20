@@ -329,6 +329,7 @@
         item.addEventListener('click', event => {
           //handle click
           item.classList.toggle('text-blue-400');
+          
         })
       })
     </script>
