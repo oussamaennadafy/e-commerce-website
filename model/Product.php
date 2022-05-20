@@ -36,7 +36,7 @@ class Product
     $ctn = new Connection();
     return $ctn->SelectProductsByCategory($categoty);
   }
-
+  
   public static function SelectWishedProducts($user_id)
   {
     $ctn = new Connection();
