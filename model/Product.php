@@ -37,11 +37,6 @@ class Product
     return $ctn->SelectProductsByCategory($categoty);
   }
   
-  public static function SelectWishedProducts($user_id)
-  {
-    $ctn = new Connection();
-    return $ctn->SelectProductsByWishState($user_id);
-  }
 }
 
 
@@ -68,5 +63,14 @@ class productImg
   {
     $ctn = new Connection;
     return $ctn->SelectProductImgs($id);
+  }
+}
+
+class wished_products {
+
+  public static function SelectWishedProducts($user_id)
+  {
+    $ctn = new Connection();
+    return $ctn->SelectProductsByWishState($user_id);
   }
 }
