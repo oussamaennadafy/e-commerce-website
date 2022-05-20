@@ -181,6 +181,13 @@ class UserController
         require_once __DIR__ . './../view/page-details.php';
     }
 
+    public function wish()
+    {
+        //logic of page
+        session_start();
+        require_once __DIR__ . './../view/wish-page.php';
+    }
+
     public function cart()
     {
         //logic of page

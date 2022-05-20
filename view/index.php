@@ -63,7 +63,7 @@
             <?php if(isset($_SESSION['user'])): ?>
             <a
               class="px-3 py-2 inline-block text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:border-gray-300"
-              href="#"
+              href="http://localhost/fill-rouge/user/wish"
             >
               <i class="text-gray-400 w-5 fa fa-heart"></i>
               <span class="hidden lg:inline ml-1">Wishlist</span>
@@ -189,7 +189,7 @@
                     class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer"
                     id="heart_link"
                   >
-                    <i id="heart_icon" class="fa fa-heart transition"></i>
+                    <i id="heart_icon" class="fa fa-heart transition duration-"></i>
                   </a>
                 </div>
               </div>
