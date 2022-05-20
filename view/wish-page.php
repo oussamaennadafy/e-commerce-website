@@ -12,7 +12,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- Font awesome 5 -->
-<link href="./../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
+<link href="../../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
  </head>
 
   <body>
