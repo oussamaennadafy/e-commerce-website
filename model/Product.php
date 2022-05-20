@@ -31,11 +31,17 @@ class Product
     return $ctn->selectOne('products', $id);
   }
 
-  public static function SelectProductsByCategoty($categoty)
+  public static function SelectProductsByCategory($categoty)
   {
     $ctn = new Connection();
-    return $ctn->SelectProductsByCategoty($categoty);
+    return $ctn->SelectProductsByCategory($categoty);
   }
+
+  // public static function SelectWishedProducts($user_id)
+  // {
+  //   $ctn = new Connection();
+  //   return $ctn->SelectProductsByWishState($user_id);
+  // }
 }
 
 

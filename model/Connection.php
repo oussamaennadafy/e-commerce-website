@@ -45,6 +45,9 @@ class Connection
 		$str = "INSERT INTO `$table`(" . $names . ") VALUES (" . $values . ")";
 		$query = $this->conn->prepare($str);
 		$query->execute();
+		
+		$stmt = $this->conn->query("SELECT LAST_INSERT_ID()");
+		return $stmt->fetchColumn();
 	}
 
 
@@ -60,7 +63,7 @@ class Connection
 
 	//`id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item`
 
-	public function SelectProductsByCategoty($category)
+	public function SelectProductsByCategory($category)
 	{
 		$query = $this->conn->prepare("SELECT `id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item` FROM `products` where category_item='$category'");
 		$query->execute();
@@ -82,6 +85,15 @@ class Connection
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+
+	// public function SelectProductsByWishState($user_id)
+	// {
+	// 	$query = $this->conn->prepare("SELECT `id`,`first_img`,`price_item`,`description_item` FROM `wished_products` 
+	// 	where user_id=$user_id");
+	// 	$query->execute();
+	// 	return $query->fetchAll(PDO::FETCH_ASSOC);
+	// }
 
 
 

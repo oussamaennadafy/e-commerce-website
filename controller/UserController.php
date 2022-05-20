@@ -32,7 +32,7 @@ class UserController
             header("Location: http://localhost/fill-rouge/user/search/".$_POST['search_input']);
         }
         session_start();
-        $products = Product::SelectProductsByCategoty($category);
+        $products = Product::SelectProductsByCategory($category);
         require_once __DIR__ . './../view/page-items-nav.php';
     }
 
@@ -64,6 +64,7 @@ class UserController
                         // print_r($User);
                         $_SESSION['user'] =
                             [
+                                'id' => $User['id'],
                                 'first_name' => $User['first_name'],
                                 'last_name' => $User['last_name'],
                                 'phone' => $User['phone_number'],
@@ -112,9 +113,10 @@ class UserController
                                     if (!empty($_POST['password'])) {
                                         if (isset($_POST['terms_and_conditions'])) {
                                             $user = new User($_POST['first_name'], $_POST['last_name'], $phone, $_POST['email'], $_POST['address'], $_POST['password']);
-                                            $user->insertUser();
+                                            $Lastid = $user->insertUser();
                                             $_SESSION['user'] =
                                                 [
+                                                    'id' => $Lastid,
                                                     'first_name' => $_POST['first_name'],
                                                     'last_name' => $_POST['last_name'],
                                                     'phone' => $phone,
@@ -185,6 +187,8 @@ class UserController
     {
         //logic of page
         session_start();
+        // $wished_products = Product::SelectWishedProducts();
+        print_r($_SESSION['user']);
         require_once __DIR__ . './../view/wish-page.php';
     }
 

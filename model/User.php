@@ -25,7 +25,7 @@ Class User {
 
  public function insertUser() {
   $ctn = new Connection();
-  $ctn->insert(
+  return $ctn->insert(
    $this->table,
    ['first_name','last_name','phone_number','email_address','address','password'],
    [$this->first_name,$this->last_name,$this->phone_number,$this->email,$this->address,$this->password]
