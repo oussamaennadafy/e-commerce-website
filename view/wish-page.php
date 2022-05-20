@@ -124,9 +124,9 @@
                 <article
                   class="shadow-sm rounded bg-white border border-gray-200"
                 >
-                  <a href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>" class="block relative p-1">
+                  <a href="http://localhost/fill-rouge/user/details/<?php echo $product['product_id'] ?>" class="block relative p-1">
                     <img
-                      src="<?php echo $product['first_img'] ?>"
+                      src="<?php echo '../../view/uploads/'.$product['first_img']; ?>"
                       class="mx-auto w-auto"
                       height="240"
                       alt="Product title here"
@@ -135,7 +135,7 @@
                   <div class="p-4 border-t border-t-gray-200">
                     <p class="font-semibold"><?php echo $product['price_item'] ?></p>
                     <a
-                      href="#"
+                      href="http://localhost/fill-rouge/user/details/<?php echo $product['product_id'] ?>"
                       class="block text-gray-600 mb-3 hover:text-blue-500"
                     >
                     <?php echo $product['description_item'] ?>
@@ -160,6 +160,12 @@
               </div>
               <?php } ?>
             </div>
+            <?php if(count($wished_products) == 0) { ?>
+              <div class=' w-2/6 mx-auto mb-9 rounded-full overflow-hidden'>
+                <img class='' src="../../view/images/not_found.jpg" alt="not found img">
+              </div>
+              <h2 class='text-center text-3xl font-semibold'>Your Wish List is Empty</h2>
+            <?php } ?>
             <!-- grid .// -->
           </main>
           <!-- col.// -->
