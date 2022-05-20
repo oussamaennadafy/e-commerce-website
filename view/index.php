@@ -161,7 +161,7 @@
           ?>
           <div>
             <!-- COMPONENT: PRODUCT CARD -->
-            <article class="shadow-sm rounded bg-white border border-gray-200 h-full">
+            <article class="shadow-sm rounded bg-white border border-gray-200 h-full shadow-sm">
               <a href="http://localhost/fill-rouge/user/details/<?php echo $LastProduct['id'] ?>" class="block relative p-1">
                 <img
                   src="<?php echo '../view/uploads/'.$LastProduct['first_img']; ?>"
