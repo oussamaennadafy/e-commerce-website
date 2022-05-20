@@ -133,12 +133,12 @@
                     />
                   </a>
                   <div class="p-4 border-t border-t-gray-200">
-                    <p class="font-semibold"><?php echo $product['price_item'] ?></p>
+                    <p class="font-semibold">$<?php echo $product['price_item'] ?></p>
                     <a
                       href="http://localhost/fill-rouge/user/details/<?php echo $product['product_id'] ?>"
                       class="block text-gray-600 mb-3 hover:text-blue-500"
                     >
-                    <?php echo $product['description_item'] ?>
+                    <?php echo $product['name_item'] ?>
                     </a>
                     <div>
                       <a
@@ -161,7 +161,7 @@
               <?php } ?>
             </div>
             <?php if(count($wished_products) == 0) { ?>
-              <div class=' w-2/6 mx-auto mb-9 rounded-full overflow-hidden'>
+              <div class='w-9/12 sm:w-7/12 md:w-5/12 lg:w-3/12 mx-auto mb-9 rounded-full overflow-hidden'>
                 <img class='' src="../../view/images/not_found.jpg" alt="not found img">
               </div>
               <h2 class='text-center text-3xl font-semibold'>Your Wish List is Empty</h2>
