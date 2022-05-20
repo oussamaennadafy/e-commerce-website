@@ -130,7 +130,7 @@
             </p>
             <div>
               <a
-                class="px-4 py-2 mr-1 inline-block font-semibold bg-yellow-500 text-white border border-transparent rounded-md hover:bg-yellow-600"
+                class="px-4 py-2 inline-block font-semibold bg-yellow-500 text-white border border-transparent rounded-md hover:bg-yellow-600"
                 href="http://localhost/fill-rouge/user/nav/OurSports"
               >
                 Discover
@@ -180,13 +180,13 @@
                 </a>
                 <div>
                   <a
-                    class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"
+                    class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 select-none"
                     href="#"
                   >
                     Add to cart
                   </a>
                   <a
-                    class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer"
+                    class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
                     id="heart_link"
                   >
                     <i id="heart_icon" class="fa fa-heart transition duration-"></i>
@@ -327,9 +327,9 @@
 
       heart_link.forEach(item => {
         item.addEventListener('click', event => {
-          //handle click
+          //color the heart
           item.classList.toggle('text-blue-400');
-          
+
         })
       })
     </script>
