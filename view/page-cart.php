@@ -245,7 +245,7 @@
 			<hr class="my-4">
 
 			<h6 class="font-bold">Free Delivery within 1-2 weeks</h6>
-			<p class="text-gray-400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip</p>
+			<p class="text-gray-400">We Ship Our Products For Free In Almost All Places The World</p>
 
 		</article> <!-- card end.// -->
 

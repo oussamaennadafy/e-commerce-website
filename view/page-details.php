@@ -251,10 +251,10 @@
 							<i class="fa fa-shopping-cart mr-2"></i>
 							Add to cart
 						</a>
-						<a class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100">
+						<!-- <a class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100">
 							<i class="fa fa-heart mr-2 text-gray-200"></i>
 							<span class='text-blue-600 select-none'>Save for later</span>
-						</a>
+						</a> -->
 
 						<?php if(isset($_SESSION['user'])) { ?>
                   <?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$product['id']) == 0) { ?>
@@ -264,10 +264,11 @@
                     <input type="hidden" name="current_page" value='<?php echo 'details/'.$product['id'] ?>'>
                     <button
                       type='submit'
-                      class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
+                      class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100"
                       id="heart_link"
                     >
-                      <i id="heart_icon" class="fa fa-heart"></i>
+																				<i class="fa fa-heart mr-2 text-gray-200"></i>
+																				<span class='text-blue-600 select-none'>Save for later</span>
                     </button>
                   </form>
                   <?php } else { ?>
@@ -277,10 +278,11 @@
                     <input type="hidden" name="current_page" value='<?php echo 'details/'.$product['id'] ?>'>
                     <button
                       type='submit'
-                      class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
+                      class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100"
                       id="heart_link"
                     >
-                      <i id="heart_icon" class="fa fa-heart"></i>
+																				<i class="fa fa-heart mr-2 text-gray-200 text-blue-500"></i>
+																				<span class='text-blue-600 select-none'>product is Saved</span>
                     </button>
                   </form>
                   <?php } ?>
