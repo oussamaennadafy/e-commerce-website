@@ -162,10 +162,10 @@
               <?php } ?>
               <?php } else { ?>
             </div>
-              <div class='w-9/12 sm:w-7/12 md:w-5/12 lg:w-3/12 mx-auto mb-9 rounded-full overflow-hidden'>
+              <div class='w-9/12 sm:w-7/12 md:w-5/12 lg:w-3/12 mx-auto mb-10 rounded-full overflow-hidden'>
                 <img class='' src="./../view/images/not_found.jpg" alt="not found img">
               </div>
-              <h2 class='text-center text-3xl font-semibold'>Your Wish List is Empty</h2>
+              <h2 class='text-center text-3xl font-bold -mb-2'>Your Wish List is Empty</h2>
             <?php } ?>
             <!-- grid .// -->
           </main>

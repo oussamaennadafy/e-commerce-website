@@ -184,6 +184,7 @@
                   >
                     Add to cart
                   </a>
+                  <?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$LastProduct['id']) == 0) { ?>
                   <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
                     <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $LastProduct['id'] ?>'>
@@ -195,6 +196,7 @@
                       <i id="heart_icon" class="fa fa-heart transition duration-"></i>
                     </button>
                   </form>
+                  <?php } ?>
                 </div>
               </div>
             </article>

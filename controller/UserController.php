@@ -193,19 +193,9 @@ class UserController
             $formated_ids .= $id_product['product_id'].',';
         }
         $formated_ids = substr($formated_ids, 0, -1);
-        // echo $formated_ids;
-        // exit;
         if($formated_ids != null) {
             $wished_products = wished_products::SelectProductsByIds($formated_ids);
         }
-        // print_r($wished_products);
-        // foreach ($wished_products as $key => $value) {
-        //     echo '<br>';
-        //     echo $key. "------------------>" . $value['id'];
-        //     echo '<br>';
-        //     # code...
-        // }
-        // exit;
         require_once __DIR__ . './../view/wish-page.php';
     }
 
