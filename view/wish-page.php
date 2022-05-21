@@ -118,13 +118,14 @@
             <div
               class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
             >
+            <?php if($formated_ids != null) { ?>
             <?php foreach ($wished_products as $product) { ?>
               <div>
                 <!-- COMPONENT: PRODUCT CARD -->
                 <article
                   class="shadow-sm rounded bg-white border border-gray-200"
                 >
-                  <a href="http://localhost/fill-rouge/user/details/<?php echo $product['product_id'] ?>" class="block relative p-1">
+                  <a href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>" class="block relative p-1">
                     <img
                       src="<?php echo './../view/uploads/'.$product['first_img']; ?>"
                       class="mx-auto w-auto"
@@ -135,7 +136,7 @@
                   <div class="p-4 border-t border-t-gray-200">
                     <p class="font-semibold">$<?php echo $product['price_item'] ?></p>
                     <a
-                      href="http://localhost/fill-rouge/user/details/<?php echo $product['product_id'] ?>"
+                      href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>"
                       class="block text-gray-600 mb-3 hover:text-blue-500"
                     >
                     <?php echo $product['name_item'] ?>
@@ -159,10 +160,10 @@
                 <!-- COMPONENT: PRODUCT CARD //END -->
               </div>
               <?php } ?>
+              <?php } else { ?>
             </div>
-            <?php if(count($wished_products) == 0) { ?>
               <div class='w-9/12 sm:w-7/12 md:w-5/12 lg:w-3/12 mx-auto mb-9 rounded-full overflow-hidden'>
-                <img class='' src="../../view/images/not_found.jpg" alt="not found img">
+                <img class='' src="./../view/images/not_found.jpg" alt="not found img">
               </div>
               <h2 class='text-center text-3xl font-semibold'>Your Wish List is Empty</h2>
             <?php } ?>

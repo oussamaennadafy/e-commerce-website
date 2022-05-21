@@ -87,13 +87,28 @@ class Connection
 	}
 
 
-	public function SelectProductsByWishState($user_id)
+	public function SelectIdsWishedProducts($user_id)
 	{
-		$query = $this->conn->prepare("SELECT `user_id`,`product_id` FROM `wished_products` 
+		$query = $this->conn->prepare("SELECT `product_id` FROM `wished_products` 
 		where user_id=$user_id ORDER BY id DESC");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
+
+
+	public function SelectProductsByIds($ids_products)
+	{
+		if($ids_products != null) {
+			$query = $this->conn->prepare("SELECT `id`,`name_item`,`price_item`,`first_img` FROM `products` 
+			WHERE id IN ($ids_products) ORDER BY FIELD (id,$ids_products)");
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_ASSOC);
+		}
+	}
+
+
+
+
 
 	public function wishProduct($user_id,$product_id)
 	{

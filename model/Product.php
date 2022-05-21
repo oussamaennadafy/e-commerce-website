@@ -68,10 +68,16 @@ class productImg
 
 class wished_products {
 
-  public static function SelectWishedProducts($user_id)
+  public static function SelectIdsWishedProducts($user_id)
   {
     $ctn = new Connection();
-    return $ctn->SelectProductsByWishState($user_id);
+    return $ctn->SelectIdsWishedProducts($user_id);
+  }
+
+  public static function SelectProductsByIds($ids_products)
+  {
+    $ctn = new Connection();
+    return $ctn->SelectProductsByIds($ids_products);
   }
 
   public static function WishProduct($user_id,$product_id)
