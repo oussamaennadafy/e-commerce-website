@@ -203,7 +203,14 @@ class UserController
     {
         //logic of page
         wished_products::WishProduct($_POST['user_id'],$_POST['product_id']);
-        header('Location: http://localhost/fill-rouge/user/index');
+        header('Location: http://localhost/fill-rouge/user/'.$_POST['current_page']);
+    }
+
+    public function UnWishProduct()
+    {
+        //logic of page
+        wished_products::UnWishProduct($_POST['user_id'],$_POST['product_id']);
+        header('Location: http://localhost/fill-rouge/user/'.$_POST['current_page']);
     }
 
     public function cart()

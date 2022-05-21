@@ -247,18 +247,52 @@
 						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">
 							Buy now
 						</a>
-						<a class=" cursor-pointer px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" <?php if (!isset($_SESSION['user'])) {
-																																																																																																																																							echo "href='http://localhost/fill-rouge/user/signIn'";
-																																																																																																																																						} ?>>
+						<a class=" cursor-pointer px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
 							<i class="fa fa-shopping-cart mr-2"></i>
 							Add to cart
 						</a>
-						<a id='wish_btn' class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100 " <?php if (!isset($_SESSION['user'])) {
-																																																																																																																											echo "href='http://localhost/fill-rouge/user/signIn'";
-																																																																																																																										} ?>>
-							<i id='heart_wish' class="fa fa-heart mr-2 text-gray-200 transition"></i>
+						<a class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100">
+							<i class="fa fa-heart mr-2 text-gray-200"></i>
 							<span class='text-blue-600 select-none'>Save for later</span>
 						</a>
+
+						<?php if(isset($_SESSION['user'])) { ?>
+                  <?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$product['id']) == 0) { ?>
+                  <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
+                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'details/'.$product['id'] ?>'>
+                    <button
+                      type='submit'
+                      class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
+                      id="heart_link"
+                    >
+                      <i id="heart_icon" class="fa fa-heart"></i>
+                    </button>
+                  </form>
+                  <?php } else { ?>
+                    <form class='inline-block' action="http://localhost/fill-rouge/user/UnWishProduct" method="POST">
+                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'details/'.$product['id'] ?>'>
+                    <button
+                      type='submit'
+                      class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
+                      id="heart_link"
+                    >
+                      <i id="heart_icon" class="fa fa-heart"></i>
+                    </button>
+                  </form>
+                  <?php } ?>
+                  <?php } else { ?>
+                    <a
+                      href='http://localhost/fill-rouge/user/signIn'
+                      class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
+                      id="heart_link"
+                    >
+                      <i id="heart_icon" class="fa fa-heart"></i>
+                    </a>
+                  <?php } ?>
 					</div>
 					<!-- action buttons .//end -->
 				</main>
@@ -381,8 +415,6 @@
 		const muinus = document.getElementById("minus");
 		const input = document.getElementById("input");
 		const plus = document.getElementById("plus");
-		const wish_btn = document.getElementById("wish_btn");
-		const heart_wish = document.getElementById("heart_wish");
 		const imgAnchor = document.getElementById("imgAnchor");
 
 		muinus.addEventListener("click", () => {
@@ -399,17 +431,6 @@
 		});
 
 
-
-		wish_btn.addEventListener("click", () => {
-			if (heart_wish.classList.contains('text-gray-200')) {
-				heart_wish.classList.remove('text-gray-200');
-				heart_wish.classList.add('text-blue-600');
-			} else {
-				heart_wish.classList.add('text-gray-200');
-				heart_wish.classList.remove('text-blue-600');
-
-			}
-		});
 		/////////////////////////////////////
 		const parent = document.querySelector('.parent');
 		const child = document.querySelectorAll('.child');

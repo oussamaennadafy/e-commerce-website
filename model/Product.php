@@ -86,6 +86,12 @@ class wished_products {
     return $ctn->WishProduct($user_id,$product_id);
   }
 
+  public static function UnWishProduct($user_id,$product_id)
+  {
+    $ctn = new Connection();
+    return $ctn->UnWishProduct($user_id,$product_id);
+  }
+
   public static function checkIfProductIsWished($user_id,$product_id)
   {
     $ctn = new Connection();

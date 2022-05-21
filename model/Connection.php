@@ -126,6 +126,13 @@ class Connection
 		// $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function UnwishProduct($user_id,$product_id)
+	{
+		$query = $this->conn->prepare("DELETE FROM `wished_products` WHERE user_id = $user_id AND product_id = $product_id");
+		$query->execute();
+		// $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 
 
 
