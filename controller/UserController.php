@@ -180,6 +180,21 @@ class UserController
         $product['sizes'] = explode(',', $product['sizes']);
         $product['colors'] = explode(',', $product['colors']);
         $imgs = productImg::SelectProductImgs($id);
+        ///////order////////
+        if(isset($_POST['add_to_cart_btn'])) {
+            echo '<br>';
+            echo $_POST['user_id'];
+            echo '<br>';
+            echo $_POST['product_id'];
+            echo '<br>';
+            echo $_POST['color'];
+            echo '<br>';
+            echo $_POST['size'];
+            echo '<br>';
+            echo $_POST['quantity'];
+            echo '<br>';
+        }
+        ////////////////////
         require_once __DIR__ . './../view/page-details.php';
     }
 
