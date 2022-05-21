@@ -183,11 +183,19 @@ class UserController
         require_once __DIR__ . './../view/page-details.php';
     }
 
-    public function wish()
+    public function WishedProducts()
     {
         //logic of page
         session_start();
         $wished_products = wished_products::SelectWishedProducts($_SESSION['user']['id']);
+        require_once __DIR__ . './../view/wish-page.php';
+    }
+
+    public function WishProduct()
+    {
+        //logic of page
+        session_start();
+        wished_products::WishProduct($_POST['user_id'],$_POST['product_id'],$_POST['price_item'],$_POST['name_item'],$_POST['firs_img']);
         require_once __DIR__ . './../view/wish-page.php';
     }
 

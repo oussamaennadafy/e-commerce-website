@@ -12,7 +12,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- Font awesome 5 -->
-<link href="../../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
+<link href="./../view/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet" />
  </head>
 
   <body>
@@ -126,7 +126,7 @@
                 >
                   <a href="http://localhost/fill-rouge/user/details/<?php echo $product['product_id'] ?>" class="block relative p-1">
                     <img
-                      src="<?php echo '../../view/uploads/'.$product['first_img']; ?>"
+                      src="<?php echo './../view/uploads/'.$product['first_img']; ?>"
                       class="mx-auto w-auto"
                       height="240"
                       alt="Product title here"
