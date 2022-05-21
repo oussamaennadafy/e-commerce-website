@@ -196,15 +196,23 @@
 					<div class='mb-5 '>
 						<b class="font-medium w-36 inline-block mb-4">Quantity:</b>
 
-						<div id='minus' class='select-none cursor-pointer inline-block py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
-							<i class="fa fa-minus text-gray-500"></i>
-						</div>
-						<input id='input' value='<?php if(isset($_POST['add_to_cart_btn'])) {echo $_POST['quantity'] ;}else {echo 1;} ?>' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16'>
-						<div id='plus' class='select-none cursor-pointer inline-block py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
-							<i class="fa fa-plus text-gray-500"></i>
-						</div>
+							<div id='minus' class='select-none cursor-pointer inline-block py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+								<i class="fa fa-minus text-gray-500"></i>
+							</div>
+							<input id='input' value='<?php if(isset($_POST['add_to_cart_btn'])) {echo $_POST['quantity'] ;}else {echo 1;} ?>' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16
+							<?php if($invalid_quantity == true || $unavailbale_quantity == true) {echo 'border-red-400 hover:border-red-500 focus:border-red-500';} ?>
+							'>
+							<div id='plus' class='select-none cursor-pointer inline-block py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+								<i class="fa fa-plus text-gray-500"></i>
+							</div>
 
-					</div>
+							<p class='ml-36 pl-2 text-red-500'>
+							<?php 
+							if($invalid_quantity == true) { echo 'invalid quantity'; } 
+							if($unavailbale_quantity == true) { echo 'unavailable quantity';}
+							?>
+						</p>
+						</div>
 					<!-- quantity-end  -->
 					<div class="flex flex-wrap mb-4">
 						<?php if (!empty($product['sizes'][0])) { ?>
@@ -212,7 +220,11 @@
 							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
 								<select
 								 name='size'
-								 class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer">
+								 class="block appearance-none border bg-gray-100 rounded-md py-2 px-3 pr-5 focus:outline-none w-full cursor-pointer
+									<?php if($invalid_size == true) {echo 'border-red-400 hover:border-red-500 focus:border-red-500';} else {
+										echo 'border-gray-200 hover:border-gray-400 focus:border-gray-400';
+									} ?>
+									">
 									<option>Select Size</option>
 									<?php foreach ($product['sizes'] as $size) { ?>
 										<option><?php echo $size; ?></option>
@@ -223,6 +235,7 @@
 										<path d="M7 10l5 5 5-5H7z" />
 									</svg>
 								</i>
+
 							</div>
 							<!-- select-custom .//end  -->
 						<?php } ?>
@@ -231,7 +244,10 @@
 							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
 								<select
 								 name='color'
-								 class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer">
+								 class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer
+									<?php if($invalid_color == true) { echo 'border-red-400 hover:border-red-500 focus:border-red-500';} else {
+										echo 'border-gray-200 hover:border-gray-400 focus:border-gray-400';} ?>
+									">
 									<option>Select Color</option>
 									<?php foreach ($product['colors'] as $color) { ?>
 										<option><?php echo $color; ?></option>
@@ -245,8 +261,9 @@
 							</div>
 							<!-- select-custom .//end  -->
 						<?php } ?>
-
 					</div>
+					<?php if($invalid_size == true) { echo "<p class='-mt-6 mb-3 text-red-500'>select your size</p>";} ?>
+					<?php if($invalid_color == true) { echo "<p class='-mt-6 mb-3 text-red-500'>select your color</p>";} ?>
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
 						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">

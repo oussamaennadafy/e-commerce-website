@@ -190,14 +190,18 @@ class UserController
         if(isset($_POST['add_to_cart_btn'])) {
             if($_POST['quantity'] >= 1) {
              if($_POST['quantity'] <= $product['quantity']) {
-              if($_POST['size'] != 'Select Size') {
-                  if($_POST['color'] != 'Select Color') {
-                      //passed
-                } else {
-                  $invalid_color = false;
-                    }
-                } else {
-                  $invalid_size = true;
+                 if(!empty($product['sizes'][0])) {
+                     if($_POST['size'] != 'Select Size') {
+                         if(!empty($product['colors'][0]))  {
+                             if($_POST['color'] != 'Select Color') {
+                                 //passed
+                               } else {
+                             $invalid_color = true;
+                               }
+                         }
+                       } else {
+                         $invalid_size = true;
+                 }
             }
              } else {
                 $unavailbale_quantity = true;
