@@ -194,10 +194,7 @@ class UserController
     public function WishProduct()
     {
         //logic of page
-        echo $_GET['user_id'];
-        echo $_GET['product_id'];
-        exit;
-        wished_products::WishProduct($user_id);
+        wished_products::WishProduct($_POST['user_id'],$_POST['product_id']);
         header('Location: http://localhost/fill-rouge/user/index');
     }
 

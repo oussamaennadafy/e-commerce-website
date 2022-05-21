@@ -184,13 +184,17 @@
                   >
                     Add to cart
                   </a>
-                  <a
-                    class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
-                    id="heart_link"
-                    href="http://localhost/fill-rouge/user/WishProduct?<?php echo'user_id='.$_SESSION['user']['id']?>&<?php echo'product_id='.$LastProduct['id']?>"
-                  >
-                    <i id="heart_icon" class="fa fa-heart transition duration-"></i>
-                  </a>
+                  <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
+                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="product_id" value='<?php echo $LastProduct['id'] ?>'>
+                    <button
+                      type='submit'
+                      class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
+                      id="heart_link"
+                    >
+                      <i id="heart_icon" class="fa fa-heart transition duration-"></i>
+                    </button>
+                  </form>
                 </div>
               </div>
             </article>

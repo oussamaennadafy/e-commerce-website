@@ -74,9 +74,9 @@ class wished_products {
     return $ctn->SelectProductsByWishState($user_id);
   }
 
-  public static function WishProduct($user_id)
+  public static function WishProduct($user_id,$product_id)
   {
     $ctn = new Connection();
-    return $ctn->WishProduct($user_id);
+    return $ctn->WishProduct($user_id,$product_id);
   }
 }
