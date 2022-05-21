@@ -193,16 +193,16 @@
 					</ul>
 					<!-- quantity  -->
 					<form action="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>" method="post">
-					<div class='mb-5'>
+					<div class='mb-5 '>
 						<b class="font-medium w-36 inline-block mb-4">Quantity:</b>
 
-						<button id='minus' class='py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+						<div id='minus' class='select-none cursor-pointer inline-block py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
 							<i class="fa fa-minus text-gray-500"></i>
-						</button>
-						<input id='input' value='1' type="number" name="quantity_semi_order" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16'>
-						<button id='plus' class='py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
+						</div>
+						<input id='input' value='<?php if(isset($_POST['add_to_cart_btn'])) {echo $_POST['quantity'] ;}else {echo 1;} ?>' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16'>
+						<div id='plus' class='select-none cursor-pointer inline-block py-2 px-3 bg-gray-200 rounded transition hover:bg-gray-300 border border-gray-300 hover:border-gray-400'>
 							<i class="fa fa-plus text-gray-500"></i>
-						</button>
+						</div>
 
 					</div>
 					<!-- quantity-end  -->
@@ -211,7 +211,7 @@
 							<!-- select-custom -->
 							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
 								<select
-								 name='select_size'
+								 name='size'
 								 class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer">
 									<option>Select Size</option>
 									<?php foreach ($product['sizes'] as $size) { ?>
@@ -230,9 +230,9 @@
 							<!-- select-custom -->
 							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
 								<select
-								 name='select_color'
+								 name='color'
 								 class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer">
-									<option>Select color</option>
+									<option>Select Color</option>
 									<?php foreach ($product['colors'] as $color) { ?>
 										<option><?php echo $color; ?></option>
 									<?php } ?>
@@ -252,16 +252,22 @@
 						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">
 							Buy now
 						</a>
-						<?php if(isset($_SESSION['user']['id'])) ?>
+						<?php if(isset($_SESSION['user']['id'])) { ?>
 						<button
 							type='submit'
 							name='add_to_cart_btn'
-						 class=" cursor-pointer px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
+						 class="cursor-pointer px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700">
 							<i class="fa fa-shopping-cart mr-2"></i>
 							Add to cart
 						</button>
-						<input type="hidden" name="user_id" value='<?php echo $_SESSUIN['user'] ?>'>
-						<input type="hidden" name="product_id" value=''>
+						<?php } else { ?>
+							<a class='cursor-pointer px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700' href="http://localhost/fill-rouge/user/signin">
+							<i class="fa fa-shopping-cart mr-2"></i>
+							Add to cart
+							</a>
+							<?php } ?>
+						<input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+						<input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
 						</form>
 						<!-- <a class="cursor-pointer px-4 py-2 inline-block border border-gray-300 rounded-md hover:bg-gray-100">
 							<i class="fa fa-heart mr-2 text-gray-200"></i>

@@ -181,18 +181,31 @@ class UserController
         $product['colors'] = explode(',', $product['colors']);
         $imgs = productImg::SelectProductImgs($id);
         ///////order////////
+        /////
+        $invalid_quantity = false;
+        $unavailbale_quantity = false;
+        $invalid_size = false;
+        $invalid_color = false;
+        /////
         if(isset($_POST['add_to_cart_btn'])) {
-            echo '<br>';
-            echo $_POST['user_id'];
-            echo '<br>';
-            echo $_POST['product_id'];
-            echo '<br>';
-            echo $_POST['color'];
-            echo '<br>';
-            echo $_POST['size'];
-            echo '<br>';
-            echo $_POST['quantity'];
-            echo '<br>';
+            if($_POST['quantity'] >= 1) {
+             if($_POST['quantity'] <= $product['quantity']) {
+              if($_POST['size'] != 'Select Size') {
+                  if($_POST['color'] != 'Select Color') {
+                      //passed
+                } else {
+                  $invalid_color = false;
+                    }
+                } else {
+                  $invalid_size = true;
+            }
+             } else {
+                $unavailbale_quantity = true;
+             }
+            } else { 
+              $invalid_quantity = true;
+            }   
+            
         }
         ////////////////////
         require_once __DIR__ . './../view/page-details.php';
