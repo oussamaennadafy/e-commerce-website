@@ -157,8 +157,7 @@
         <div
         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
         >
-        <?php foreach ($LastProducts as $LastProduct) { 
-          ?>
+        <?php foreach ($LastProducts as $LastProduct) {?>
           <div>
             <!-- COMPONENT: PRODUCT CARD -->
             <article class="shadow-sm rounded bg-white border border-gray-200 h-full shadow-sm">
