@@ -187,7 +187,7 @@
                   <a
                     class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
                     id="heart_link"
-                    href="http://localhost/fil-rouge/user/"
+                    href="http://localhost/fill-rouge/user/WishProduct?<?php echo'user_id='.$_SESSION['user']['id']?>&<?php echo'product_id='.$LastProduct['id']?>"
                   >
                     <i id="heart_icon" class="fa fa-heart transition duration-"></i>
                   </a>

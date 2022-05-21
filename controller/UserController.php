@@ -194,9 +194,11 @@ class UserController
     public function WishProduct()
     {
         //logic of page
-        session_start();
-        wished_products::WishProduct($_POST['user_id'],$_POST['product_id'],$_POST['price_item'],$_POST['name_item'],$_POST['firs_img']);
-        require_once __DIR__ . './../view/wish-page.php';
+        echo $_GET['user_id'];
+        echo $_GET['product_id'];
+        exit;
+        wished_products::WishProduct($user_id);
+        header('Location: http://localhost/fill-rouge/user/index');
     }
 
     public function cart()
