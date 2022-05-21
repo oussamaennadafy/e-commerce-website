@@ -89,7 +89,7 @@ class Connection
 
 	public function SelectProductsByWishState($user_id)
 	{
-		$query = $this->conn->prepare("SELECT * FROM `wished_products` 
+		$query = $this->conn->prepare("SELECT `user_id`,`product_id` FROM `wished_products` 
 		where user_id=$user_id ORDER BY id DESC");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
