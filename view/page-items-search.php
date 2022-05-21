@@ -381,7 +381,7 @@
                   <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
                     <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'index' ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'search/'.$searchSentence ?>'>
                     <button
                       type='submit'
                       class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
@@ -394,7 +394,7 @@
                     <form class='inline-block' action="http://localhost/fill-rouge/user/UnWishProduct" method="POST">
                     <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'index' ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'search/'.$searchSentence ?>'>
                     <button
                       type='submit'
                       class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"

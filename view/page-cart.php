@@ -120,21 +120,15 @@
 						</div>
 						<figcaption  class="ml-3">
 							<p><a href="#" class="hover:text-blue-600">Modern Product Name Goes Here as demo </a></p>
-							<p class="mt-1 text-gray-400"> Color: Yellow, Type: Jeans </p>
+							<p class="mt-1 text-gray-400"> Color: Yellow, size: XL </p>
 						</figcaption>
 					</figure>
 				</div>
 				<div class="">
 					<!-- selection -->	
 					<div class="w-24 relative">
-				    <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-				        <option>1</option>
-						<option>2</option>	
-						<option>3</option>	
-			      	</select>
-				    <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
-				        <svg width="22" height="22" class="fill-current" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"></path></svg>
-				    </i>
+					<p class="font-semibold not-italic">Quantity</p>
+						<small class="text-gray-400"> 2 pcs </small> 
 				   </div>
 				   <!-- selection .//end -->	
 				</div>
@@ -165,21 +159,15 @@
 						</div>
 						<figcaption  class="ml-3">
 							<p><a href="#" class="hover:text-blue-600">Travel Bag Jeans Blue Color Modern</a></p>
-							<p class="mt-1 text-gray-400"> Color: Yellow, Type: Jeans </p>
+							<p class="mt-1 text-gray-400"> Color: Yellow, Size: L </p>
 						</figcaption>
 					</figure>
 				</div>
 				<div class="">
 					<!-- selection -->	
 					<div class="w-24 relative">
-				    <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-				        <option>1</option>
-						<option selected>2</option>	
-						<option>3</option>	
-			      	</select>
-				    <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
-				        <svg width="22" height="22" class="fill-current" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"></path></svg>
-				    </i>
+					<p class="font-semibold not-italic">Quantity</p>
+						<small class="text-gray-400"> 1 pc </small> 
 				   </div>
 				   <!-- selection .//end -->	
 				</div>
@@ -210,21 +198,15 @@
 						</div>
 						<figcaption  class="ml-3">
 							<p><a href="#" class="hover:text-blue-600">Great product name</a></p>
-							<p class="mt-1 text-gray-400"> Color: Blue, Type: Original </p>
+							<p class="mt-1 text-gray-400"> Color: Blue, Size: S </p>
 						</figcaption>
 					</figure>
 				</div>
 				<div class="">
 					<!-- selection -->	
 					<div class="w-24 relative">
-				    <select class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full">
-				        <option>1</option>
-						<option>2</option>	
-						<option>3</option>	
-			      	</select>
-				    <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
-				        <svg width="22" height="22" class="fill-current" viewBox="0 0 20 20"><path d="M7 10l5 5 5-5H7z"></path></svg>
-				    </i>
+					<p class="font-semibold not-italic">Quantity</p>
+						<small class="text-gray-400"> 3 pcs </small> 
 				   </div>
 				   <!-- selection .//end -->	
 				</div>

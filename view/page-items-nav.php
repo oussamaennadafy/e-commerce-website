@@ -94,9 +94,9 @@
 				<?php if ($category == 'OurSports') {
 					echo 'Our Sports';
 				} elseif ($category == 'mens') {
-					echo 'Men’s';
+					echo 'Men';
 				} elseif ($category == 'womens') {
-					echo 'Women’s';
+					echo 'Women';
 				} elseif ($category == 'kids') {
 					echo 'Kid’s';
 				} elseif ($category == 'accessoires') {
@@ -379,7 +379,7 @@
                   <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
                     <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'nav' ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'nav/'.$category ?>'>
                     <button
                       type='submit'
                       class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
@@ -392,7 +392,7 @@
                     <form class='inline-block' action="http://localhost/fill-rouge/user/UnWishProduct" method="POST">
                     <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'nav' ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'nav/'.$category ?>'>
                     <button
                       type='submit'
                       class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
@@ -413,7 +413,7 @@
                   <?php } ?>
 										</div>
 
-										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
+										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="">+ add to cart </a>
 									</div>
 								</div> <!-- col.// -->
 							</div> <!-- flex.// -->
