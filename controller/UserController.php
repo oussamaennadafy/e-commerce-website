@@ -192,7 +192,7 @@ class UserController
              if($_POST['quantity'] <= $product['quantity']) {
               if($_POST['color'] != 'Select Color') {
                 if($_POST['size'] != 'Select Size') {
-                    echo 'passed';
+                    
                 } else {
                 $invalid_size = true;
                 }
