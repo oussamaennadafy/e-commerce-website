@@ -48,6 +48,12 @@ class Product
     $ctn = new Connection();
     return $ctn->isProductInCart($user_id,$product_id);
   }
+
+  public static function selectProductsInCart($user_id)
+  {
+    $ctn = new Connection();
+    return $ctn->selectProductsInCart($user_id);
+  }
   
 }
 

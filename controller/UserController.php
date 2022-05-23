@@ -245,6 +245,7 @@ class UserController
     {
         //logic of page
         session_start();
+        print_r(product::selectProductsInCart($_SESSION['user']['id']));
         require_once __DIR__ . './../view/page-cart.php';
     }
 

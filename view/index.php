@@ -178,6 +178,7 @@
                 <?php echo $LastProduct['name_item'] ?>
                 </a>
                 <div>
+                  <?php if(isset($_SESSION['user'])) { ?>
                   <?php if(product::isProductInCart($_SESSION['user']['id'],$LastProduct['id']) == 0) { ?>
                   <a
                     class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 select-none"
@@ -193,6 +194,14 @@
                     Added to cart
                   </a>
                   <?php } ?>
+                  <?php } else { ?>
+                    <a
+                    class="px-4 py-2 inline-block text-white text-center bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 select-none"
+                    href="http://localhost/fill-rouge/user/signIn"
+                  >
+                    Add to cart
+                  </a>
+                    <?php } ?>
                   <?php if(isset($_SESSION['user'])) { ?>
                   <?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$LastProduct['id']) == 0) { ?>
                   <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">

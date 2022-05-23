@@ -105,6 +105,13 @@ class Connection
 			return $query->fetchAll(PDO::FETCH_ASSOC);
 		}
 	}
+	
+	public function selectProductsInCart($user_id)
+	{
+			$query = $this->conn->prepare("SELECT * FROM `semi_order` WHERE `user_id` = '$user_id'");
+			$query->execute();
+			return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 
 	public function checkIfProductIsWished($user_id,$product_id)
