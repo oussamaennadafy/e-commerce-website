@@ -187,29 +187,35 @@ class UserController
         $invalid_size = false;
         $invalid_color = false;
         /////
+        $size_passed = false;
+        $color_passed = false;
+        /////
         if(isset($_POST['add_to_cart_btn'])) {
             if($_POST['quantity'] >= 1) {
              if($_POST['quantity'] <= $product['quantity']) {
-                 if(!empty($product['sizes'][0])) {
-                     if($_POST['size'] != 'Select Size') {
-                         if(!empty($product['colors'][0]))  {
-                             if($_POST['color'] != 'Select Color') {
-                                 //passed
-                               } else {
-                             $invalid_color = true;
-                               }
-                         }
-                       } else {
-                         $invalid_size = true;
-                 }
-            }
+
+              if(isset($_POST['size'])) {
+                if($_POST['size'] != 'Select Size') {
+                    //size passed
+                    $size_passed = true;
+                } else {
+                $invalid_size = true;
+                }
+              }
+                if($_POST['color'] != 'Select Color') {
+                    //color passed
+                    $color_passed = true;
+                } else {
+                $invalid_color = true;
+                }
+              
+                 
              } else {
                 $unavailbale_quantity = true;
              }
             } else { 
               $invalid_quantity = true;
             }   
-            
         }
         ////////////////////
         require_once __DIR__ . './../view/page-details.php';

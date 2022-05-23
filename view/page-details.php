@@ -215,6 +215,28 @@
 						</div>
 					<!-- quantity-end  -->
 					<div class="flex flex-wrap mb-4">
+						<?php if (!empty($product['colors'][0])) { ?>
+							<!-- select-custom -->
+							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
+								<select
+									name='color'
+									class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer
+									<?php if($invalid_color == true) { echo 'border-red-400 hover:border-red-500 focus:border-red-500';} else {
+										echo 'border-gray-200 hover:border-gray-400 focus:border-gray-400';} ?>
+									">
+									<option>Select Color</option>
+									<?php foreach ($product['colors'] as $color) { ?>
+										<option><?php echo $color; ?></option>
+									<?php } ?>
+								</select>
+								<i class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+									<svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24">
+										<path d="M7 10l5 5 5-5H7z" />
+									</svg>
+								</i>
+							</div>
+							<!-- select-custom .//end  -->
+						<?php } ?>
 						<?php if (!empty($product['sizes'][0])) { ?>
 							<!-- select-custom -->
 							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
@@ -239,31 +261,9 @@
 							</div>
 							<!-- select-custom .//end  -->
 						<?php } ?>
-						<?php if (!empty($product['colors'][0])) { ?>
-							<!-- select-custom -->
-							<div class="relative w-1/3 lg:w-1/4 mr-2 mb-4">
-								<select
-								 name='color'
-								 class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 pr-5 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full cursor-pointer
-									<?php if($invalid_color == true) { echo 'border-red-400 hover:border-red-500 focus:border-red-500';} else {
-										echo 'border-gray-200 hover:border-gray-400 focus:border-gray-400';} ?>
-									">
-									<option>Select Color</option>
-									<?php foreach ($product['colors'] as $color) { ?>
-										<option><?php echo $color; ?></option>
-									<?php } ?>
-								</select>
-								<i class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
-									<svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24">
-										<path d="M7 10l5 5 5-5H7z" />
-									</svg>
-								</i>
-							</div>
-							<!-- select-custom .//end  -->
-						<?php } ?>
 					</div>
-					<?php if($invalid_size == true) { echo "<p class='-mt-6 mb-3 text-red-500'>select your size</p>";} ?>
 					<?php if($invalid_color == true) { echo "<p class='-mt-6 mb-3 text-red-500'>select your color</p>";} ?>
+					<?php if($invalid_size == true) { echo "<p class='-mt-6 mb-3 text-red-500'>select your size</p>";} ?>
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
 						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">
