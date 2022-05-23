@@ -114,28 +114,28 @@
 				<div class="w-full lg:w-2/5 xl:w-2/4">
 					<figure class="flex leading-5">
 						<div>
-							<div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
+							<a href='http://localhost/fill-rouge/user/details/<?php echo $semi_order['product_id'] ?>' class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
 								<img src="<?php echo './../view/uploads/'.$semi_order['first_img'] ?>" alt="Title">
-							</div>
+							</a>
 						</div>
 						<figcaption  class="ml-3">
-							<p><a href="#" class="hover:text-blue-600">Modern Product Name Goes Here as demo </a></p>
-							<p class="mt-1 text-gray-400"> Color: Yellow, size: XL </p>
+							<p><a href='http://localhost/fill-rouge/user/details/<?php echo $semi_order['product_id'] ?>' class="hover:text-blue-600"><?php echo $semi_order['name_item'] ?></a></p>
+							<p class="mt-1 text-gray-400"> Color: <?php echo $semi_order['color'] ?>, size: <?php echo $semi_order['size'] ?> </p>
 						</figcaption>
 					</figure>
 				</div>
 				<div class="">
 					<!-- selection -->	
-					<div class="w-24 relative">
+					<div class="leading-5 mr-10">
 					<p class="font-semibold not-italic">Quantity</p>
-						<small class="text-gray-400"> 2 pcs </small> 
+						<small class="text-gray-400"> <?php echo $semi_order['quantity'] ?> pcs </small> 
 				   </div>
 				   <!-- selection .//end -->	
 				</div>
 				<div>
 					<div class="leading-5">
-						<p class="font-semibold not-italic">$1156.00</p>
-						<small class="text-gray-400"> $460.00 / per item </small> 
+						<p class="font-semibold not-italic">$<?php echo floatval($semi_order['price_item'])*$semi_order['quantity'] ?></p>
+						<small class="text-gray-400">$<?php echo $semi_order['price_item'] ?> / per item </small> 
 					</div>
 				</div>
 				<div class="flex-auto">
