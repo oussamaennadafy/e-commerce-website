@@ -251,10 +251,14 @@
 										echo 'border-gray-200 hover:border-gray-400 focus:border-gray-400';
 									} ?>
 									">
+									<?php if(!empty($product['sizes'][1])) { ?>
 									<option>Select Size</option>
 									<?php foreach ($product['sizes'] as $size) { ?>
 										<option><?php echo $size; ?></option>
 									<?php } ?>
+									<?php } else {?>
+										<option><?php echo $product['sizes']['0'] ?></option>
+										<?php } ?>
 								</select>
 								<i class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
 									<svg width="24" height="24" class="fill-current h-5 w-5" viewBox="0 0 24 24">
