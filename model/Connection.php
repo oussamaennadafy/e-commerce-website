@@ -126,6 +126,21 @@ class Connection
 		// $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+
+	public function addSemiOrder($user_id,$product_id,$color,$size,$quantity)
+	{
+		$query = $this->conn->prepare("INSERT INTO `semi_order`(`user_id`, `product_id`,`color`,`size`,`quantity`) VALUES ('$user_id','$product_id','$color','$size','$quantity')");
+		$query->execute();
+		// $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function isProductInCart($user_id,$product_id)
+	{
+		$query = $this->conn->prepare("SELECT `id` FROM `semi_order` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id'");
+		$query->execute();
+		return $query->rowCount();
+	}
+
 	public function UnwishProduct($user_id,$product_id)
 	{
 		$query = $this->conn->prepare("DELETE FROM `wished_products` WHERE user_id = $user_id AND product_id = $product_id");

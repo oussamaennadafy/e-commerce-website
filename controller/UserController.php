@@ -192,7 +192,8 @@ class UserController
              if($_POST['quantity'] <= $product['quantity']) {
               if($_POST['color'] != 'Select Color') {
                 if($_POST['size'] != 'Select Size') {
-                    
+                    product::addSemiOrder($_SESSION['user']['id'],$product['id'],$_POST['color'],$_POST['size'],$_POST['quantity']);
+                    header('Location: http://localhost/fill-rouge/user/index');
                 } else {
                 $invalid_size = true;
                 }
