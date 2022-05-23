@@ -108,14 +108,14 @@
 	<main  class="md:w-3/4">
 
 		<article class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
-			
+			<?php foreach ($semi_orders as $semi_order) {?>
 			<!-- item-cart -->
 			<div class="flex flex-wrap lg:flex-row gap-5  mb-4">
 				<div class="w-full lg:w-2/5 xl:w-2/4">
 					<figure class="flex leading-5">
 						<div>
 							<div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
-								<img src="../view/images/items/1.jpg" alt="Title">
+								<img src="<?php echo './../view/uploads/'.$semi_order['first_img'] ?>" alt="Title">
 							</div>
 						</div>
 						<figcaption  class="ml-3">
@@ -148,83 +148,7 @@
 
 			<hr class="my-4">
 
-			<!-- item-cart -->
-			<div class="flex flex-wrap lg:flex-row gap-5 mb-4">
-				<div class="w-full lg:w-2/5 xl:w-2/4">
-					<figure class="flex leading-5">
-						<div>
-							<div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
-								<img src="../view/images/items/2.jpg" alt="Title">
-							</div>
-						</div>
-						<figcaption  class="ml-3">
-							<p><a href="#" class="hover:text-blue-600">Travel Bag Jeans Blue Color Modern</a></p>
-							<p class="mt-1 text-gray-400"> Color: Yellow, Size: L </p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="">
-					<!-- selection -->	
-					<div class="w-24 relative">
-					<p class="font-semibold not-italic">Quantity</p>
-						<small class="text-gray-400"> 1 pc </small> 
-				   </div>
-				   <!-- selection .//end -->	
-				</div>
-				<div>
-					<div class="leading-5">
-						<p class="font-semibold not-italic">$92.00</p>
-						<small class="text-gray-400"> $34.00 / per item </small> 
-					</div>
-				</div>
-				<div class="flex-auto">
-					<div class="float-right">
-						<a href="#" class="px-3 py-2 inline-block text-blue-600 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200"> <i class="fa fa-heart"></i> </a>
-						<a class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href="#">  Remove </a>
-					</div>
-				</div>
-			</div> <!-- item-cart end// -->
-
-			<hr class="my-4">
-
-			<!-- item-cart -->
-			<div class="flex flex-wrap lg:flex-row gap-5 mb-4">
-				<div class="w-full lg:w-2/5 xl:w-2/4">
-					<figure class="flex leading-5">
-						<div>
-							<div class="block w-16 h-16 rounded border border-gray-200 overflow-hidden">
-								<img src="../view/images/items/3.jpg" alt="Title">
-							</div>
-						</div>
-						<figcaption  class="ml-3">
-							<p><a href="#" class="hover:text-blue-600">Great product name</a></p>
-							<p class="mt-1 text-gray-400"> Color: Blue, Size: S </p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="">
-					<!-- selection -->	
-					<div class="w-24 relative">
-					<p class="font-semibold not-italic">Quantity</p>
-						<small class="text-gray-400"> 3 pcs </small> 
-				   </div>
-				   <!-- selection .//end -->	
-				</div>
-				<div>
-					<div class="leading-5">
-						<p class="font-semibold not-italic">$980.00</p>
-						<small class="text-gray-400"> $120.00 / per item </small> 
-					</div>
-				</div>
-				<div class="flex-auto">
-					<div class="float-right">
-						<a href="#" class="px-3 py-2 inline-block text-blue-600 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200"> <i class="fa fa-heart"></i> </a>
-						<a class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href="#">  Remove </a>
-					</div>
-				</div>
-			</div> <!-- item-cart end// -->
-
-			<hr class="my-4">
+			<?php } ?>
 
 			<h6 class="font-bold">Free Delivery within 1-2 weeks</h6>
 			<p class="text-gray-400">We Ship Our Products For Free In Almost All Places The World</p>

@@ -108,10 +108,11 @@ class Connection
 	
 	public function selectProductsInCart($user_id)
 	{
-			$query = $this->conn->prepare("SELECT * FROM `semi_order` WHERE `user_id` = '$user_id'");
+			$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id'");
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
+
 
 
 	public function checkIfProductIsWished($user_id,$product_id)

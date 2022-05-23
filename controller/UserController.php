@@ -245,7 +245,17 @@ class UserController
     {
         //logic of page
         session_start();
-        print_r(product::selectProductsInCart($_SESSION['user']['id']));
+        $semi_orders = product::selectProductsInCart($_SESSION['user']['id']);
+        foreach ($semi_orders as $key => $value) {
+            foreach ($value as $key => $value) {
+
+                # code...
+                echo $key;
+                echo '--------------------->';
+                print_r($value);
+                echo '<br>';
+            }
+        }
         require_once __DIR__ . './../view/page-cart.php';
     }
 
