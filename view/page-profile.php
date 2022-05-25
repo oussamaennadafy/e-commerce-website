@@ -116,6 +116,7 @@
 			
 			<hr class="my-4">
 			
+			<p class='text-gray-500 mb-5'>Delivery Address</p>
 			<div class="sm:flex mb-5 gap-4">
 				<figure class="md:w-1/2 flex items-center relative bg-gray-100 p-4 rounded-md">
 					<div class="mr-3">

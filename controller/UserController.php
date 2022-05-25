@@ -246,7 +246,20 @@ class UserController
         //logic of page
         session_start();
         $semi_orders = product::selectProductsInCart($_SESSION['user']['id']);
+        //count total price of order
+        $total_price_order = 0;
+        foreach($semi_orders as $semi_order) {
+            $total_price_order +=  floatval($semi_order['price_item'])*$semi_order['quantity'];
+        }
+        //
         require_once __DIR__ . './../view/page-cart.php';
+    }
+
+    public function deleteSemiOrder($id)
+    {
+    //logic of page
+    product::deleteSemiOrder($id);
+    header('Location: http://localhost/fill-rouge/user/cart');
     }
 
     public function order()

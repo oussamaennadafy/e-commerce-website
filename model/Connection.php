@@ -78,6 +78,11 @@ class Connection
 		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public function deleteSemiOrder($id) {
+		$query = $this->conn->prepare("DELETE FROM `semi_order` WHERE id = $id");
+		$query->execute();
+	}
+
 
 	public function SelectProductImgs($id)
 	{

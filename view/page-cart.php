@@ -107,6 +107,13 @@
 <div class="flex flex-col md:flex-row gap-4">
 	<main  class="md:w-3/4">
 
+	<?php if(count($semi_orders) == 0) { ?>
+			<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
+			<h1 class='text-center w-full my-7 text-3xl font-semibold'> your cart is empty </h1>
+				<?php } ?>
+
+				<?php if(count($semi_orders) != 0) {  ?>
+
 		<article class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
 			<?php foreach ($semi_orders as $semi_order) {?>
 			<!-- item-cart -->
@@ -119,7 +126,7 @@
 							</a>
 						</div>
 						<figcaption  class="ml-3">
-							<p><a href='http://localhost/fill-rouge/user/details/<?php echo $semi_order['product_id'] ?>' class="hover:text-blue-600"><?php echo $semi_order['name_item'] ?></a></p>
+							<p><a href='http://localhost/fill-rouge/user/details/<?php echo $semi_order['product_id'] ?>' class="hover:text-blue-600 lowercase"><?php echo $semi_order['name_item'] ?></a></p>
 							<p class="mt-1 text-gray-400"> Color: <?php echo $semi_order['color'] ?>, size: <?php echo $semi_order['size'] ?> </p>
 						</figcaption>
 					</figure>
@@ -140,20 +147,50 @@
 				</div>
 				<div class="flex-auto">
 					<div class="float-right">
-						<a href="#" class="px-3 py-2 inline-block text-blue-600 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200"> <i class="fa fa-heart"></i> </a>
-						<a class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href="#">  Remove </a>
+						<!-- ////////////whish button////////// -->
+						<?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$semi_order['product_id']) == 0) { ?>
+                  <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
+                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="product_id" value='<?php echo $semi_order['product_id'] ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'cart' ?>'>
+                    <button
+                      type='submit'
+                      class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
+                      id="heart_link"
+                    >
+                      <i id="heart_icon" class="fa fa-heart"></i>
+                    </button>
+                  </form>
+                  <?php } else { ?>
+                    <form class='inline-block' action="http://localhost/fill-rouge/user/UnWishProduct" method="POST">
+                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="product_id" value='<?php echo $semi_order['product_id'] ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'cart' ?>'>
+                    <button
+                      type='submit'
+                      class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
+                      id="heart_link"
+                    >
+                      <i id="heart_icon" class="fa fa-heart"></i>
+                    </button>
+                  </form>
+                  <?php } ?>
+						<!-- /////////////////////////// -->
+						<a class="px-4 py-2 inline-block text-red-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href='http://localhost/fill-rouge/user/deleteSemiOrder/<?php echo $semi_order['id']?>'>  Remove </a>
 					</div>
 				</div>
 			</div> <!-- item-cart end// -->
 
+			
 			<hr class="my-4">
-
 			<?php } ?>
-
+			
 			<h6 class="font-bold">Free Delivery within 1-2 weeks</h6>
 			<p class="text-gray-400">We Ship Our Products For Free In Almost All Places The World</p>
-
+			
+			
 		</article> <!-- card end.// -->
+		<?php } ?>
 
 	</main>
 	<aside class="md:w-1/4">
@@ -163,19 +200,19 @@
 			<ul class="mb-5">
 				<li class="flex justify-between text-gray-600  mb-1"> 
 					<span>Total price:</span> 
-					<span>$245.97</span>
+					<span>$<?php if($total_price_order == 0){echo '0.00';}else {echo $total_price_order;} ?></span>
 				</li>
 				<li class="flex justify-between text-gray-600  mb-1"> 
-					<span>Discount:</span> 
-					<span class="text-green-500">- $60.00</span>
+					<span>Shipping:</span> 
+					<span class="text-green-500">$0.00</span>
 				</li>
 				<li class="flex justify-between text-gray-600  mb-1"> 
-					<span>TAX:</span> 
-					<span>$14.00</span>
+					<span>Fees:</span> 
+					<span><?php if(count($semi_orders) == 0) {echo '$0.00';} else {echo '$0.99';} ?></span>
 				</li>
 				<li class="text-lg font-bold border-t flex justify-between mt-3 pt-3"> 
 					<span>Total price:</span> 
-					<span>$420.00</span>
+					<span>$<?php if(count($semi_orders) == 0) {echo '0.00';} else {echo $total_price_order + 0.99;} ?></span>
 				</li>
 			</ul>
 

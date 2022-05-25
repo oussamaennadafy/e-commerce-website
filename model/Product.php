@@ -55,6 +55,12 @@ class Product
     return $ctn->selectProductsInCart($user_id);
   }
   
+  public static function deleteSemiOrder($id)
+  {
+    $ctn = new Connection();
+    return $ctn->deleteSemiOrder($id);
+  }
+  
 }
 
 
