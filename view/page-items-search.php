@@ -346,25 +346,23 @@
 										<p class="text-gray-500 mb-2">
 											<?php echo $product['description_item'] ?>
 										</p>
-										<p class="space-y-2">
+										<div class="space-y-2">
 											<?php 
 											$count = 0;
 											$product['tages_item'] = explode(',',$product['tages_item']);
 											foreach ($product['tages_item'] as $value) {
 												if(!empty($value) && $count < 4) {
 												?>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full">
+											<a href='http://localhost/fill-rouge/user/search/<?php echo str_replace('%20', '',trim($value)) ?>'
+											 class="inline-block hover:border-blue-600 hover:text-blue-600 px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full">
 												 <?php 
 													echo $value; 
 													$count ++;
 													?> 
-											</span>
+											</a>
 											 <?php } ?>
 											<?php } ?> 
-											<!-- <span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span> -->
-										</p>
+										</div>
 									</div>
 								</div> <!-- col.// -->
 								<div class="md:w-1/4 border-t lg:border-t-0 lg:border-l border-gray-200">
@@ -415,7 +413,7 @@
                   <?php } ?>
 										</div>
 
-										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="#">+ add to cart </a>
+										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href='http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>'>+ add to cart </a>
 									</div>
 								</div> <!-- col.// -->
 							</div> <!-- flex.// -->

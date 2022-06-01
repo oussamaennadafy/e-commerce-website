@@ -40,7 +40,8 @@ class UserController
     {
         //logic of page
         if(isset($_POST['search_btn']) and !empty(trim($_POST['search_input']))) {
-            header("Location: http://localhost/fill-rouge/user/search/".$_POST['search_input']);
+            $search_input = trim(str_replace(' ','%20', $_POST['search_input']));
+            header("Location: http://localhost/fill-rouge/user/search/".$search_input);
         }
         session_start();
         $products = Product::selectLastProducts();

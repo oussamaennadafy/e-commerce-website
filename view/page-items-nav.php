@@ -413,7 +413,7 @@
                   <?php } ?>
 										</div>
 
-										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="">+ add to cart </a>
+										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href='http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>' >+ add to cart </a>
 									</div>
 								</div> <!-- col.// -->
 							</div> <!-- flex.// -->

@@ -104,13 +104,13 @@
 	<section class="py-10">
 		<div class="container max-w-screen-xl mx-auto px-4">
 			
-<div class="flex flex-col md:flex-row gap-4">
+<div class="flex flex-col md:flex-row gap-4 justify-center">
 	<main  class="md:w-3/4">
+		<?php if(count($semi_orders) == 0) { ?>
+				<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
+				<h1 class='text-center w-full my-7 text-3xl font-semibold'> your cart is empty </h1>
+					<?php } ?>
 
-	<?php if(count($semi_orders) == 0) { ?>
-			<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
-			<h1 class='text-center w-full my-7 text-3xl font-semibold'> your cart is empty </h1>
-				<?php } ?>
 
 				<?php if(count($semi_orders) != 0) {  ?>
 
@@ -190,7 +190,6 @@
 			
 			
 		</article> <!-- card end.// -->
-		<?php } ?>
 
 	</main>
 	<aside class="md:w-1/4">
@@ -200,7 +199,7 @@
 			<ul class="mb-5">
 				<li class="flex justify-between text-gray-600  mb-1"> 
 					<span>Total price:</span> 
-					<span>$<?php if($total_price_order == 0){echo '0.00';}else {echo $total_price_order;} ?></span>
+					<span>$<?php echo $total_price_order; ?></span>
 				</li>
 				<li class="flex justify-between text-gray-600  mb-1"> 
 					<span>Shipping:</span> 
@@ -208,11 +207,11 @@
 				</li>
 				<li class="flex justify-between text-gray-600  mb-1"> 
 					<span>Fees:</span> 
-					<span><?php if(count($semi_orders) == 0) {echo '$0.00';} else {echo '$0.99';} ?></span>
+					<span><?php echo '$0.99' ?></span>
 				</li>
 				<li class="text-lg font-bold border-t flex justify-between mt-3 pt-3"> 
 					<span>Total price:</span> 
-					<span>$<?php if(count($semi_orders) == 0) {echo '0.00';} else {echo $total_price_order + 0.99;} ?></span>
+					<span>$<?php echo $total_price_order + 0.99; ?></span>
 				</li>
 			</ul>
 
@@ -224,6 +223,9 @@
 
 	</aside> <!-- col.// -->
 </div> <!-- grid.// -->
+
+<?php } ?>
+
 
 		</div>
 	</section>
