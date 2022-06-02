@@ -14,12 +14,6 @@ class UserController
     public function index()
     {
         //logic of page
-        if(isset($_POST['search_btn']) and !empty(trim($_POST['search_input']))) {
-            header("Location: http://localhost/fill-rouge/user/search/".$_POST['search_input']);
-        } 
-        if(isset($_POST['search_btn']) and empty(trim($_POST['search_input']))) {
-            header("Location: http://localhost/fill-rouge/user/index");
-        }
         session_start();
         $LastProducts = Product::selectLastProducts();
         include_once __DIR__ . './../view/index.php';
@@ -36,14 +30,19 @@ class UserController
         require_once __DIR__ . './../view/page-items-nav.php';
     }
 
-    public function search($searchSentence)
+    public function search()
     {
         //logic of page
-        if(isset($_POST['search_btn']) and !empty(trim($_POST['search_input']))) {
-            $search_input = trim(str_replace(' ','%20', $_POST['search_input']));
-            header("Location: http://localhost/fill-rouge/user/search/".$search_input);
-        }
         session_start();
+
+        if(isset($_POST['search_btn']) and !empty(trim($_POST['search_input']))) {
+           echo $_POST['search_input'];
+        } 
+        if(isset($_POST['search_btn']) and empty(trim($_POST['search_input']))) {
+            header('Location: http://localhost/fill-rouge/user/'.$_POST['page_name']);
+        }
+
+
         $products = Product::selectLastProducts();
         require_once __DIR__ . './../view/page-items-search.php';
     }
