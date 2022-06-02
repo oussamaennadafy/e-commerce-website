@@ -274,9 +274,26 @@
 					<?php if($invalid_size == true) { echo "<p class='-mt-6 mb-3 text-red-500'>select your size</p>";} ?>
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
-						<a class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600" href="http://localhost/fill-rouge/user/order">
-							Buy now
-						</a>
+						<!-- /////////////////////// -->
+						<form action="">
+							<input type="hidden" name="">
+
+
+							<input type='hidden' value='<?php if(isset($_POST['add_to_cart_btn'])) {echo $_POST['quantity'] ;}else {echo 1;} ?>' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16
+							<?php if($invalid_quantity == true || $unavailbale_quantity == true) {echo 'border-red-400 hover:border-red-500 focus:border-red-500';} ?>
+							'>
+
+
+
+
+							<button
+								type='submit'
+								name='buy_now'
+								class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600">
+								Buy now
+							</button>
+							</form>
+						<!-- /////////////////////// -->
 						<?php if(isset($_SESSION['user']['id'])) { ?>
 						<button
 							type='submit'

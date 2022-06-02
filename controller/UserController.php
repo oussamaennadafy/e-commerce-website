@@ -34,10 +34,7 @@ class UserController
     {
         //logic of page
         session_start();
-
-        if(isset($_POST['search_btn']) and !empty(trim($_POST['search_input']))) {
-           echo $_POST['search_input'];
-        } 
+        // echo $_POST['search_input'];
         if(isset($_POST['search_btn']) and empty(trim($_POST['search_input']))) {
             header('Location: http://localhost/fill-rouge/user/'.$_POST['page_name']);
         }
@@ -207,6 +204,26 @@ class UserController
               $invalid_quantity = true;
             }   
         }
+        /////
+        if(isset($_POST['buy_now'])) {
+            if($_POST['quantity'] >= 1) {
+             if($_POST['quantity'] <= $product['quantity']) {
+              if($_POST['color'] != 'Select Color') {
+                if($_POST['size'] != 'Select Size') {
+                    header('Location: http://localhost/fill-rouge/user/index');
+                } else {
+                $invalid_size = true;
+                }
+              } else {
+                $invalid_color = true;
+              }                 
+             } else {
+                $unavailbale_quantity = true;
+             }
+            } else { 
+              $invalid_quantity = true;
+            }   
+        }
         ////////////////////
         require_once __DIR__ . './../view/page-details.php';
     }
@@ -262,10 +279,17 @@ class UserController
     header('Location: http://localhost/fill-rouge/user/cart');
     }
 
-    public function order()
+    public function checkout()
     {
         //logic of page
         session_start();
         require_once __DIR__ . './../view/page-order.php';
+    }
+
+    public function buyNow()
+    {
+        //logic of page
+        session_start();
+        require_once __DIR__ . './../view/page-buy-one.php';
     }
 }

@@ -33,13 +33,28 @@
 				<!-- Brand .//end -->
 
 				<!-- Search -->
-				<form class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4" action="http://localhost/fill-rouge/user/search/<?php echo $searchSentence; ?>" method="POST">
-					<input class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Search" value="" name='search_input'>
-					<button name='search_btn' type="submit" class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700">
-						Search
-					</button>
-				</form>
-				<!-- Search .//end -->
+				<form
+							method="POST"
+							action="http://localhost/fill-rouge/user/search"
+							class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4"
+					>
+					<input type="hidden" name="page_name" value='search'>
+							<input
+									class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
+									type="text"
+									name="search_input"
+									value='<?php if(!empty($_POST['search_input'])) { echo $_POST['search_input']; } ?>'
+									placeholder="Search"
+							/>
+							<button
+									type="submit"
+									name="search_btn"
+									class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 rounded-md hover:bg-blue-700"
+							>
+									<i class="fa fa-search"></i>
+							</button>
+					</form>
+						<!-- Search .//end -->
 
 				<!-- Actions -->
 				<div class="flex items-center space-x-2 ml-auto">
@@ -373,13 +388,13 @@
 										</p>
 										<p class="text-green-500">Free Shipping</p>
 										<div class="my-3">
-											<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/order"> Buy now </a>
+											<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>"> Buy now </a>
 											<?php if(isset($_SESSION['user'])) { ?>
                   <?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$product['id']) == 0) { ?>
                   <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
                     <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'search/'.$searchSentence ?>'>
+                    <input type="hidden" name="current_page" value='<?php echo 'search' ?>'>
                     <button
                       type='submit'
                       class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"

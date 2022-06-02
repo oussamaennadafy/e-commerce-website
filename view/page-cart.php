@@ -150,7 +150,7 @@
 						<!-- ////////////whish button////////// -->
 						<?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$semi_order['product_id']) == 0) { ?>
                   <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
-                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="user_id" value='<?php if(isset($_SESSION['user'])){ echo $_SESSION['user']['id'];} ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $semi_order['product_id'] ?>'>
                     <input type="hidden" name="current_page" value='<?php echo 'cart' ?>'>
                     <button
@@ -163,7 +163,7 @@
                   </form>
                   <?php } else { ?>
                     <form class='inline-block' action="http://localhost/fill-rouge/user/UnWishProduct" method="POST">
-                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
+                    <input type="hidden" name="user_id" value='<?php if(isset($_SESSION['user'])){ echo $_SESSION['user']['id'];} ?>'>
                     <input type="hidden" name="product_id" value='<?php echo $semi_order['product_id'] ?>'>
                     <input type="hidden" name="current_page" value='<?php echo 'cart' ?>'>
                     <button
@@ -215,7 +215,7 @@
 				</li>
 			</ul>
 
-			<a class="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="http://localhost/fill-rouge/user/order"> Checkout </a>
+			<a class="px-4 py-3 mb-2 inline-block text-lg w-full text-center font-medium text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href="http://localhost/fill-rouge/user/checkout"> Checkout </a>
 
 			<a class="px-4 py-3 inline-block text-lg w-full text-center font-medium text-green-600 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100" href="http://localhost/fill-rouge/user/index"> Back to shop </a>
 
