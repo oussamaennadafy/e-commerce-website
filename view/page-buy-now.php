@@ -103,7 +103,7 @@
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center" aria-current="page">
-            <a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/cart"> Cart </a>
+            <a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/details/<?php echo $id ?>"> details </a>
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center">Order</li>
@@ -163,6 +163,7 @@
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
                     placeholder="Type here"
+                    value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['first_name'] ;} ?>'
                   />
                 </div>
 
@@ -172,6 +173,7 @@
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
                     placeholder="Type here"
+                    value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['last_name'] ;} ?>'
                   />
                 </div>
               </div>
@@ -184,12 +186,13 @@
                       class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
                       type="text"
                       placeholder="Code"
-                      value="+998"
+                      value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['code_phone'] ;} else { echo '+998';} ?>'
                     />
                     <input
                       class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
                       type="text"
                       placeholder="Type phone"
+                      value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['phone'] ;} ?>'
                     />
                   </div>
                 </div>
@@ -200,6 +203,7 @@
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="email"
                     placeholder="Type here"
+                    value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['email'] ;} ?>'
                   />
                 </div>
               </div>
@@ -224,9 +228,9 @@
                     ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>Express delivery</span>
+                    <span>Fedex delivery</span>
                     <small class="block text-sm text-gray-400"
-                      >3-4 days via Fedex</small
+                      >about 3-4 days</small
                     >
                   </p>
                 </label>
@@ -237,9 +241,9 @@
                     ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>Post office</span>
+                    <span>DHL delevery</span>
                     <small class="block text-sm text-gray-400"
-                      >20-30 days via post</small
+                      >about 2-6 days</small
                     >
                   </p>
                 </label>
