@@ -104,7 +104,6 @@ class UserController
                 if (!empty($_POST['first_name'])) {
                     if (!empty($_POST['last_name'])) {
                         if (!empty($_POST['code_number']) && !empty($_POST['phone_number']) && is_numeric($_POST['code_number']) && is_numeric($_POST['phone_number'])) {
-                            $phone = $_POST['code_number'] . $_POST['phone_number'];
                             if (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                                 if (!empty($_POST['address'])) {
                                     if (!empty($_POST['password'])) {
@@ -116,7 +115,8 @@ class UserController
                                                     'id' => $Lastid,
                                                     'first_name' => $_POST['first_name'],
                                                     'last_name' => $_POST['last_name'],
-                                                    'phone' => $phone,
+                                                    'code_phone' => $_POST['code_number'],
+                                                    'phone' => $_POST['phone_number'],
                                                     'email' => $_POST['email'],
                                                     'address' => $_POST['address'],
                                                     'password' => $_POST['password']
@@ -289,11 +289,11 @@ class UserController
         require_once __DIR__ . './../view/page-order.php';
     }
     
-    public function buyNow($id,$db)
+    public function buyNow($id)
     {
         //logic of page
         session_start();
-        $db;
+        print_r($_SESSION['user']);
         require_once __DIR__ . './../view/page-buy-now.php';
     }
 }
