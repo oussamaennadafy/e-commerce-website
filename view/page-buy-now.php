@@ -337,15 +337,8 @@
               <hr class="my-4" />
               <!-- payment -->
               <h2 class="text-xl font-semibold mb-5">Payment information</h2>
-              <article class='grid grid-cols-2 gap-x-3'>
-              <div class='mb-4'>
-                <label class='mb-1 inline-block' for="full_name">
-                  Your Name
-                </label>
-                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
-                 type="text" name="full_name" id="full_name" placeholder='Ex: john doe'>
-              </div>
-              <div class='mb-4'>
+              <form class='grid grid-cols-4 gap-x-3'>
+              <div class='mb-4 col-span-2'>
                 <label class='mb-1 inline-block' for="card_number">
                   Card Number
                 </label>
@@ -366,8 +359,8 @@
                 <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
                  type="text" name="cvv" id="cvv" placeholder='123'>
               </div>
-              </article>
-              <p class='text-gray-400 my-1'><i class="w-5 fa fa-lock"></i>Your Data is Secure via SSL</p>
+              </form>
+              <p class='text-gray-400 my-1'><i class="w-5 fa fa-lock"></i>Your Data is not Secure via SSL</p>
               <!-- end payment -->
               
 
