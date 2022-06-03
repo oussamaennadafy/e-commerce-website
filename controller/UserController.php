@@ -297,4 +297,5 @@ class UserController
         print_r($product);
         require_once __DIR__ . './../view/page-buy-now.php';
     }
+
 }
