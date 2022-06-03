@@ -204,26 +204,6 @@ class UserController
               $invalid_quantity = true;
             }   
         }
-        /////
-        if(isset($_POST['buy_now'])) {
-            if($_POST['quantity'] >= 1) {
-             if($_POST['quantity'] <= $product['quantity']) {
-              if($_POST['color'] != 'Select Color') {
-                if($_POST['size'] != 'Select Size') {
-                    header('Location: http://localhost/fill-rouge/user/index');
-                } else {
-                $invalid_size = true;
-                }
-              } else {
-                $invalid_color = true;
-              }                 
-             } else {
-                $unavailbale_quantity = true;
-             }
-            } else { 
-              $invalid_quantity = true;
-            }   
-        }
         ////////////////////
         require_once __DIR__ . './../view/page-details.php';
     }
@@ -290,6 +270,27 @@ class UserController
     {
         //logic of page
         session_start();
+
+        /////
+        if(isset($_POST['buy_now'])) {
+            if($_POST['quantity'] >= 1) {
+             if($_POST['quantity'] <= $product['quantity']) {
+              if($_POST['color'] != 'Select Color') {
+                if($_POST['size'] != 'Select Size') {
+                } else {
+                $invalid_size = true;
+                }
+              } else {
+                $invalid_color = true;
+              }                 
+             } else {
+                $unavailbale_quantity = true;
+             }
+            } else { 
+              $invalid_quantity = true;
+            }   
+        }
+
         require_once __DIR__ . './../view/page-buy-one.php';
     }
 }

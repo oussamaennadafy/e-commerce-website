@@ -275,17 +275,7 @@
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
 						<!-- /////////////////////// -->
-						<form action="">
-							<input type="hidden" name="">
-
-
-							<input type='hidden' value='<?php if(isset($_POST['add_to_cart_btn'])) {echo $_POST['quantity'] ;}else {echo 1;} ?>' type="number" name="quantity" class='flex-grow appearance-none border border-gray-200 font- bg-gray-100 rounded py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 text-center w-16
-							<?php if($invalid_quantity == true || $unavailbale_quantity == true) {echo 'border-red-400 hover:border-red-500 focus:border-red-500';} ?>
-							'>
-
-
-
-
+						<form action="http://localhost/fill-rouge/user/buyNow" method='post'>
 							<button
 								type='submit'
 								name='buy_now'
