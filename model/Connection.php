@@ -68,7 +68,14 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function selectOne($id)
+	public function selectOne($table,$id)
+	{
+		$query = $this->conn->prepare("SELECT * FROM `$table` where id=$id");
+		$query->execute();
+		return $query->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function selectOneCopy($id)
 	{
 		$query = $this->conn->prepare("SELECT `id`,`name_item`,`price_item`,`first_img` FROM `products` where id=$id");
 		$query->execute();

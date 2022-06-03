@@ -25,9 +25,14 @@ class Product
     return $ctn->selectLastProducts('products');
   }
 
-  public static function selectOne($id) {
+  public static function selectOne($table,$id) {
     $ctn = new Connection;
-    return $ctn->selectOne($id);
+    return $ctn->selectOne($table,$id);
+  }
+
+  public static function selectOneCopy($id) {
+    $ctn = new Connection;
+    return $ctn->selectOneCopy($id);
   }
 
   public static function selectOneProduct($id)

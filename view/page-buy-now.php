@@ -357,7 +357,7 @@
               <ul>
                 <li class="flex justify-between mb-1">
                   <span>Total price:</span>
-                  <span>$245.97</span>
+                  <span>$<?php echo $product['price_item']*$_COOKIE['quantity'] ?></span>
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>Discount:</span>
@@ -369,7 +369,7 @@
                 </li>
                 <li class="border-t flex justify-between mt-3 pt-3">
                   <span>Total price:</span>
-                  <span class="text-gray-900 font-bold">$420.00</span>
+                  <span class="text-gray-900 font-bold">$<?php echo $product['price_item']*$_COOKIE['quantity'] + 0.99 ?></span>
                 </li>
               </ul>
 
@@ -395,81 +395,36 @@
 
               <figure class="flex items-center mb-4 leading-5">
                 <div>
-                  <div
+                  <a
+                    href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'
                     class="block relative w-20 h-20 rounded p-1 border border-gray-200"
                   >
                     <img
                       width="70"
                       height="70"
-                      src="../../view/images/items/1.jpg"
+                      src="../../view/uploads/<?php echo $product['first_img'] ?>"
                       alt="Title"
                     />
                     <span
                       class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
                     >
-                      1
+                      <?php echo $_COOKIE['quantity'] ?>
                     </span>
-                  </div>
+                  </a>
                 </div>
                 <figcaption class="ml-3">
                   <p>
-                    GoPRO Action Camera <br />
-                    Model: G-200
+                   <div class='whitespace-nowrap w-64 overflow-hidden'>
+                     <a class='hover:text-blue-600' href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'>
+                     <?php echo $product['name_item'] ?>
+                    </a> 
+                    </div>
                   </p>
-                  <p class="mt-1 text-gray-400">Total: $12.99</p>
+                  <p class="mt-1 text-gray-400">color: <?php echo $_COOKIE['color'] ?></p>
+                  <p class="mt-1 text-gray-400">size: <?php echo $_COOKIE['size'] ?></p>
                 </figcaption>
               </figure>
 
-              <figure class="flex items-center mb-4 leading-5">
-                <div>
-                  <div
-                    class="block relative w-20 h-20 rounded p-1 border border-gray-200"
-                  >
-                    <img
-                      width="70"
-                      height="70"
-                      src="../../view/images/items/2.jpg"
-                      alt="Title"
-                    />
-                    <span
-                      class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
-                    >
-                      2
-                    </span>
-                  </div>
-                </div>
-                <figcaption class="ml-3">
-                  <p>Modern Product Name Here</p>
-                  <p class="mt-1 text-gray-400">Total: $12.99</p>
-                </figcaption>
-              </figure>
-
-              <figure class="flex items-center mb-4 leading-5">
-                <div>
-                  <div
-                    class="block relative w-20 h-20 rounded p-1 border border-gray-200"
-                  >
-                    <img
-                      width="70"
-                      height="70"
-                      src="../../view/images/items/8.jpg"
-                      alt="Title"
-                    />
-                    <span
-                      class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
-                    >
-                      5
-                    </span>
-                  </div>
-                </div>
-                <figcaption class="ml-3">
-                  <p>
-                    Another Best Product <br />
-                    Name Goes Here
-                  </p>
-                  <p class="mt-1 text-gray-400">Total: $12.99</p>
-                </figcaption>
-              </figure>
             </article>
           </aside>
           <!-- col.// -->
