@@ -340,7 +340,7 @@
               <div class="flex justify-end space-x-2">
                 <a
                   class="px-5 py-2 inline-block text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600"
-                  href="#"
+                  href="http://localhost/fil-rouge/index"
                 >
                   Back
                 </a>

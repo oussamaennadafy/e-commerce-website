@@ -204,6 +204,29 @@ class UserController
               $invalid_quantity = true;
             }   
         }
+        /////
+        if(isset($_POST['buy_now'])) {
+            if($_POST['quantity'] >= 1) {
+             if($_POST['quantity'] <= $product['quantity']) {
+              if($_POST['color'] != 'Select Color') {
+                if($_POST['size'] != 'Select Size') {
+                    setcookie("quantity", $_POST['quantity'] , time() + 3600 , "/");
+                    setcookie("color", $_POST['color'] , time() + 3600 , "/");
+                    setcookie("size", $_POST['size'] , time() + 3600 , "/");
+                    header('Location: http://localhost/fill-rouge/user/buyNow/'.$_POST['product_id']);
+                } else {
+                $invalid_size = true;
+                }
+              } else {
+                $invalid_color = true;
+              }                 
+             } else {
+                $unavailbale_quantity = true;
+             }
+            } else { 
+              $invalid_quantity = true;
+            }   
+        }
         ////////////////////
         require_once __DIR__ . './../view/page-details.php';
     }
@@ -270,27 +293,7 @@ class UserController
     {
         //logic of page
         session_start();
-
-        /////
-        if(isset($_POST['buy_now'])) {
-            if($_POST['quantity'] >= 1) {
-             if($_POST['quantity'] <= $product['quantity']) {
-              if($_POST['color'] != 'Select Color') {
-                if($_POST['size'] != 'Select Size') {
-                } else {
-                $invalid_size = true;
-                }
-              } else {
-                $invalid_color = true;
-              }                 
-             } else {
-                $unavailbale_quantity = true;
-             }
-            } else { 
-              $invalid_quantity = true;
-            }   
-        }
-
+        //
         require_once __DIR__ . './../view/page-buy-one.php';
     }
 }

@@ -275,14 +275,13 @@
 					<!-- action buttons -->
 					<div class="flex flex-wrap gap-2">
 						<!-- /////////////////////// -->
-						<form action="http://localhost/fill-rouge/user/buyNow" method='post'>
+						<input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
 							<button
 								type='submit'
 								name='buy_now'
 								class="px-4 py-2 inline-block text-white bg-yellow-500 border border-transparent rounded-md hover:bg-yellow-600">
 								Buy now
 							</button>
-							</form>
 						<!-- /////////////////////// -->
 						<?php if(isset($_SESSION['user']['id'])) { ?>
 						<button
