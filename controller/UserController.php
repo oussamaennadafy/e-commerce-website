@@ -293,8 +293,7 @@ class UserController
     {
         //logic of page
         session_start();
-        print_r($_SESSION['user']);
-        
+        print_r(Product::selectOne('products',$id));
         require_once __DIR__ . './../view/page-buy-now.php';
     }
 }

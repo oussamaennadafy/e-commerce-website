@@ -361,11 +361,11 @@
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>Discount:</span>
-                  <span class="text-green-500">- $60.00</span>
+                  <span class="text-green-500">- $0.00</span>
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>TAX:</span>
-                  <span>$14.00</span>
+                  <span>$0.99</span>
                 </li>
                 <li class="border-t flex justify-between mt-3 pt-3">
                   <span>Total price:</span>
