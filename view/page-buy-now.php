@@ -229,8 +229,11 @@
                   /></span>
                   <p class="ml-2">
                     <span>Fedex delivery</span>
-                    <small class="block text-sm text-gray-400"
-                      >about 3-4 days</small
+                    <small class="inline-block text-sm text-gray-400"
+                      >about 5-7 days</small
+                    >
+                    <small class="inline-block text-xs mt-1 text-green-600"
+                      >(Recommanded)</small
                     >
                   </p>
                 </label>
@@ -243,7 +246,7 @@
                   <p class="ml-2">
                     <span>DHL delevery</span>
                     <small class="block text-sm text-gray-400"
-                      >about 2-6 days</small
+                      >about 3-9 days</small
                     >
                   </p>
                 </label>
@@ -254,9 +257,9 @@
                     ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>Self pick-up</span>
+                    <span>UPS delevery</span>
                     <small class="block text-sm text-gray-400"
-                      >Nearest location</small
+                      >about 2-10 days</small
                     >
                   </p>
                 </label>
@@ -270,29 +273,19 @@
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
                     placeholder="Type here"
+                    value='<?php if(isset($_SESSION['user'])) { echo $_SESSION['user']['address']; } ?>'
                   />
                 </div>
 
                 <div class="mb-4 md:col-span-1">
                   <label class="block mb-1"> City* </label>
                   <div class="relative">
-                    <select
+                    <input
                       class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                      type="text"
+                      placeholder="Type here"
                     >
-                      <option>Select here</option>
-                      <option>Second option</option>
-                      <option>Third option</option>
-                    </select>
-                    <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
-                      <svg
-                        width="22"
-                        height="22"
-                        class="fill-current"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M7 10l5 5 5-5H7z" />
-                      </svg>
-                    </i>
+                    </input>
                   </div>
                 </div>
               </div>
@@ -317,7 +310,7 @@
                 </div>
 
                 <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> ZIP code </label>
+                  <label class="block mb-1"> ZIP code* </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"

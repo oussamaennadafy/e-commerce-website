@@ -52,8 +52,6 @@ class Connection
 
 
 
-
-
 	public function selectAll($table)
 	{
 		$query = $this->conn->prepare("SELECT * FROM `$table`");

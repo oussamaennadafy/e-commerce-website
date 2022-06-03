@@ -294,6 +294,7 @@ class UserController
         //logic of page
         session_start();
         print_r($_SESSION['user']);
+        
         require_once __DIR__ . './../view/page-buy-now.php';
     }
 }
