@@ -109,7 +109,7 @@
 					<h5 class="font-semibold text-lg"><?php echo $_SESSION['user']['first_name'].' '.$_SESSION['user']['last_name'] ?></h5>
 					<p>	
 						Email: <a href="mailto:myusername@gmail.com"><?php echo $_SESSION['user']['email'] ?></a> | 
-						Phone: <a href="tel:+1234567890988"><?php echo $_SESSION['user']['phone'] ?></a>
+						Phone: <a href="tel:+1234567890988"><?php echo $_SESSION['user']['code_phone'].$_SESSION['user']['phone'] ?></a>
 					</p>
 				</figcaption>
 			</figure>

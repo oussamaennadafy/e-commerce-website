@@ -108,7 +108,7 @@ class UserController
                                 if (!empty($_POST['address'])) {
                                     if (!empty($_POST['password'])) {
                                         if (isset($_POST['terms_and_conditions'])) {
-                                            $user = new User($_POST['first_name'], $_POST['last_name'], $phone, $_POST['email'], $_POST['address'], $_POST['password']);
+                                            $user = new User($_POST['first_name'], $_POST['last_name'], $_POST['code_number'],$_POST['phone_number'], $_POST['email'], $_POST['address'], $_POST['password']);
                                             $Lastid = $user->insertUser();
                                             $_SESSION['user'] =
                                                 [
