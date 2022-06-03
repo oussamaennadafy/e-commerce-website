@@ -288,12 +288,12 @@ class UserController
         session_start();
         require_once __DIR__ . './../view/page-order.php';
     }
-
-    public function buyNow()
+    
+    public function buyNow($id,$db)
     {
         //logic of page
         session_start();
-        //
-        require_once __DIR__ . './../view/page-buy-one.php';
+        $db;
+        require_once __DIR__ . './../view/page-buy-now.php';
     }
 }
