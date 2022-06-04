@@ -64,6 +64,7 @@ class UserController
                                 'id' => $User['id'],
                                 'first_name' => $User['first_name'],
                                 'last_name' => $User['last_name'],
+                                'code_phone' => $User['code_number'],
                                 'phone' => $User['phone_number'],
                                 'email' => $User['email_address'],
                                 'address' => $User['address'],
@@ -293,6 +294,9 @@ class UserController
     {
         //logic of page
         session_start();
+        if(isset($_POST['place_order'])) {
+            echo'1';
+        }
         $product = Product::selectOneCopy($id);
         require_once __DIR__ . './../view/page-buy-now.php';
     }

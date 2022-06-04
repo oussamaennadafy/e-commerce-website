@@ -150,7 +150,7 @@
             </article>
             <?php endif ?>
             <!-- card.// -->
-
+            <form action="http://localhost/fill-rouge/user/buyNow/<?php echo $product['id'] ?>" method='post'>
             <article
               class="border border-gray-200 bg-white shadow-sm rounded p-4 lg:p-6 mb-5"
             >
@@ -337,7 +337,7 @@
               <hr class="my-4" />
               <!-- payment -->
               <h2 class="text-xl font-semibold mb-5">Payment information</h2>
-              <form class='grid grid-cols-4 gap-x-3'>
+              <div class='grid grid-cols-4 gap-x-3'>
               <div class='mb-4 col-span-2'>
                 <label class='mb-1 inline-block' for="card_number">
                   Card Number
@@ -359,7 +359,7 @@
                 <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
                  type="text" name="cvv" id="cvv" placeholder='123'>
               </div>
-              </form>
+              </div>
               <p class='text-gray-400 my-1'><i class="w-5 fa fa-lock"></i>Your Data is not Secure via SSL</p>
               <!-- end payment -->
               
@@ -372,14 +372,17 @@
                 >
                   Back
                 </a>
-                <a
-                  class="px-5 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700"
+                <input
+                  type='submit'
+                  value='Place Order'
+                  name='place_order'
+                  class="px-5 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
                   href="#"
                 >
-                  Place Order
-                </a>
+                </input>
               </div>
             </article>
+            </form>
             <!-- card.// -->
           </main>
           <aside class="md:w-1/3">
