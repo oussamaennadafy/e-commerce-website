@@ -229,12 +229,12 @@
                   /></span>
                   <p class="ml-2">
                     <span>Fedex delivery</span>
-                    <small class="inline-block text-sm text-gray-400"
-                      >about 5-7 days</small
-                    >
-                    <small class="inline-block text-xs mt-1 text-green-600"
-                      >(Recommanded)</small
-                    >
+                      <small class="inline-block text-sm text-gray-400"
+                        >about 5-7 days</small
+                      >
+                      <small class="inline-block text-xs mt-1 text-green-600"
+                        >(Recommanded)</small
+                      >
                   </p>
                 </label>
                 <label
@@ -244,7 +244,7 @@
                     ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>DHL delevery</span>
+                    <span>DHL delivery</span>
                     <small class="block text-sm text-gray-400"
                       >about 3-9 days</small
                     >
@@ -257,7 +257,7 @@
                     ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>UPS delevery</span>
+                    <span>UPS delivery</span>
                     <small class="block text-sm text-gray-400"
                       >about 2-10 days</small
                     >
