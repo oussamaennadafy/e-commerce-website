@@ -161,6 +161,7 @@
                   <label class="block mb-1"> First name </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    name='first_name'
                     type="text"
                     placeholder="Type here"
                     value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['first_name'] ;} ?>'
@@ -172,6 +173,7 @@
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
+                    name='last_name'
                     placeholder="Type here"
                     value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['last_name'] ;} ?>'
                   />
@@ -186,11 +188,13 @@
                       class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
                       type="text"
                       placeholder="Code"
+                      name='code_number'
                       value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['code_phone'] ;} else { echo '+998';} ?>'
                     />
                     <input
                       class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
                       type="text"
+                      name='phone_number'
                       placeholder="Type phone"
                       value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['phone'] ;} ?>'
                     />
@@ -202,6 +206,7 @@
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="email"
+                    name='email'
                     placeholder="Type here"
                     value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['email'] ;} ?>'
                   />
@@ -209,7 +214,7 @@
               </div>
 
               <label class="flex items-center w-max my-4">
-                <input checked="" name="" type="checkbox" class="h-4 w-4" />
+                <input checked name="terms_and_conditions" type="checkbox" class="h-4 w-4" />
                 <span class="ml-2 inline-block text-gray-500">
                   I agree with Terms and Conditions
                 </span>
@@ -225,7 +230,7 @@
                   class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
                 >
                   <span
-                    ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
+                    ><input checked name="shipping_method" value='fedex' type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
                     <span>Fedex delivery</span>
@@ -241,7 +246,7 @@
                   class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
                 >
                   <span
-                    ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
+                    ><input name="shipping_method" value='DHL' type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
                     <span>DHL delivery</span>
@@ -254,7 +259,7 @@
                   class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
                 >
                   <span
-                    ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
+                    ><input name="shipping_method" value='UPS' type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
                     <span>UPS delivery</span>
@@ -449,7 +454,7 @@
                 <figcaption class="ml-3">
                   <p>
                    <div class='whitespace-nowrap w-64 overflow-hidden'>
-                     <a class='hover:text-blue-600' href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'>
+                     <a class='bg-gradient-to-r from-gray-500 via-gray-500 via-gray-500 to-transparent bg-clip-text text-transparent hover:from-blue-600 hover:via-blu-600 hover:to-transparent' href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'>
                      <?php echo $product['name_item'] ?>
                     </a> 
                     </div>

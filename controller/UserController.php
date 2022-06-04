@@ -295,7 +295,13 @@ class UserController
         //logic of page
         session_start();
         if(isset($_POST['place_order'])) {
-            echo'1';
+           echo $_POST['first_name'];
+           echo $_POST['last_name'];
+           echo $_POST['code_number'];
+           echo $_POST['phone_number'];
+           echo $_POST['email'];
+           echo $_POST['terms_and_conditions'];
+           echo $_POST['shipping_method'];
         }
         $product = Product::selectOneCopy($id);
         require_once __DIR__ . './../view/page-buy-now.php';
