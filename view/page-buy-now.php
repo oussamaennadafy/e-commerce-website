@@ -16,6 +16,13 @@
       type="text/css"
       rel="stylesheet"
     />
+    <style>
+      input[type=number]::-webkit-inner-spin-button, 
+      input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+      }
+    </style>
   </head>
 
   <body>
@@ -277,6 +284,7 @@
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
+                    name='address'
                     placeholder="Type here"
                     value='<?php if(isset($_SESSION['user'])) { echo $_SESSION['user']['address']; } ?>'
                   />
@@ -288,6 +296,7 @@
                     <input
                       class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                       type="text"
+                      name='city'
                       placeholder="Type here"
                     >
                     </input>
@@ -301,6 +310,7 @@
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
+                    name='house'
                     placeholder="Type here"
                   />
                 </div>
@@ -310,6 +320,7 @@
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                     type="text"
+                    name='building'
                     placeholder="Type here"
                   />
                 </div>
@@ -318,7 +329,8 @@
                   <label class="block mb-1"> ZIP code* </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="text"
+                    type="number"
+                    name='zip'
                     placeholder="Type here"
                   />
                 </div>
@@ -328,12 +340,13 @@
                 <label class="block mb-1"> Other info </label>
                 <textarea
                   placeholder="Type your wishes"
+                  name='other_info'
                   class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                 ></textarea>
               </div>
 
               <label class="flex items-center w-max my-4">
-                <input checked="" name="" type="checkbox" class="h-4 w-4" />
+                <input checked name="save_info" type="checkbox" class="h-4 w-4" />
                 <span class="ml-2 inline-block text-gray-500">
                   Save my information for future purchase
                 </span>
@@ -348,7 +361,7 @@
                   Card Number
                 </label>
                 <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
-                 type="text" autocomplete='off' name="card_number" id="card_number" placeholder='Ex: xxxx xxxx xxxx xxxx'>
+                 type="text" name="card_number" id="card_number" placeholder='Ex: xxxx xxxx xxxx xxxx'>
               </div>
               <div class='mb-4'>
                 <label class='mb-1 inline-block' for="expired">
