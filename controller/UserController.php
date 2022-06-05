@@ -295,40 +295,25 @@ class UserController
         //logic of page
         session_start();
         if(isset($_POST['place_order'])) {
-           
+
            echo $_POST['first_name'];
-           echo '<br>';
            echo $_POST['last_name'];
-           echo '<br>';
            echo $_POST['code_number'];
-           echo '<br>';
            echo $_POST['phone_number'];
-           echo '<br>';
            echo $_POST['email'];
-           echo '<br>';
            echo $_POST['terms_and_conditions'];
-           echo '<br>';
            echo $_POST['shipping_method'];
-           echo '<br>';
            echo $_POST['address'];
-           echo '<br>';
            echo $_POST['city'];
-           echo '<br>';
            echo $_POST['house'];
-           echo '<br>';
            echo $_POST['building'];
-           echo '<br>';
            echo $_POST['zip'];
-           echo '<br>';
            echo $_POST['other_info'];
-           echo '<br>';
            echo $_POST['save_info'];
-           echo '<br>';
            echo $_POST['card_number'];
-           echo '<br>';
            echo $_POST['expired'];
-           echo '<br>';
            echo $_POST['cvv'];
+           
         }
         $product = Product::selectOneCopy($id);
         require_once __DIR__ . './../view/page-buy-now.php';
