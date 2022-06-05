@@ -291,48 +291,16 @@
                 </div>
 
                 <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> City* </label>
+                  <label class="block mb-1"> Zip code* </label>
                   <div class="relative">
                     <input
                       class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                       type="text"
-                      name='city'
+                      name='zip'
                       placeholder="Type here"
                     >
                     </input>
                   </div>
-                </div>
-              </div>
-
-              <div class="grid md:grid-cols-3 gap-x-3">
-                <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> House </label>
-                  <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="text"
-                    name='house'
-                    placeholder="Type here"
-                  />
-                </div>
-
-                <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> Building </label>
-                  <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="text"
-                    name='building'
-                    placeholder="Type here"
-                  />
-                </div>
-
-                <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> ZIP code* </label>
-                  <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="number"
-                    name='zip'
-                    placeholder="Type here"
-                  />
                 </div>
               </div>
 
@@ -341,16 +309,19 @@
                 <textarea
                   placeholder="Type your wishes"
                   name='other_info'
-                  class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                  class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                  <?php if(!isset($_SESSION['user'])) { echo 'mb-4'; } ?>
+                  "
                 ></textarea>
               </div>
-
+             <?php if(isset($_SESSION['user'])) { ?>
               <label class="flex items-center w-max my-4">
                 <input checked name="save_info" type="checkbox" class="h-4 w-4" />
                 <span class="ml-2 inline-block text-gray-500">
                   Save my information for future purchase
                 </span>
               </label>
+              <?php } ?>
               
               <hr class="my-4" />
               <!-- payment -->

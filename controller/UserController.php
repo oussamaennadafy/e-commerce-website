@@ -304,16 +304,13 @@ class UserController
            echo $_POST['terms_and_conditions'];
            echo $_POST['shipping_method'];
            echo $_POST['address'];
-           echo $_POST['city'];
-           echo $_POST['house'];
-           echo $_POST['building'];
            echo $_POST['zip'];
            echo $_POST['other_info'];
            echo $_POST['save_info'];
            echo $_POST['card_number'];
            echo $_POST['expired'];
            echo $_POST['cvv'];
-           
+
         }
         $product = Product::selectOneCopy($id);
         require_once __DIR__ . './../view/page-buy-now.php';
