@@ -294,22 +294,54 @@ class UserController
     {
         //logic of page
         session_start();
-        if(isset($_POST['place_order'])) {
+        $first_name = false;
+        $last_name = false;
+        $code = false;
+        $phone = false;
+        $email = false;
+        $terms_and_conditions = false;
+        $address = false;
+        $zip = false;
+        $card_number = false;
+        $expired = false;
+        $cvv = false;
 
-           echo $_POST['first_name'];
-           echo $_POST['last_name'];
-           echo $_POST['code_number'];
-           echo $_POST['phone_number'];
-           echo $_POST['email'];
-           echo $_POST['terms_and_conditions'];
-           echo $_POST['shipping_method'];
-           echo $_POST['address'];
-           echo $_POST['zip'];
-           echo $_POST['other_info'];
-           echo $_POST['save_info'];
-           echo $_POST['card_number'];
-           echo $_POST['expired'];
-           echo $_POST['cvv'];
+        if(isset($_POST['place_order'])) {
+         if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
+          if(isset($_POST['last_name']) && !empty($_POST['last_name'])) {
+            if(isset($_POST['code_number']) && !empty($_POST['code_number'])) {
+             if(isset($_POST['phone']) && !empty($_POST['phone'])) {
+                if(isset($_POST['email']) && !empty($_POST['email'])) {
+
+                } else {
+                $email = true;
+                }
+             } else {
+             $phone = true;
+             }
+            } else {
+             $code = true;
+            }
+           } else {
+            $last_name = true;
+           }
+          } else {
+            $first_name = true;
+          }
+        //    echo $_POST['first_name'];
+        //    echo $_POST['last_name'];
+        //    echo $_POST['code_number'];
+        //    echo $_POST['phone_number'];
+        //    echo $_POST['email'];
+        //    echo $_POST['terms_and_conditions'];
+        //    echo $_POST['shipping_method'];
+        //    echo $_POST['address'];
+        //    echo $_POST['zip'];
+        //    echo $_POST['other_info'];
+        //    echo $_POST['save_info'];
+        //    echo $_POST['card_number'];
+        //    echo $_POST['expired'];
+        //    echo $_POST['cvv'];
 
         }
         $product = Product::selectOneCopy($id);

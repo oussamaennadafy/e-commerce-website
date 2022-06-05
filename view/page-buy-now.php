@@ -167,23 +167,31 @@
                 <div class="mb-4">
                   <label class="block mb-1"> First name </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($first_name) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
                     name='first_name'
                     type="text"
                     placeholder="Type here"
-                    value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['first_name'] ;} ?>'
+                    value='<?php if(!isset($_POST['place_order'])){  } elseif(isset($_POST['place_order'])) ?>'
                   />
+                  <?php if($first_name) {?>
+                  <div class='text-red-500'>first name is required</div>
+                  <?php } ?>
                 </div>
 
                 <div class="mb-4">
                   <label class="block mb-1"> Last name </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($last_name) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
                     type="text"
                     name='last_name'
                     placeholder="Type here"
                     value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['last_name'] ;} ?>'
                   />
+                  <?php if($last_name) {?>
+                  <div class='text-red-500'>last name is required</div>
+                  <?php } ?>
                 </div>
               </div>
 
@@ -192,7 +200,9 @@
                   <label class="block mb-1"> Phone </label>
                   <div class="flex w-full">
                     <input
-                      class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
+                      class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+                      <?php if($code) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
+"
                       type="text"
                       placeholder="Code"
                       name='code_number'
@@ -205,6 +215,15 @@
                       placeholder="Type phone"
                       value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['phone'] ;} ?>'
                     />
+                    <?php if($code && $phone) {?>
+                    <div class='text-red-500'>code and phone number are required</div>
+                    <?php } ?>
+                    <?php if($code && !$phone) {?>
+                    <div class='text-red-500'>code number is required</div>
+                    <?php } ?>
+                    <?php if(!$code && $phone) {?>
+                    <div class='text-red-500'>phone number is required</div>
+                    <?php } ?>
                   </div>
                 </div>
 
