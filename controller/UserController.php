@@ -2,7 +2,7 @@
 
 require_once __DIR__ . "./../model/user.php";
 require_once __DIR__ . "./../model/product.php";
-require_once __DIR__ . "./../model/guestOrder.php";
+require_once __DIR__ . "./../model/orderOne.php";
 
 
 class UserController
@@ -263,7 +263,7 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                         if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                         if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv']);
+                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
                         $ctn->addOrderGuest();
                         header('Location: http://localhost/fill-rouge/user/index');
                         } else {
@@ -405,7 +405,7 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                      if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                       if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv']);
+                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],null);
                         $ctn->addOrderGuest();
                         header('Location: http://localhost/fill-rouge/user/index');
                       } else {
