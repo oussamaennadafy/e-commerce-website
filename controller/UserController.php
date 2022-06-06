@@ -306,7 +306,6 @@ class UserController
         $expired = false;
         $cvv = false;
 
-        // $cvv = isset($_POST['cvv']) ? true : false;
 
         if(isset($_POST['place_order'])) {
          if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
