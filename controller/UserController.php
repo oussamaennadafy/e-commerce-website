@@ -315,7 +315,11 @@ class UserController
                  if(isset($_POST['terms_and_conditions'])) {
                   if(isset($_POST['address']) && !empty($_POST['address'])) {
                    if(isset($_POST['zip']) && !empty($_POST['zip'])) {
+                    if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
 
+                    } else {
+                     $card_number = true;
+                    }
                    } else {
                        $zip = true;
                    }

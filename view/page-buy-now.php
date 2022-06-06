@@ -165,7 +165,7 @@
 
               <div class="grid grid-cols-2 gap-x-3">
                 <div class="mb-4">
-                  <label class="block mb-1"> First name </label>
+                  <label class="block mb-1"> First name* </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
                     <?php if($first_name) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
@@ -180,7 +180,7 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-1"> Last name </label>
+                  <label class="block mb-1"> Last name* </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
                     <?php if($last_name) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
@@ -197,7 +197,7 @@
 
               <div class="grid lg:grid-cols-2 gap-x-3">
                 <div class="mb-4">
-                  <label class="block mb-1"> Phone </label>
+                  <label class="block mb-1"> Phone* </label>
                   <div class="flex w-full">
                     <input
                       class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
@@ -227,7 +227,7 @@
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-1"> Email </label>
+                  <label class="block mb-1"> Email* </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
                     <?php if($email) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"""
@@ -348,14 +348,6 @@
                   "
                 ></textarea>
               </div>
-             <?php if(isset($_SESSION['user'])) { ?>
-              <label class="flex items-center w-max my-4">
-                <input checked name="save_info" type="checkbox" class="h-4 w-4" />
-                <span class="ml-2 inline-block text-gray-500">
-                  Save my information for future purchase
-                </span>
-              </label>
-              <?php } ?>
               
               <hr class="my-4" />
               <!-- payment -->
