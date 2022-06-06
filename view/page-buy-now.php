@@ -217,13 +217,13 @@
                       placeholder="Type phone"
                       value='<?php if(isset($_POST['place_order'])){ echo $_POST['phone_number']; }?>'
                     />
-                    <?php if($phone && !$code) {?>
-                    <div class='text-red-500'>phone number is required</div>
-                    <?php } ?>
-                    <?php if(!$phone && $code) {?>
-                    <div class='text-red-500'>code number is required</div>
-                    <?php } ?>
                   </div>
+                  <?php if($phone && !$code) {?>
+                  <div class='text-red-500'>phone number is required</div>
+                  <?php } ?>
+                  <?php if(!$phone && $code) {?>
+                  <div class='text-red-500'>code number is required</div>
+                  <?php } ?>
                 </div>
 
                 <div class="mb-4">
@@ -344,6 +344,7 @@
                   placeholder="Type your wishes"
                   name='other_info'
                   class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                  value='<?php if(isset($_POST['place_order'])){ echo $_POST['other_info']; }?>'
                 ></textarea>
               </div>
               

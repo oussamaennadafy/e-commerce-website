@@ -22,7 +22,7 @@ Class Order {
  private $cvv;
  private $created_at;
  
- function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv,created_at)
+ function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv,$created_at)
  {
   $this->product_id = $product_id;
   $this->quantity = $quantity;
@@ -45,8 +45,8 @@ Class Order {
   $ctn = new Connection();
   return $ctn->insert(
    $this->table,
-   ['first_name','last_name','code_number','phone_number','email_address','address','password'],
-   [$this->first_name,$this->last_name,$this->code_number,$this->phone_number,$this->email,$this->address,$this->password]
+   ['product_id','quantity','size','color','full_name','phone','email','shipping_method','address','zip','other_info','card_number','expired','cvv','created_at'],
+   [$this->product_id,$this->quantity,$this->size,$this->color,$this->full_name,$this->phone,$this->email,$this->shipping_method,$this->address,$this->zip,$this->other_info,$this->card_number,$this->expired,$this->cvv,$this->created_at]
  );
  }
 
