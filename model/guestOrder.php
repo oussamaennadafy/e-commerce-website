@@ -20,9 +20,8 @@ Class Order {
  private $card_number;
  private $expired;
  private $cvv;
- private $created_at;
  
- function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv,$created_at)
+ function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv)
  {
   $this->product_id = $product_id;
   $this->quantity = $quantity;
@@ -38,15 +37,14 @@ Class Order {
   $this->card_number = $card_number;
   $this->expired = $expired;
   $this->cvv = $cvv;
-  $this->created_at = $created_at;
  }
  
  public function addOrderGuest() {
   $ctn = new Connection();
-  return $ctn->insert(
+  return $ctn->insertOrder(
    $this->table,
-   ['product_id','quantity','size','color','full_name','phone','email','shipping_method','address','zip','other_info','card_number','expired','cvv','created_at'],
-   [$this->product_id,$this->quantity,$this->size,$this->color,$this->full_name,$this->phone,$this->email,$this->shipping_method,$this->address,$this->zip,$this->other_info,$this->card_number,$this->expired,$this->cvv,$this->created_at]
+   ['product_id','quantity','size','color','full_name','phone','email','shipping_method','address','zip','other_info','card_number','expired','cvv'],
+   [$this->product_id,$this->quantity,$this->size,$this->color,$this->full_name,$this->phone,$this->email,$this->shipping_method,$this->address,$this->zip,$this->other_info,$this->card_number,$this->expired,$this->cvv]
  );
  }
 

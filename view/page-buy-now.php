@@ -344,8 +344,7 @@
                   placeholder="Type your wishes"
                   name='other_info'
                   class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                  value='<?php if(isset($_POST['place_order'])){ echo $_POST['other_info']; }?>'
-                ></textarea>
+                ><?php if(isset($_POST['place_order'])){ echo $_POST['other_info']; }?></textarea>
               </div>
               
               <hr class="my-4" />

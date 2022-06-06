@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "./../model/user.php";
 require_once __DIR__ . "./../model/product.php";
+require_once __DIR__ . "./../model/guestOrder.php";
 
 
 class UserController
@@ -214,7 +215,7 @@ class UserController
                     setcookie("quantity", $_POST['quantity'] , time() + 3600 , "/");
                     setcookie("color", $_POST['color'] , time() + 3600 , "/");
                     setcookie("size", $_POST['size'] , time() + 3600 , "/");
-                    header('Location: http://localhost/fill-rouge/user/buyNow/'.$_POST['product_id']);
+                     header('Location: http://localhost/fill-rouge/user/buyNow/'.$_POST['product_id']);
                 } else {
                 $invalid_size = true;
                 }
@@ -319,7 +320,9 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                      if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                       if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                        echo 'passed';
+                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv']);
+                        $ctn->addOrderGuest();
+                        header('Location: http://localhost/fill-rouge/user/index');
                       } else {
                         $cvv = true;
                       }

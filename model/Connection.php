@@ -30,6 +30,24 @@ class Connection
 
 
 
+	public function insertOrder($table, $tableCln, $tableVal)
+	{
+		$names = "";
+		$values = "";
+		$vrls = "";
+		for ($i = 0; $i < count($tableCln); $i++) {
+			if ($i > 0) {
+				$vrls = ",";
+			}
+			$names .= $vrls . "`" . $tableCln[$i] . "`";
+			$values .= $vrls . "'" . $tableVal[$i] . "'";
+		}
+		$str = "INSERT INTO `$table`(" . $names . ") VALUES (" . $values . ")";
+		$query = $this->conn->prepare($str);
+		$query->execute();
+		
+	}
+
 	public function insert($table, $tableCln, $tableVal)
 	{
 		$names = "";
