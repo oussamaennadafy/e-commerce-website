@@ -172,7 +172,7 @@
                     name='first_name'
                     type="text"
                     placeholder="Type here"
-                    value='<?php if(!isset($_POST['place_order'])){  } elseif(isset($_POST['place_order'])) ?>'
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['first_name']; }?>'
                   />
                   <?php if($first_name) {?>
                   <div class='text-red-500'>first name is required</div>
@@ -187,7 +187,7 @@
                     type="text"
                     name='last_name'
                     placeholder="Type here"
-                    value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['last_name'] ;} ?>'
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['last_name']; }?>'
                   />
                   <?php if($last_name) {?>
                   <div class='text-red-500'>last name is required</div>
@@ -206,7 +206,7 @@
                       type="text"
                       placeholder="Code"
                       name='code_number'
-                      value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['code_phone'] ;} else { echo '+998';} ?>'
+                      value='<?php if(isset($_POST['place_order']) && !empty($_POST['code_number'])){ echo $_POST['code_number']; }else{echo '+212';}?>'
                     />
                     <input
                       class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
