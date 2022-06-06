@@ -343,9 +343,7 @@
                 <textarea
                   placeholder="Type your wishes"
                   name='other_info'
-                  class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
-                  <?php if(!isset($_SESSION['user'])) { echo 'mb-4'; } ?>
-                  "
+                  class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
                 ></textarea>
               </div>
               
@@ -357,22 +355,38 @@
                 <label class='mb-1 inline-block' for="card_number">
                   Card Number
                 </label>
-                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
-                 type="text" name="card_number" id="card_number" placeholder='Ex: xxxx xxxx xxxx xxxx'>
+                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                <?php if($card_number) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>'
+                 type="number" name="card_number" id="card_number" placeholder='Ex: xxxx xxxx xxxx xxxx'
+                 value='<?php if(isset($_POST['place_order'])){ echo $_POST['card_number']; }?>'
+                 />
+                 <?php if($card_number) {?>
+                  <div class='text-red-500'>card number is required</div>
+                <?php } ?>
               </div>
               <div class='mb-4'>
                 <label class='mb-1 inline-block' for="expired">
                   Expired
                 </label>
-                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
-                 type="text" name="expired" id="expired" placeholder='mm / yy'>
+                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                <?php if($expired) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>''
+                 type="text" name="expired" id="expired" placeholder='mm / yy'
+                 value='<?php if(isset($_POST['place_order'])){ echo $_POST['expired']; }?>'>
+                 <?php if($expired) {?>
+                  <div class='text-red-500'>expired date is required</div>
+                <?php } ?>
               </div>
               <div class='mb-4'>
                 <label class='mb-1 inline-block' for="cvv">
                   CVV
                 </label>
-                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full'
-                 type="text" name="cvv" id="cvv" placeholder='123'>
+                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                <?php if($cvv) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>'''
+                 type="number" name="cvv" id="cvv" placeholder='123'
+                 value='<?php if(isset($_POST['place_order'])){ echo $_POST['cvv']; }?>'>
+                 <?php if($cvv) {?>
+                  <div class='text-red-500'>cvv number is required</div>
+                <?php } ?>
               </div>
               </div>
               <p class='text-gray-400 my-1'><i class="w-5 fa fa-lock"></i>Your Data is not Secure via SSL</p>

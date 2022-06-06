@@ -306,6 +306,8 @@ class UserController
         $expired = false;
         $cvv = false;
 
+        // $cvv = isset($_POST['cvv']) ? true : false;
+
         if(isset($_POST['place_order'])) {
          if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
           if(isset($_POST['last_name']) && !empty($_POST['last_name'])) {
@@ -316,7 +318,15 @@ class UserController
                   if(isset($_POST['address']) && !empty($_POST['address'])) {
                    if(isset($_POST['zip']) && !empty($_POST['zip'])) {
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
-
+                     if(isset($_POST['expired']) && !empty($_POST['expired'])) {
+                      if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
+                        echo 'passed';
+                      } else {
+                        $cvv = true;
+                      }
+                     } else {
+                        $expired = true;
+                     }
                     } else {
                      $card_number = true;
                     }
