@@ -22,18 +22,26 @@ Class Order {
  private $cvv;
  private $created_at;
  
- function __construct($first_name,$last_name,$code_number,$phone_number,$email,$address,$password)
+ function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv,created_at)
  {
-  $this->first_name = $first_name;
-  $this->last_name = $last_name;
-  $this->code_number = $code_number;
-  $this->phone_number = $phone_number;
+  $this->product_id = $product_id;
+  $this->quantity = $quantity;
+  $this->size = $size;
+  $this->color = $color;
+  $this->full_name = $full_name;
+  $this->phone = $phone;
   $this->email = $email;
-  $this->password = $password;
+  $this->shipping_method = $shipping_method;
   $this->address = $address;
+  $this->zip = $zip;
+  $this->other_info = $other_info;
+  $this->card_number = $card_number;
+  $this->expired = $expired;
+  $this->cvv = $cvv;
+  $this->created_at = $created_at;
  }
  
- public function insertUser() {
+ public function addOrderGuest() {
   $ctn = new Connection();
   return $ctn->insert(
    $this->table,
@@ -41,29 +49,6 @@ Class Order {
    [$this->first_name,$this->last_name,$this->code_number,$this->phone_number,$this->email,$this->address,$this->password]
  );
  }
-
- public static function checkUser($email,$password) {
-  $ctn=new Connection();
-  $query=$ctn->getconn()->prepare("SELECT * FROM `users` where `email_address` = '$email' AND `password` = '$password'");
-		$query->execute();
-  $count = $query->rowCount();
-  $row   = $query->fetch(PDO::FETCH_ASSOC);
-  if($count == 1 && !empty($row)) {
-    return $row;
-   } else {
-    return false;
-   }
-}
-
-
-
-
-
-
-
-
-
-
 
 
 
