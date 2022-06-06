@@ -157,7 +157,7 @@
             </article>
             <?php endif ?>
             <!-- card.// -->
-            <form action="http://localhost/fill-rouge/user/buyNow/<?php echo $product['id'] ?>" method='post'>
+            <form action="http://localhost/fill-rouge/user/buyNowClient/<?php echo $product['id'] ?>" method='post'>
             <article
               class="border border-gray-200 bg-white shadow-sm rounded p-4 lg:p-6 mb-5"
             >
@@ -205,8 +205,7 @@
                       type="text"
                       placeholder="Code"
                       name='code_number'
-                      value='<?php if(isset($_POST['place_order']) && !empty($_POST['code_number'])){ echo $_POST['code_number']; }
-                      if(!isset($_POST['place_order'])) {echo '+212';}
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['code_number']; }else {echo $_SESSION['user']['code_phone']; }
                       ?>'
                     />
                     <input
@@ -215,7 +214,7 @@
                       type="text"
                       name='phone_number'
                       placeholder="Type phone"
-                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['phone_number']; }?>'
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['phone_number']; }else {echo $_SESSION['user']['phone']; }?>'
                     />
                   </div>
                   <?php if($phone && !$code) {?>
@@ -234,7 +233,7 @@
                     type="email"
                     name='email'
                     placeholder="Type here"
-                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['email']; }?>'
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['email']; }else {echo $_SESSION['user']['email']; }?>'
                   />
                   <?php if($email) {?>
                   <div class='text-red-500'>email is required</div>
@@ -313,7 +312,7 @@
                     type="text"
                     name='address'
                     placeholder="Type here"
-                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['address']; }?>'
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['address']; }else {echo $_SESSION['user']['address']; }?>'
                   />
                   <?php if($address) {?>
                   <div class='text-red-500'>address is required</div>

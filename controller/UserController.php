@@ -236,8 +236,8 @@ class UserController
     public function buyNowClient($id) {
         ////////////////////
         //logic of page
-        print_r($_SESSION['user']);
         session_start();
+        print_r($_SESSION['user']);
         $first_name = false;
         $last_name = false;
         $code = false;
