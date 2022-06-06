@@ -312,7 +312,15 @@ class UserController
             if(isset($_POST['code_number']) && !empty($_POST['code_number'])) {
              if(isset($_POST['phone_number']) && !empty($_POST['phone_number'])) {
                 if(isset($_POST['email']) && !empty($_POST['email'])) {
+                 if(isset($_POST['terms_and_conditions'])) {
+                  if(isset($_POST['address']) && !empty($_POST['address'])) {
 
+                  } else {
+                    $address = true;
+                  }
+                 } else {
+                    $terms_and_conditions = true;
+                 }
                 } else {
                 $email = true;
                 }

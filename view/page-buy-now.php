@@ -205,7 +205,9 @@
                       type="text"
                       placeholder="Code"
                       name='code_number'
-                      value='<?php if(isset($_POST['place_order']) && !empty($_POST['code_number'])){ echo $_POST['code_number']; }else{echo '+212';}?>'
+                      value='<?php if(isset($_POST['place_order']) && !empty($_POST['code_number'])){ echo $_POST['code_number']; }
+                      if(!isset($_POST['place_order'])) {echo '+212';}
+                      ?>'
                     />
                     <input
                       class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
@@ -215,8 +217,11 @@
                       placeholder="Type phone"
                       value='<?php if(isset($_POST['place_order'])){ echo $_POST['phone_number']; }?>'
                     />
-                    <?php if($phone) {?>
+                    <?php if($phone && !$code) {?>
                     <div class='text-red-500'>phone number is required</div>
+                    <?php } ?>
+                    <?php if(!$phone && $code) {?>
+                    <div class='text-red-500'>code number is required</div>
                     <?php } ?>
                   </div>
                 </div>
@@ -243,6 +248,10 @@
                   I agree with Terms and Conditions
                 </span>
               </label>
+
+              <?php if($terms_and_conditions = true) {?>
+                <div class='text-red-500'>please accept our terms and conditions</div>
+              <?php } ?>
 
               <hr class="my-4" />
 
@@ -299,12 +308,16 @@
                 <div class="mb-4 md:col-span-2">
                   <label class="block mb-1"> Address* </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($address) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""""
                     type="text"
                     name='address'
                     placeholder="Type here"
-                    value='<?php if(isset($_SESSION['user'])) { echo $_SESSION['user']['address']; } ?>'
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['address']; }?>'
                   />
+                  <?php if($address = true) {?>
+                  <div class='text-red-500'>address is required</div>
+                  <?php } ?>
                 </div>
 
                 <div class="mb-4 md:col-span-1">
