@@ -310,7 +310,7 @@ class UserController
          if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
           if(isset($_POST['last_name']) && !empty($_POST['last_name'])) {
             if(isset($_POST['code_number']) && !empty($_POST['code_number'])) {
-             if(isset($_POST['phone']) && !empty($_POST['phone'])) {
+             if(isset($_POST['phone_number']) && !empty($_POST['phone_number'])) {
                 if(isset($_POST['email']) && !empty($_POST['email'])) {
 
                 } else {

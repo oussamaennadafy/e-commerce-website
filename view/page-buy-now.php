@@ -201,27 +201,21 @@
                   <div class="flex w-full">
                     <input
                       class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
-                      <?php if($code) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
-"
+                      <?php if($code) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
                       type="text"
                       placeholder="Code"
                       name='code_number'
                       value='<?php if(isset($_POST['place_order']) && !empty($_POST['code_number'])){ echo $_POST['code_number']; }else{echo '+212';}?>'
                     />
                     <input
-                      class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
+                      class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+                      <?php if($phone) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
                       type="text"
                       name='phone_number'
                       placeholder="Type phone"
-                      value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['phone'] ;} ?>'
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['phone_number']; }?>'
                     />
-                    <?php if($code && $phone) {?>
-                    <div class='text-red-500'>code and phone number are required</div>
-                    <?php } ?>
-                    <?php if($code && !$phone) {?>
-                    <div class='text-red-500'>code number is required</div>
-                    <?php } ?>
-                    <?php if(!$code && $phone) {?>
+                    <?php if($phone) {?>
                     <div class='text-red-500'>phone number is required</div>
                     <?php } ?>
                   </div>
@@ -230,12 +224,16 @@
                 <div class="mb-4">
                   <label class="block mb-1"> Email </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($email) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"""
                     type="email"
                     name='email'
                     placeholder="Type here"
-                    value='<?php if(isset($_SESSION['user'])) {echo $_SESSION['user']['email'] ;} ?>'
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['email']; }?>'
                   />
+                  <?php if($email) {?>
+                  <div class='text-red-500'>email is required</div>
+                  <?php } ?>
                 </div>
               </div>
 
