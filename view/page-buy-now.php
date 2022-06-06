@@ -243,13 +243,13 @@
               </div>
 
               <label class="flex items-center w-max my-4">
-                <input checked name="terms_and_conditions" type="checkbox" class="h-4 w-4" />
+                <input <?php if(!$terms_and_conditions) { echo 'checked'; }?> name="terms_and_conditions" type="checkbox" class="h-4 w-4" />
                 <span class="ml-2 inline-block text-gray-500">
                   I agree with Terms and Conditions
                 </span>
               </label>
 
-              <?php if($terms_and_conditions = true) {?>
+              <?php if($terms_and_conditions) {?>
                 <div class='text-red-500'>please accept our terms and conditions</div>
               <?php } ?>
 
@@ -309,13 +309,13 @@
                   <label class="block mb-1"> Address* </label>
                   <input
                     class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
-                    <?php if($address) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""""
+                    <?php if($address) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
                     type="text"
                     name='address'
                     placeholder="Type here"
                     value='<?php if(isset($_POST['place_order'])){ echo $_POST['address']; }?>'
                   />
-                  <?php if($address = true) {?>
+                  <?php if($address) {?>
                   <div class='text-red-500'>address is required</div>
                   <?php } ?>
                 </div>
@@ -324,12 +324,16 @@
                   <label class="block mb-1"> Zip code* </label>
                   <div class="relative">
                     <input
-                      class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                      class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                      <?php if($zip) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
                       type="text"
                       name='zip'
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['zip']; }?>'
                       placeholder="Type here"
-                    >
-                    </input>
+                    />
+                    <?php if($zip) {?>
+                    <div class='text-red-500'>zip code is required</div>
+                    <?php } ?>
                   </div>
                 </div>
               </div>
