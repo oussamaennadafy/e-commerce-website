@@ -212,10 +212,11 @@ class UserController
              if($_POST['quantity'] <= $product['quantity']) {
               if($_POST['color'] != 'Select Color') {
                 if($_POST['size'] != 'Select Size') {
-                    setcookie("quantity", $_POST['quantity'] , time() + 3600 , "/");
-                    setcookie("color", $_POST['color'] , time() + 3600 , "/");
-                    setcookie("size", $_POST['size'] , time() + 3600 , "/");
-                     header('Location: http://localhost/fill-rouge/user/buyNow/'.$_POST['product_id']);
+                    setcookie("quantity", $_POST['quantity'] , time() + 3600*24 , "/");
+                    setcookie("color", $_POST['color'] , time() + 3600*24 , "/");
+                    setcookie("size", $_POST['size'] , time() + 3600*24 , "/");
+                    isset($_SESSION['user']) ? $guestState = 'buyNowClient' : $guestState = 'buyNow';
+                    header('Location: http://localhost/fill-rouge/user/'.$guestState.'/'.$_POST['product_id']);
                 } else {
                 $invalid_size = true;
                 }
@@ -237,7 +238,6 @@ class UserController
         ////////////////////
         //logic of page
         session_start();
-        print_r($_SESSION['user']);
         $first_name = false;
         $last_name = false;
         $code = false;
@@ -265,7 +265,13 @@ class UserController
                         if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
                         $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
                         $ctn->addOrderGuest();
-                        header('Location: http://localhost/fill-rouge/user/index');
+                        $product_passed = Product::selectOrdersAndQuantity($id);
+                        Product::updateProductAfterOrder($id,$product_passed['orders']++,$product_passed['quantity']--);
+                        print_r($product_passed);
+                        // echo $product_passed['orders']++;
+                        // echo '<br>';
+                        // echo $product_passed['quantity']--;
+                        // header('Location: http://localhost/fill-rouge/user/index');
                         } else {
                         $cvv = true;
                         }

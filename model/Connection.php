@@ -77,6 +77,7 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+
 	//`id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item`
 
 	public function SelectProductsByCategory($category)
@@ -91,6 +92,20 @@ class Connection
 		$query = $this->conn->prepare("SELECT * FROM `$table` where id=$id");
 		$query->execute();
 		return $query->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function selectOrdersAndQuantity($id)
+	{
+		$query = $this->conn->prepare("SELECT `orders`,`quantity` FROM `products` where id=$id");
+		$query->execute();
+		return $query->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function updateProductAfterOrder($id,$orders,$quantity)
+	{
+		$query = $this->conn->prepare("UPDATE `products` SET `orders` = '$orders',`quantity` = '$quantity' where id=$id");
+		$query->execute();
+		$query->fetch(PDO::FETCH_ASSOC);
 	}
 
 	public function selectOneCopy($id)

@@ -64,6 +64,18 @@ class Product
     $ctn = new Connection();
     return $ctn->selectProductsInCart($user_id);
   }
+
+  public static function selectOrdersAndQuantity($product_id)
+  {
+    $ctn = new Connection();
+    return $ctn->selectOrdersAndQuantity($product_id);
+  }
+  
+  public static function updateProductAfterOrder($product_id,$orders,$quantity)
+  {
+    $ctn = new Connection();
+    return $ctn->updateProductAfterOrder($product_id,$orders,$quantity);
+  }
   
   public static function deleteSemiOrder($id)
   {

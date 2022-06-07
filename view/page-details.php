@@ -192,7 +192,7 @@
 						</li> -->
 					</ul>
 					<!-- quantity  -->
-					<form action="http://localhost/fill-rouge/user/<?php if(isset($_SESSION['user'])) {echo 'buyNowClient';} else { echo 'buyNow';} ?>/<?php echo $product['id'] ?>" method='post'>
+					<form action="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>" method="post">
 					<div class='mb-5 '>
 						<b class="font-medium w-36 inline-block mb-4">Quantity:</b>
 

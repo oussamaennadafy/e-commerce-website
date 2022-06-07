@@ -21,7 +21,7 @@ Class Order {
  private $expired;
  private $cvv;
  
- function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv,user_id)
+ function __construct($product_id,$quantity,$size,$color,$full_name,$phone,$email,$shipping_method,$address,$zip,$other_info,$card_number,$expired,$cvv,$user_id)
  {
   $this->product_id = $product_id;
   $this->quantity = $quantity;
