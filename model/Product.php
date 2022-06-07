@@ -70,7 +70,7 @@ class Product
     $ctn = new Connection();
     return $ctn->selectOrdersAndQuantity($product_id);
   }
-  
+
   public static function updateProductAfterOrder($product_id,$orders,$quantity)
   {
     $ctn = new Connection();

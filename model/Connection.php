@@ -103,9 +103,9 @@ class Connection
 
 	public function updateProductAfterOrder($id,$orders,$quantity)
 	{
-		$query = $this->conn->prepare("UPDATE `products` SET `orders` = '$orders',`quantity` = '$quantity' where id=$id");
+		$query = $this->conn->prepare("UPDATE `products` SET `orders` = '$orders' , `quantity` = '$quantity' where id=$id");
 		$query->execute();
-		$query->fetch(PDO::FETCH_ASSOC);
+		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
 	public function selectOneCopy($id)
