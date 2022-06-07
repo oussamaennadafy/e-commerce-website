@@ -464,7 +464,7 @@
                     <img
                       width="70"
                       height="70"
-                      src="../../view/uploads/tongs-homme-120-floral-bleu-5.png"
+                      src="./../view/uploads/1.jpg"
                       alt="Title"
                     />
                     <span

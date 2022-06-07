@@ -356,12 +356,12 @@ class UserController
         //logic of page
         session_start();
         $semi_orders = product::selectProductsInCart($_SESSION['user']['id']);
-        // //count total price of order
-        // $total_price_order = 0;
-        // foreach($semi_orders as $semi_order) {
-        //     $total_price_order +=  floatval($semi_order['price_item'])*$semi_order['quantity'];
-        // }
-        // //
+        //count total price of order
+        $total_price_order = 0;
+        foreach($semi_orders as $semi_order) {
+            $total_price_order +=  floatval($semi_order['price_item'])*$semi_order['quantity'];
+        }
+        //
         require_once __DIR__ . './../view/page-cart.php';
     }
 
@@ -456,7 +456,7 @@ class UserController
         //    echo $_POST['expired'];
         //    echo $_POST['cvv'];
         }
-        $semi_orders = SemiOrder::select($user_id);
+        $semi_orders = SemiOrder::select($_SESSION['user']['id']);
         require_once __DIR__ . './../view/page-checkout.php';
     }
     
