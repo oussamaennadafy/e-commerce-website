@@ -82,7 +82,7 @@ class Connection
 
 	public function SelectProductsByCategory($category)
 	{
-		$query = $this->conn->prepare("SELECT `id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item` FROM `products` where category_item='$category'");
+		$query = $this->conn->prepare("SELECT `id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item` FROM `products` where category_item='$category' AND quantity > 0");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -101,16 +101,15 @@ class Connection
 		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public function updateProductAfterOrder($id,$orders,$quantity)
-	{
-		$query = $this->conn->prepare("UPDATE `products` SET `orders` = '$orders' , `quantity` = '$quantity' where id=$id");
-		$query->execute();
-		return $query->fetch(PDO::FETCH_ASSOC);
-	}
+	// public function updateProductAfterOrder($id,$orders,$quantity)
+	// {
+	// 	$query = $this->conn->prepare("UPDATE `products` SET `orders` = '$orders' , `quantity` = '$quantity' where id=$id");
+	// 	$query->execute();
+	// }
 
 	public function selectOneCopy($id)
 	{
-		$query = $this->conn->prepare("SELECT `id`,`name_item`,`price_item`,`first_img` FROM `products` where id=$id");
+		$query = $this->conn->prepare("SELECT `id`,`name_item`,`price_item`,`first_img` FROM `products` where id=$id AND quantity > 0");
 		$query->execute();
 		return $query->fetch(PDO::FETCH_ASSOC);
 	}
@@ -142,7 +141,7 @@ class Connection
 	{
 		if($ids_products != null) {
 			$query = $this->conn->prepare("SELECT `id`,`name_item`,`price_item`,`first_img` FROM `products` 
-			WHERE id IN ($ids_products) ORDER BY FIELD (id,$ids_products)");
+			WHERE id IN ($ids_products) AND quantity > 0 ORDER BY FIELD (id,$ids_products)");
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
 		}

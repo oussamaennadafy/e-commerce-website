@@ -266,13 +266,8 @@ class UserController
                         $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
                         $ctn->addOrderGuest();
                         $product_passed = Product::selectOrdersAndQuantity($id);
-                        print_r($product_passed);
-                        $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders']++,$product_passed['quantity']--);
-                        echo $product_updated;
-                        // echo $product_passed['orders']++;
-                        // echo '<br>';
-                        // echo $product_passed['quantity']--;
-                        // header('Location: http://localhost/fill-rouge/user/index');
+                        $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
+                        header('Location: http://localhost/fill-rouge/user/index');
                         } else {
                         $cvv = true;
                         }

@@ -74,7 +74,7 @@ class Product
   public static function updateProductAfterOrder($product_id,$orders,$quantity)
   {
     $ctn = new Connection();
-    return $ctn->updateProductAfterOrder($product_id,$orders,$quantity);
+    $ctn->update('products',['orders','quantity'],[$orders,$quantity],$product_id);
   }
   
   public static function deleteSemiOrder($id)
