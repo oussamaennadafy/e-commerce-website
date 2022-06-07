@@ -137,6 +137,15 @@ class Connection
 	}
 
 
+	public function selectSemiOrders($user_id)
+	{
+		$query = $this->conn->prepare("SELECT * FROM `semi_order` 
+		where user_id = $user_id");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+
 	public function SelectProductsByIds($ids_products)
 	{
 		if($ids_products != null) {

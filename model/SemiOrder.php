@@ -13,15 +13,12 @@ class SemiOrder
   private $color;
   private $size;
   private $quantity;
-  private $price_item;
-  private $orders;
-  private $sizes;
-
+  private $total_price;
 
   public static function select($user_id)
   {
     $ctn = new Connection();
-    return $ctn->selectLastProducts('products');
+    return $ctn->selectSemiOrders('products');
   }
 
   

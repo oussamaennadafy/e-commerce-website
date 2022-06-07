@@ -457,6 +457,7 @@ class UserController
         //    echo $_POST['cvv'];
         }
         $semi_orders = SemiOrder::select($_SESSION['user']['id']);
+        print_r($semi_orders);
         require_once __DIR__ . './../view/page-checkout.php';
     }
     
