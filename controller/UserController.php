@@ -409,6 +409,8 @@ class UserController
                       if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
                         $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],null);
                         $ctn->addOrderGuest();
+                        $product_passed = Product::selectOrdersAndQuantity($id);
+                        $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
                         header('Location: http://localhost/fill-rouge/user/index');
                       } else {
                         $cvv = true;
