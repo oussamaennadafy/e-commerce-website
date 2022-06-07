@@ -373,9 +373,90 @@ class UserController
 
     public function checkout()
     {
+        ////////////////////
         //logic of page
         session_start();
-        require_once __DIR__ . './../view/page-order.php';
+        $first_name = false;
+        $last_name = false;
+        $code = false;
+        $phone = false;
+        $email = false;
+        $terms_and_conditions = false;
+        $address = false;
+        $zip = false;
+        $card_number = false;
+        $expired = false;
+        $cvv = false;
+
+
+        if(isset($_POST['place_order'])) {
+            if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
+            if(isset($_POST['last_name']) && !empty($_POST['last_name'])) {
+            if(isset($_POST['code_number']) && !empty($_POST['code_number'])) {
+                if(isset($_POST['phone_number']) && !empty($_POST['phone_number'])) {
+                if(isset($_POST['email']) && !empty($_POST['email'])) {
+                    if(isset($_POST['terms_and_conditions'])) {
+                    if(isset($_POST['address']) && !empty($_POST['address'])) {
+                    if(isset($_POST['zip']) && !empty($_POST['zip'])) {
+                    if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
+                        if(isset($_POST['expired']) && !empty($_POST['expired'])) {
+                        if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
+                            echo 'passed';
+                        // $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
+                        // $ctn->addOrderGuest();
+                        // $product_passed = Product::selectOrdersAndQuantity($id);
+                        // $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
+                        // header('Location: http://localhost/fill-rouge/user/index');
+                        } else {
+                        $cvv = true;
+                        }
+                        } else {
+                        $expired = true;
+                        }
+                    } else {
+                        $card_number = true;
+                    }
+                    } else {
+                        $zip = true;
+                    }
+                    } else {
+                    $address = true;
+                    }
+                    } else {
+                    $terms_and_conditions = true;
+                    }
+                } else {
+                $email = true;
+                }
+                } else {
+                $phone = true;
+                }
+            } else {
+                $code = true;
+            }
+            } else {
+            $last_name = true;
+            }
+            } else {
+            $first_name = true;
+            }
+        //    echo $_POST['first_name'];
+        //    echo $_POST['last_name'];
+        //    echo $_POST['code_number'];
+        //    echo $_POST['phone_number'];
+        //    echo $_POST['email'];
+        //    echo $_POST['terms_and_conditions'];
+        //    echo $_POST['shipping_method'];
+        //    echo $_POST['address'];
+        //    echo $_POST['zip'];
+        //    echo $_POST['other_info'];
+        //    echo $_POST['save_info'];
+        //    echo $_POST['card_number'];
+        //    echo $_POST['expired'];
+        //    echo $_POST['cvv'];
+        }
+        // $product = Product::selectOneCopy($id);
+        require_once __DIR__ . './../view/page-checkout.php';
     }
     
     public function buyNow($id)

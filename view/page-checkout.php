@@ -12,10 +12,17 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font awesome 5 -->
     <link
-      href="../view/fonts/fontawesome/css/all.min.css"
+      href="../../view/fonts/fontawesome/css/all.min.css"
       type="text/css"
       rel="stylesheet"
     />
+    <style>
+      input[type=number]::-webkit-inner-spin-button, 
+      input[type=number]::-webkit-outer-spin-button { 
+        -webkit-appearance: none; 
+        margin: 0; 
+      }
+    </style>
   </head>
 
   <body>
@@ -103,7 +110,7 @@
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center" aria-current="page">
-            <a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/cart"> Cart </a>
+            <a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/details/<?php echo $id ?>"> details </a>
             <i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
           </li>
           <li class="inline-flex items-center">Order</li>
@@ -150,7 +157,7 @@
             </article>
             <?php endif ?>
             <!-- card.// -->
-
+            <form action="http://localhost/fill-rouge/user/checkout" method='post'>
             <article
               class="border border-gray-200 bg-white shadow-sm rounded p-4 lg:p-6 mb-5"
             >
@@ -158,58 +165,92 @@
 
               <div class="grid grid-cols-2 gap-x-3">
                 <div class="mb-4">
-                  <label class="block mb-1"> First name </label>
+                  <label class="block mb-1"> First name* </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($first_name) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
+                    name='first_name'
                     type="text"
                     placeholder="Type here"
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['first_name']; }else {echo $_SESSION['user']['first_name']; }?>'
                   />
+                  <?php if($first_name) {?>
+                  <div class='text-red-500'>first name is required</div>
+                  <?php } ?>
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-1"> Last name </label>
+                  <label class="block mb-1"> Last name* </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($last_name) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
                     type="text"
+                    name='last_name'
                     placeholder="Type here"
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['last_name']; }else {echo $_SESSION['user']['last_name']; }?>'
                   />
+                  <?php if($last_name) {?>
+                  <div class='text-red-500'>last name is required</div>
+                  <?php } ?>
                 </div>
               </div>
 
               <div class="grid lg:grid-cols-2 gap-x-3">
                 <div class="mb-4">
-                  <label class="block mb-1"> Phone </label>
+                  <label class="block mb-1"> Phone* </label>
                   <div class="flex w-full">
                     <input
-                      class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
+                      class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+                      <?php if($code) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
                       type="text"
                       placeholder="Code"
-                      value="+998"
+                      name='code_number'
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['code_number']; }else {echo $_SESSION['user']['code_phone']; }
+                      ?>'
                     />
                     <input
-                      class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
+                      class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+                      <?php if($phone) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>""
                       type="text"
+                      name='phone_number'
                       placeholder="Type phone"
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['phone_number']; }else {echo $_SESSION['user']['phone']; }?>'
                     />
                   </div>
+                  <?php if($phone && !$code) {?>
+                  <div class='text-red-500'>phone number is required</div>
+                  <?php } ?>
+                  <?php if(!$phone && $code) {?>
+                  <div class='text-red-500'>code number is required</div>
+                  <?php } ?>
                 </div>
 
                 <div class="mb-4">
-                  <label class="block mb-1"> Email </label>
+                  <label class="block mb-1"> Email* </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($email) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"""
                     type="email"
+                    name='email'
                     placeholder="Type here"
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['email']; }else {echo $_SESSION['user']['email']; }?>'
                   />
+                  <?php if($email) {?>
+                  <div class='text-red-500'>email is required</div>
+                  <?php } ?>
                 </div>
               </div>
 
               <label class="flex items-center w-max my-4">
-                <input checked="" name="" type="checkbox" class="h-4 w-4" />
+                <input <?php if(!$terms_and_conditions) { echo 'checked'; }?> name="terms_and_conditions" type="checkbox" class="h-4 w-4" />
                 <span class="ml-2 inline-block text-gray-500">
                   I agree with Terms and Conditions
                 </span>
               </label>
+
+              <?php if($terms_and_conditions) {?>
+                <div class='text-red-500'>please accept our terms and conditions</div>
+              <?php } ?>
 
               <hr class="my-4" />
 
@@ -221,12 +262,28 @@
                   class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
                 >
                   <span
-                    ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
+                    ><input checked name="shipping_method" value='fedex' type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>Express delivery</span>
+                    <span>Fedex delivery</span>
+                      <small class="inline-block text-sm text-gray-400"
+                        >about 5-7 days</small
+                      >
+                      <small class="inline-block text-xs mt-1 text-green-600"
+                        >(Recommanded)</small
+                      >
+                  </p>
+                </label>
+                <label
+                  class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
+                >
+                  <span
+                    ><input name="shipping_method" value='DHL' type="radio" class="h-4 w-4 mt-1"
+                  /></span>
+                  <p class="ml-2">
+                    <span>DHL delivery</span>
                     <small class="block text-sm text-gray-400"
-                      >3-4 days via Fedex</small
+                      >about 3-9 days</small
                     >
                   </p>
                 </label>
@@ -234,25 +291,12 @@
                   class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
                 >
                   <span
-                    ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
+                    ><input name="shipping_method" value='UPS' type="radio" class="h-4 w-4 mt-1"
                   /></span>
                   <p class="ml-2">
-                    <span>Post office</span>
+                    <span>UPS delivery</span>
                     <small class="block text-sm text-gray-400"
-                      >20-30 days via post</small
-                    >
-                  </p>
-                </label>
-                <label
-                  class="flex p-3 border border-gray-200 rounded-md bg-gray-50 hover:border-blue-400 hover:bg-blue-50 cursor-pointer"
-                >
-                  <span
-                    ><input name="shipping" type="radio" class="h-4 w-4 mt-1"
-                  /></span>
-                  <p class="ml-2">
-                    <span>Self pick-up</span>
-                    <small class="block text-sm text-gray-400"
-                      >Nearest location</small
+                      >about 2-10 days</small
                     >
                   </p>
                 </label>
@@ -263,62 +307,33 @@
                 <div class="mb-4 md:col-span-2">
                   <label class="block mb-1"> Address* </label>
                   <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
+                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                    <?php if($address) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
                     type="text"
+                    name='address'
                     placeholder="Type here"
+                    value='<?php if(isset($_POST['place_order'])){ echo $_POST['address']; }else {echo $_SESSION['user']['address']; }?>'
                   />
+                  <?php if($address) {?>
+                  <div class='text-red-500'>address is required</div>
+                  <?php } ?>
                 </div>
 
                 <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> City* </label>
+                  <label class="block mb-1"> Zip code* </label>
                   <div class="relative">
-                    <select
-                      class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    >
-                      <option>Select here</option>
-                      <option>Second option</option>
-                      <option>Third option</option>
-                    </select>
-                    <i class="absolute inset-y-0 right-0 p-2 text-gray-400">
-                      <svg
-                        width="22"
-                        height="22"
-                        class="fill-current"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M7 10l5 5 5-5H7z" />
-                      </svg>
-                    </i>
+                    <input
+                      class="block appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                      <?php if($zip) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>"
+                      type="text"
+                      name='zip'
+                      value='<?php if(isset($_POST['place_order'])){ echo $_POST['zip']; }?>'
+                      placeholder="Type here"
+                    />
+                    <?php if($zip) {?>
+                    <div class='text-red-500'>zip code is required</div>
+                    <?php } ?>
                   </div>
-                </div>
-              </div>
-
-              <div class="grid md:grid-cols-3 gap-x-3">
-                <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> House </label>
-                  <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="text"
-                    placeholder="Type here"
-                  />
-                </div>
-
-                <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> Building </label>
-                  <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="text"
-                    placeholder="Type here"
-                  />
-                </div>
-
-                <div class="mb-4 md:col-span-1">
-                  <label class="block mb-1"> ZIP code </label>
-                  <input
-                    class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                    type="text"
-                    placeholder="Type here"
-                  />
                 </div>
               </div>
 
@@ -326,32 +341,76 @@
                 <label class="block mb-1"> Other info </label>
                 <textarea
                   placeholder="Type your wishes"
+                  name='other_info'
                   class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full"
-                ></textarea>
+                ><?php if(isset($_POST['place_order'])){ echo $_POST['other_info']; }?></textarea>
               </div>
+              
+              <hr class="my-4" />
+              <!-- payment -->
+              <h2 class="text-xl font-semibold mb-5">Payment information</h2>
+              <div class='grid grid-cols-4 gap-x-3'>
+              <div class='mb-4 col-span-2'>
+                <label class='mb-1 inline-block' for="card_number">
+                  Card Number
+                </label>
+                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                <?php if($card_number) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>'
+                 type="number" name="card_number" id="card_number" placeholder='Ex: xxxx xxxx xxxx xxxx'
+                 value='<?php if(isset($_POST['place_order'])){ echo $_POST['card_number']; }?>'
+                 />
+                 <?php if($card_number) {?>
+                  <div class='text-red-500'>card number is required</div>
+                <?php } ?>
+              </div>
+              <div class='mb-4'>
+                <label class='mb-1 inline-block' for="expired">
+                  Expired
+                </label>
+                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                <?php if($expired) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>''
+                 type="text" name="expired" id="expired" placeholder='mm / yy'
+                 value='<?php if(isset($_POST['place_order'])){ echo $_POST['expired']; }?>'>
+                 <?php if($expired) {?>
+                  <div class='text-red-500'>expired date is required</div>
+                <?php } ?>
+              </div>
+              <div class='mb-4'>
+                <label class='mb-1 inline-block' for="cvv">
+                  CVV
+                </label>
+                <input class='appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+                <?php if($cvv) { echo 'border-red-500 hover:border-red-600 focus:border-red-600'; }?>'''
+                 type="number" name="cvv" id="cvv" placeholder='123'
+                 value='<?php if(isset($_POST['place_order'])){ echo $_POST['cvv']; }?>'>
+                 <?php if($cvv) {?>
+                  <div class='text-red-500'>cvv number is required</div>
+                <?php } ?>
+              </div>
+              </div>
+              <p class='text-gray-400 my-1'><i class="w-5 fa fa-lock"></i>Your Data is not Secure via SSL</p>
+              <!-- end payment -->
+              
 
-              <label class="flex items-center w-max my-4">
-                <input checked="" name="" type="checkbox" class="h-4 w-4" />
-                <span class="ml-2 inline-block text-gray-500">
-                  Save my information for future purchase
-                </span>
-              </label>
 
               <div class="flex justify-end space-x-2">
                 <a
                   class="px-5 py-2 inline-block text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600"
-                  href="#"
+                  href="http://localhost/fil-rouge/index"
                 >
                   Back
                 </a>
-                <a
-                  class="px-5 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700"
+                <input
+                  type='submit'
+                  value='Place Order'
+                  name='place_order'
+                  class="px-5 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700 cursor-pointer"
                   href="#"
                 >
-                  Continue
-                </a>
+                </input>
               </div>
             </article>
+            </form>
             <!-- card.// -->
           </main>
           <aside class="md:w-1/3">
@@ -360,19 +419,19 @@
               <ul>
                 <li class="flex justify-between mb-1">
                   <span>Total price:</span>
-                  <span>$245.97</span>
+                  <span>$<?php echo $product['price_item']*$_COOKIE['quantity'] ?></span>
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>Discount:</span>
-                  <span class="text-green-500">- $60.00</span>
+                  <span class="text-green-500">- $0.00</span>
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>TAX:</span>
-                  <span>$14.00</span>
+                  <span>$0.99</span>
                 </li>
                 <li class="border-t flex justify-between mt-3 pt-3">
                   <span>Total price:</span>
-                  <span class="text-gray-900 font-bold">$420.00</span>
+                  <span class="text-gray-900 font-bold">$<?php echo $product['price_item']*$_COOKIE['quantity'] + 0.99 ?></span>
                 </li>
               </ul>
 
@@ -398,81 +457,36 @@
 
               <figure class="flex items-center mb-4 leading-5">
                 <div>
-                  <div
+                  <a
+                    href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'
                     class="block relative w-20 h-20 rounded p-1 border border-gray-200"
                   >
                     <img
                       width="70"
                       height="70"
-                      src="../view/images/items/1.jpg"
+                      src="../../view/uploads/<?php echo $product['first_img'] ?>"
                       alt="Title"
                     />
                     <span
                       class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
                     >
-                      1
+                      <?php echo $_COOKIE['quantity'] ?>
                     </span>
-                  </div>
+                  </a>
                 </div>
                 <figcaption class="ml-3">
                   <p>
-                    GoPRO Action Camera <br />
-                    Model: G-200
+                   <div class='whitespace-nowrap w-64 overflow-hidden'>
+                     <a class='bg-gradient-to-r from-gray-500 via-gray-500 via-gray-500 to-transparent bg-clip-text text-transparent hover:from-blue-600 hover:via-blu-600 hover:to-transparent' href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'>
+                     <?php echo $product['name_item'] ?>
+                    </a> 
+                    </div>
                   </p>
-                  <p class="mt-1 text-gray-400">Total: $12.99</p>
+                  <p class="mt-1 text-gray-400">color: <?php echo $_COOKIE['color'] ?></p>
+                  <p class="mt-1 text-gray-400">size: <?php echo $_COOKIE['size'] ?></p>
                 </figcaption>
               </figure>
 
-              <figure class="flex items-center mb-4 leading-5">
-                <div>
-                  <div
-                    class="block relative w-20 h-20 rounded p-1 border border-gray-200"
-                  >
-                    <img
-                      width="70"
-                      height="70"
-                      src="../view/images/items/2.jpg"
-                      alt="Title"
-                    />
-                    <span
-                      class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
-                    >
-                      2
-                    </span>
-                  </div>
-                </div>
-                <figcaption class="ml-3">
-                  <p>Modern Product Name Here</p>
-                  <p class="mt-1 text-gray-400">Total: $12.99</p>
-                </figcaption>
-              </figure>
-
-              <figure class="flex items-center mb-4 leading-5">
-                <div>
-                  <div
-                    class="block relative w-20 h-20 rounded p-1 border border-gray-200"
-                  >
-                    <img
-                      width="70"
-                      height="70"
-                      src="../view/images/items/8.jpg"
-                      alt="Title"
-                    />
-                    <span
-                      class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
-                    >
-                      5
-                    </span>
-                  </div>
-                </div>
-                <figcaption class="ml-3">
-                  <p>
-                    Another Best Product <br />
-                    Name Goes Here
-                  </p>
-                  <p class="mt-1 text-gray-400">Total: $12.99</p>
-                </figcaption>
-              </figure>
             </article>
           </aside>
           <!-- col.// -->
