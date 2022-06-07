@@ -3,6 +3,7 @@
 require_once __DIR__ . "./../model/user.php";
 require_once __DIR__ . "./../model/product.php";
 require_once __DIR__ . "./../model/orderOne.php";
+require_once __DIR__ . "./../model/semiOrder.php";
 
 
 class UserController
@@ -191,7 +192,7 @@ class UserController
              if($_POST['quantity'] <= $product['quantity']) {
               if($_POST['color'] != 'Select Color') {
                 if($_POST['size'] != 'Select Size') {
-                    product::addSemiOrder($_SESSION['user']['id'],$product['id'],$_POST['color'],$_POST['size'],$_POST['quantity']);
+                    product::addSemiOrder($_SESSION['user']['id'],$product['id'],$_POST['color'],$_POST['size'],$_POST['quantity'],$product['price_item']*$_POST['quantity']);
                     header('Location: http://localhost/fill-rouge/user/index');
                 } else {
                 $invalid_size = true;
@@ -355,12 +356,12 @@ class UserController
         //logic of page
         session_start();
         $semi_orders = product::selectProductsInCart($_SESSION['user']['id']);
-        //count total price of order
-        $total_price_order = 0;
-        foreach($semi_orders as $semi_order) {
-            $total_price_order +=  floatval($semi_order['price_item'])*$semi_order['quantity'];
-        }
-        //
+        // //count total price of order
+        // $total_price_order = 0;
+        // foreach($semi_orders as $semi_order) {
+        //     $total_price_order +=  floatval($semi_order['price_item'])*$semi_order['quantity'];
+        // }
+        // //
         require_once __DIR__ . './../view/page-cart.php';
     }
 
@@ -455,7 +456,7 @@ class UserController
         //    echo $_POST['expired'];
         //    echo $_POST['cvv'];
         }
-        // $product = Product::selectOneCopy($id);
+        $semi_orders = SemiOrder::select($user_id);
         require_once __DIR__ . './../view/page-checkout.php';
     }
     

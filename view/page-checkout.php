@@ -419,7 +419,7 @@
               <ul>
                 <li class="flex justify-between mb-1">
                   <span>Total price:</span>
-                  <span>$<?php echo $product['price_item']*$_COOKIE['quantity'] ?></span>
+                  <span>$200</span>
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>Discount:</span>
@@ -431,7 +431,7 @@
                 </li>
                 <li class="border-t flex justify-between mt-3 pt-3">
                   <span>Total price:</span>
-                  <span class="text-gray-900 font-bold">$<?php echo $product['price_item']*$_COOKIE['quantity'] + 0.99 ?></span>
+                  <span class="text-gray-900 font-bold">$321</span>
                 </li>
               </ul>
 
@@ -458,19 +458,19 @@
               <figure class="flex items-center mb-4 leading-5">
                 <div>
                   <a
-                    href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'
+                    href='http://localhost/fill-rouge/user/details/'
                     class="block relative w-20 h-20 rounded p-1 border border-gray-200"
                   >
                     <img
                       width="70"
                       height="70"
-                      src="../../view/uploads/<?php echo $product['first_img'] ?>"
+                      src="../../view/uploads/tongs-homme-120-floral-bleu-5.png"
                       alt="Title"
                     />
                     <span
                       class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
                     >
-                      <?php echo $_COOKIE['quantity'] ?>
+                    1
                     </span>
                   </a>
                 </div>
@@ -478,7 +478,7 @@
                   <p>
                    <div class='whitespace-nowrap w-64 overflow-hidden'>
                      <a class='bg-gradient-to-r from-gray-500 via-gray-500 via-gray-500 to-transparent bg-clip-text text-transparent hover:from-blue-600 hover:via-blu-600 hover:to-transparent' href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'>
-                     <?php echo $product['name_item'] ?>
+                     pokos zefze efe fe fer f er er ver
                     </a> 
                     </div>
                   </p>

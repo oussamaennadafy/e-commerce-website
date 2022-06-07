@@ -176,9 +176,9 @@ class Connection
 	}
 
 
-	public function addSemiOrder($user_id,$product_id,$color,$size,$quantity)
+	public function addSemiOrder($user_id,$product_id,$color,$size,$quantity,$total_price)
 	{
-		$query = $this->conn->prepare("INSERT INTO `semi_order`(`user_id`, `product_id`,`color`,`size`,`quantity`) VALUES ('$user_id','$product_id','$color','$size','$quantity')");
+		$query = $this->conn->prepare("INSERT INTO `semi_order`(`user_id`, `product_id`,`color`,`size`,`quantity`,`total_price`) VALUES ('$user_id','$product_id','$color','$size','$quantity','$total_price')");
 		$query->execute();
 		// $query->fetchAll(PDO::FETCH_ASSOC);
 	}

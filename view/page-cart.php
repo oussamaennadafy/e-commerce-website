@@ -199,7 +199,7 @@
 			<ul class="mb-5">
 				<li class="flex justify-between text-gray-600  mb-1"> 
 					<span>Total price:</span> 
-					<span>$<?php echo $total_price_order; ?></span>
+					<span>$<?php echo $semi_orders['total_price']; ?></span>
 				</li>
 				<li class="flex justify-between text-gray-600  mb-1"> 
 					<span>Shipping:</span> 

@@ -47,10 +47,10 @@ class Product
     return $ctn->SelectProductsByCategory($categoty);
   }
 
-  public static function addSemiOrder($user_id,$product_id,$color,$size,$quantity)
+  public static function addSemiOrder($user_id,$product_id,$color,$size,$quantity,$total_price)
   {
     $ctn = new Connection();
-    return $ctn->addSemiOrder($user_id,$product_id,$color,$size,$quantity);
+    return $ctn->addSemiOrder($user_id,$product_id,$color,$size,$quantity,$total_price);
   }
 
   public static function isProductInCart($user_id,$product_id)
@@ -74,7 +74,7 @@ class Product
   public static function updateProductAfterOrder($product_id,$orders,$quantity)
   {
     $ctn = new Connection();
-    $ctn->update('products',['orders','quantity'],[$orders,$quantity],$product_id);
+     $ctn->update('products',['orders','quantity'],[$orders,$quantity],$product_id);
   }
   
   public static function deleteSemiOrder($id)
