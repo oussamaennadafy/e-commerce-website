@@ -3,6 +3,7 @@
 require_once __DIR__ . "./../model/user.php";
 require_once __DIR__ . "./../model/product.php";
 require_once __DIR__ . "./../model/orderOne.php";
+require_once __DIR__ . "./../model/OrderCheckout.php";
 
 
 class UserController
@@ -388,6 +389,18 @@ class UserController
         $expired = false;
         $cvv = false;
 
+        //////// count total price and making string of semi orders ///////////////
+        $semi_orders = product::selectSemiOrders($_SESSION['user']['id']);
+        $total_price = 0;
+        $str_semi_orders = '';
+        foreach ($semi_orders as $semi_order) {
+            # code...
+            $total_price+= $semi_order['total_price'];
+            $str_semi_orders .= $semi_order['id'].',';
+        }
+        $str_semi_orders = substr($str_semi_orders, 0, -1);
+        ////////////////////////////////////////////////////////////////////////////
+
 
         if(isset($_POST['place_order'])) {
             if(isset($_POST['first_name']) && !empty($_POST['first_name'])) {
@@ -401,12 +414,12 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                         if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                         if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                            echo 'passed';
-                        // $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
-                        // $ctn->addOrderGuest();
-                        // $product_passed = Product::selectOrdersAndQuantity($id);
-                        // $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
-                        // header('Location: http://localhost/fill-rouge/user/index');
+                        $ctn = new OrderCheckout($_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id'],$str_semi_orders);
+                        $ctn->addCheckoutOrder();
+                        foreach($semi_orders as $semi_order) {
+                         Product::moveSemiOrder($semi_order['id']);
+                        }
+                        header('Location: http://localhost/fill-rouge/user/index');
                         } else {
                         $cvv = true;
                         }
@@ -455,13 +468,6 @@ class UserController
         //    echo $_POST['expired'];
         //    echo $_POST['cvv'];
         }
-        $semi_orders = product::selectSemiOrders($_SESSION['user']['id']);
-        $total_price = 0;
-        foreach ($semi_orders as $semi_order) {
-            # code...
-            $total_price+= $semi_order['total_price'];
-        }
-        echo $total_price;
         require_once __DIR__ . './../view/page-checkout.php';
     }
     

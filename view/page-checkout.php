@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font awesome 5 -->
     <link
-      href="../../view/fonts/fontawesome/css/all.min.css"
+      href="./../view/fonts/fontawesome/css/all.min.css"
       type="text/css"
       rel="stylesheet"
     />
@@ -419,7 +419,7 @@
               <ul>
                 <li class="flex justify-between mb-1">
                   <span>Total price:</span>
-                  <span>$200</span>
+                  <span><?php echo $total_price ?></span>
                 </li>
                 <li class="flex justify-between mb-1">
                   <span>Discount:</span>
@@ -431,7 +431,7 @@
                 </li>
                 <li class="border-t flex justify-between mt-3 pt-3">
                   <span>Total price:</span>
-                  <span class="text-gray-900 font-bold">$321</span>
+                  <span class="text-gray-900 font-bold"><?php echo $total_price + 0.99 ?></span>
                 </li>
               </ul>
 
@@ -458,32 +458,32 @@
               <figure class="flex items-center mb-4 leading-5">
                 <div>
                   <a
-                    href='http://localhost/fill-rouge/user/details/'
+                    href='http://localhost/fill-rouge/user/details/<?php echo $semi_order['product_id'] ?>'
                     class="block relative w-20 h-20 rounded p-1 border border-gray-200"
                   >
                     <img
                       width="70"
                       height="70"
-                      src="./../view/uploads/1.jpg"
+                      src="./../view/uploads/<?php echo $semi_order['first_img'] ?>"
                       alt="Title"
                     />
                     <span
                       class="absolute -top-2 -right-2 w-6 h-6 text-sm text-center flex items-center justify-center text-white bg-gray-400 rounded-full"
                     >
-                    1
+                    <?php echo $semi_order['quantity'] ?>
                     </span>
                   </a>
                 </div>
                 <figcaption class="ml-3">
                   <p>
                    <div class='whitespace-nowrap w-64 overflow-hidden'>
-                     <a class='bg-gradient-to-r from-gray-500 via-gray-500 via-gray-500 to-transparent bg-clip-text text-transparent hover:from-blue-600 hover:via-blu-600 hover:to-transparent' href='http://localhost/fill-rouge/user/details/<?php echo $product['id']; ?>'>
-                     pokos zefze efe fe fer f er er ver
+                     <a class='bg-gradient-to-r from-gray-500 via-gray-500 via-gray-500 to-transparent bg-clip-text text-transparent hover:from-blue-600 hover:via-blu-600 hover:to-transparent' href='http://localhost/fill-rouge/user/details/<?php echo $semi_order['product_id']; ?>'>
+                     <?php echo $semi_order['name_item'] ?>
                     </a> 
                     </div>
                   </p>
-                  <p class="mt-1 text-gray-400">color: <?php echo $_COOKIE['color'] ?></p>
-                  <p class="mt-1 text-gray-400">size: <?php echo $_COOKIE['size'] ?></p>
+                  <p class="mt-1 text-gray-400">color: <?php echo $semi_order['color'] ?></p>
+                  <p class="mt-1 text-gray-400">size: <?php echo $semi_order['size'] ?></p>
                 </figcaption>
               </figure>
               <?php endforeach ?>

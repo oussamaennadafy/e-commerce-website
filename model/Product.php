@@ -59,6 +59,12 @@ class Product
     return $ctn->isProductInCart($user_id,$product_id);
   }
 
+  public static function moveSemiOrder($semiOrder_id)
+  {
+    $ctn = new Connection();
+    return $ctn->update('semi_order',['status'],['passed_from_cart'],$semiOrder_id);
+  }
+
   public static function selectSemiOrders($user_id)
   {
     $ctn = new Connection();

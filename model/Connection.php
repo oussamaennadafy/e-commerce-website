@@ -30,6 +30,24 @@ class Connection
 
 
 
+	public function insertCheckoutOrder($table, $tableCln, $tableVal)
+	{
+		$names = "";
+		$values = "";
+		$vrls = "";
+		for ($i = 0; $i < count($tableCln); $i++) {
+			if ($i > 0) {
+				$vrls = ",";
+			}
+			$names .= $vrls . "`" . $tableCln[$i] . "`";
+			$values .= $vrls . "'" . $tableVal[$i] . "'";
+		}
+		$str = "INSERT INTO `$table`(" . $names . ") VALUES (" . $values . ")";
+		$query = $this->conn->prepare($str);
+		$query->execute();
+		
+	}
+
 	public function insertOrder($table, $tableCln, $tableVal)
 	{
 		$names = "";
@@ -139,8 +157,7 @@ class Connection
 
 	public function selectSemiOrders($user_id)
 	{
-		$query = $this->conn->prepare("SELECT * FROM `semi_order` 
-		where user_id = $user_id");
+		$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id'");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -158,7 +175,7 @@ class Connection
 	
 	public function selectProductsInCart($user_id)
 	{
-			$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id'");
+			$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id' AND semi_order.status = 'still_on_card'");
 			$query->execute();
 			return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
