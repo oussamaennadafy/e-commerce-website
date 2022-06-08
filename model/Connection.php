@@ -119,12 +119,6 @@ class Connection
 		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
-	// public function updateProductAfterOrder($id,$orders,$quantity)
-	// {
-	// 	$query = $this->conn->prepare("UPDATE `products` SET `orders` = '$orders' , `quantity` = '$quantity' where id=$id");
-	// 	$query->execute();
-	// }
-
 	public function selectOneCopy($id)
 	{
 		$query = $this->conn->prepare("SELECT `id`,`name_item`,`price_item`,`first_img` FROM `products` where id=$id AND quantity > 0");
@@ -154,10 +148,16 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function selectUserOrders($user_id)
+	{
+		$query = $this->conn->prepare("SELECT * FROM `order` , `order_checkout` WHERE order.user_id = '$user_id' OR order_checkout.user_id = '$user_id'");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 	public function selectSemiOrders($user_id)
 	{
-		$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id'");
+		$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id' AND semi_order.status = 'still_on_card'");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
@@ -211,7 +211,7 @@ class Connection
 
 	public function isProductInCart($user_id,$product_id)
 	{
-		$query = $this->conn->prepare("SELECT `id` FROM `semi_order` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id'");
+		$query = $this->conn->prepare("SELECT `id` FROM `semi_order` WHERE `user_id` = '$user_id' AND `product_id` = '$product_id' AND `status` = 'still_on_card'");
 		$query->execute();
 		return $query->rowCount();
 	}

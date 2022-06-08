@@ -165,6 +165,7 @@ class UserController
         //logic of page
         session_start();
         if (isset($_SESSION['user'])) {
+            print_r(Product::selectUserOrders($_SESSION['user']['id']));
             require_once __DIR__ . './../view/page-profile.php';
         } else {
             header('Location: http://localhost/fill-rouge/user/index');
