@@ -4,7 +4,7 @@ require_once 'Connection.php';
 
 Class Order {
 
- private $table= 'order';
+ private $table= 'my_order';
  private $id;
  private $product_id;
  private $quantity;
