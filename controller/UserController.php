@@ -3,7 +3,6 @@
 require_once __DIR__ . "./../model/user.php";
 require_once __DIR__ . "./../model/product.php";
 require_once __DIR__ . "./../model/orderOne.php";
-require_once __DIR__ . "./../model/semiOrder.php";
 
 
 class UserController
@@ -456,8 +455,13 @@ class UserController
         //    echo $_POST['expired'];
         //    echo $_POST['cvv'];
         }
-        $semi_orders = SemiOrder::select($_SESSION['user']['id']);
-        print_r($semi_orders);
+        $semi_orders = product::selectSemiOrders($_SESSION['user']['id']);
+        $total_price = 0;
+        foreach ($semi_orders as $semi_order) {
+            # code...
+            $total_price+= $semi_order['total_price'];
+        }
+        echo $total_price;
         require_once __DIR__ . './../view/page-checkout.php';
     }
     

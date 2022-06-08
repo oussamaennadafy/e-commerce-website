@@ -59,6 +59,12 @@ class Product
     return $ctn->isProductInCart($user_id,$product_id);
   }
 
+  public static function selectSemiOrders($user_id)
+  {
+    $ctn = new Connection();
+    return $ctn->selectSemiOrders($user_id);
+  }
+
   public static function selectProductsInCart($user_id)
   {
     $ctn = new Connection();

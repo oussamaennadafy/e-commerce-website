@@ -454,7 +454,7 @@
               <hr class="my-4" />
 
               <h2 class="text-lg font-semibold mb-3">Items in cart</h2>
-
+               <?php foreach($semi_orders as $semi_order) :  ?>
               <figure class="flex items-center mb-4 leading-5">
                 <div>
                   <a
@@ -486,6 +486,7 @@
                   <p class="mt-1 text-gray-400">size: <?php echo $_COOKIE['size'] ?></p>
                 </figcaption>
               </figure>
+              <?php endforeach ?>
 
             </article>
           </aside>
