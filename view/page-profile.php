@@ -189,28 +189,35 @@
 						<ul class="text-gray-600">
 							<li class="text-green-400">Credit card **** <?php echo substr($order['card_number'], -4); ?></li>
 							<li>Shipping fee: $0.00</li>
-							<li>Total paid: $412.00</li>
+							<li>Total paid: <?php if(isset($order['product_id'])) { echo Product::getProductPrice($order['product_id'])[0]['price_item']*$order['quantity'];} ?></li>
 						</ul>
 					</div> 
 				</div> <!-- grid.// --> 
 				
 				<hr class="my-4">
 
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+				<div class="<?php if(!isset($order['size'])){echo 'grid md:grid-cols-2 lg:grid-cols-3 gap-2';} ?>">
+
+					<?php if(isset($order['size'])) { 
+						//semi orders
+      $semi_orders = [1]; } 
+						?>
 					
+				<?php foreach($semi_orders as $semi_order) { ?>
 					<figure class="flex flex-row mb-4">
 						<div>
-							<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-								<img src="../view/images/items/10.jpg" alt="Title">
+							<a href="http://localhost/fill-rouge/user/details/<?php if(isset($order['size'])){echo $order['product_id']; } ?>" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
+								<img src="../view/uploads/<?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])[0]['first_img'];}?>" alt="Title">
 							</a>
 						</div>
 						<figcaption  class="ml-3">
-							<p><a href="#" class="text-gray-600 hover:text-blue-600">Travel Bag Jeans Blue Color Modern</a></p>
-							<p class="mt-1 font-semibold">2x = $330.00</p>
+							<p><a href="http://localhost/fill-rouge/user/details/<?php if(isset($order['size'])){echo $order['product_id']; } ?>" class="text-gray-600 hover:text-blue-600"><?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])[0]['name_item'];} ?></a></p>
+							<p class="mt-1 font-semibold"><?php if(isset($order['size'])) {echo $order['quantity'];}  ?>x = $<?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])[0]['price_item']*$order['quantity'];}  ?></p>
 						</figcaption>
 					</figure>
+					<?php } ?>
 
-					<figure class="flex flex-row mb-4">
+					<!-- <figure class="flex flex-row mb-4">
 						<div>
 							<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
 								<img src="../view/images/items/11.jpg" alt="Title">
@@ -232,7 +239,7 @@
 							<p><a href="#" class="text-gray-600 hover:text-blue-600">Travel Bag Jeans Blue Color Modern</a></p>
 							<p class="mt-1 font-semibold">4x = $130.99</p>
 						</figcaption>
-					</figure>
+					</figure> -->
 				</div> <!-- grid.// --> 
 			</article>
 			<!-- item-order 1 end//-->

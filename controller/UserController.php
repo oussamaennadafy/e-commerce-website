@@ -177,6 +177,7 @@ class UserController
             echo '<pre>';
             print_r($all_orders);
             echo '</pre>';
+
             require_once __DIR__ . './../view/page-profile.php';
         } else {
             header('Location: http://localhost/fill-rouge/user/index');

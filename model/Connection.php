@@ -139,6 +139,13 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function getProductPrice($product_id)
+	{
+		$query = $this->conn->prepare("SELECT `price_item`,`first_img`,`name_item` FROM `products` where id=$product_id");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 
 	public function SelectIdsWishedProducts($user_id)
 	{

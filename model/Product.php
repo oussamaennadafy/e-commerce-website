@@ -59,6 +59,12 @@ class Product
     return $ctn->isProductInCart($user_id,$product_id);
   }
 
+  public static function getProductPrice($product_id)
+  {
+    $ctn = new Connection();
+    return $ctn->getProductPrice($product_id);
+  }
+
   public static function selectUserOrders($user_id)
   {
     $ctn = new Connection();
