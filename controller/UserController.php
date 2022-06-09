@@ -166,27 +166,17 @@ class UserController
         session_start();
         if (isset($_SESSION['user'])) {
             $userOrders = Product::selectUserOrders($_SESSION['user']['id']);
-            // echo $userOrders['0']['id'];
           
-            $all_orders=array_merge($userOrders['orders'], $userOrders['checkout'] );
+            $all_orders=array_merge($userOrders['orders'], $userOrders['checkout']);
              
             $time = array();
             foreach ($all_orders as $key => $value) {
                 $time[$key]=$value['created_at'];
             }
-            $result=array_multisort($time, SORT_DESC, $all_orders);
+            array_multisort($time, SORT_DESC, $all_orders);
             echo '<pre>';
-            print_r( $all_orders);
+            print_r($all_orders);
             echo '</pre>';
-            // foreach ($all_orders as $userOrder) {
-            //     foreach ($userOrders['checkout'] as $check) {
-            //         if($userOrder<)
-                    
-            //     }
-            //     # code...
-            //     echo 'one here';
-            //     echo '<br>';
-            // }
             require_once __DIR__ . './../view/page-profile.php';
         } else {
             header('Location: http://localhost/fill-rouge/user/index');

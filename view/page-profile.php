@@ -139,16 +139,24 @@
 
 			
 			<h3 class="text-xl font-semibold mb-5">Current orders</h3>
-			
+			<?php foreach($all_orders as $order) { ?>
 			<!-- item-order 1 -->
 			<article class="p-3 lg:p-5 mb-5 bg-white border border-blue-600 rounded-md">
 				<header class="lg:flex justify-between mb-4">
 					<div class="mb-4 lg:mb-0">
 						<p class="font-semibold">
-							<span>Order ID: 234 </span>  
+							<span>Order ID: <?php echo $order['id'] ?> </span>  
+							<?php if($order['status'] == 'pending') { ?>
+							<span class="text-[#964B00]"> • Pending </span>
+							<?php } ?>
+							<?php if($order['status'] == 'shipped') { ?>
+							<span class="text-yellow-500"> • Shipped </span>
+							<?php } ?>
+							<?php if($order['status'] == 'confirmed') { ?>
 							<span class="text-green-500"> • Confirmed </span>
+							<?php } ?>
 						</p>
-						<p class="text-gray-500"> Dec 29, Mon, 2018 </p>
+						<p class="text-gray-500"><?php echo $order['created_at'] ?> </p>
 					</div>
 					<div>
 						<button class="px-3 py-1 inline-block text-sm text-red-500 border border-gray-300 rounded-md hover:text-red-500 hover:border-red-600">
@@ -229,85 +237,7 @@
 				</div> <!-- grid.// --> 
 			</article>
 			<!-- item-order 1 end//-->
-			
-			<!-- item-order 2 -->
-			<article class="p-3 lg:p-5 mb-5 bg-white border border-blue-600 rounded-md">
-				<header class="lg:flex justify-between mb-4">
-					<div class="mb-4 lg:mb-0">
-						<p class="font-semibold">
-							<span>Order ID: 234 </span>  
-							<span class="text-red-500"> • Pending </span>
-						</p>
-						<p class="text-gray-500"> Dec 29, Mon, 2018 </p>
-					</div>
-					<div>
-						<button class="px-3 py-1 inline-block text-sm text-red-500 border border-gray-300 rounded-md hover:text-red-500 hover:border-red-600">
-							Cancel order
-						</button>
-						<button
-							class="px-3 py-1 inline-block text-white text-sm bg-blue-600 border border-blue-600 rounded-md hover:bg-blue-700">
-							Track order
-						</button>
-					</div>
-				</header>
-				<div class="grid md:grid-cols-3 gap-2"> 
-					<div>
-						<p class="text-gray-400 mb-1">Person</p>
-						<ul class="text-gray-600">
-							<li>Mike Johnatan</li>
-							<li>Phone: 371-295-9131</li>
-							<li>Email: info@mywebsite.com</li>
-						</ul>
-					</div> 
-					<div>
-						<p class="text-gray-400 mb-1">Delivery address</p>
-						<ul class="text-gray-600">
-							<li>4715 Madisen Throughway</li>
-							<li>That street 053</li>
-							<li>Palo Alto, California</li>
-						</ul>
-					</div> 
-					<div>
-						<p class="text-gray-400 mb-1">Payment</p>
-						<ul class="text-gray-600">
-							<li class="text-green-400">Visa card **** 4216</li>
-							<li>Shipping fee: $12.00</li>
-							<li>Total paid: $412.00</li>
-						</ul>
-					</div> 
-				</div> <!-- grid.// --> 
-				
-				<hr class="my-4">
-
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-					
-					<figure class="flex flex-row mb-4">
-						<div>
-							<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-								<img src="../view/images/items/1.jpg" alt="Title">
-							</a>
-						</div>
-						<figcaption  class="ml-3">
-							<p><a href="#" class="text-gray-600 hover:text-blue-600">Travel Bag Jeans Blue Color Modern</a></p>
-							<p class="mt-1 font-semibold">2x = $30.50</p>
-						</figcaption>
-					</figure>
-
-					<figure class="flex flex-row mb-4">
-						<div>
-							<a href="#" class="block w-20 h-20 rounded border border-gray-200 overflow-hidden">
-								<img src="../view/images/items/2.jpg" alt="Title">
-							</a>
-						</div>
-						<figcaption  class="ml-3">
-							<p><a href="#" class="text-gray-600 hover:text-blue-600">Travel Bag Jeans Blue Color Modern</a></p>
-							<p class="mt-1 font-semibold">5x = $433.90</p>
-						</figcaption>
-					</figure>
-
-				</div> <!-- grid.// --> 
-			</article>
-			<!-- item-order 2 //end -->
+		 <?php } ?>
 
 		</article> <!-- card.// -->
 	</main>
