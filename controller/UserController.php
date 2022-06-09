@@ -159,7 +159,7 @@ class UserController
         unset($_SESSION['user']);
         header('Location: http://localhost/fill-rouge/user/index');
     }
-    
+
     public function profile()
     {
         //logic of page
@@ -276,7 +276,7 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                         if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                         if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
+                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].' '.$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
                         $ctn->addOrderGuest();
                         $product_passed = Product::selectOrdersAndQuantity($id);
                         $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
@@ -426,7 +426,7 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                         if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                         if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                        $ctn = new OrderCheckout($_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id'],$str_semi_orders);
+                        $ctn = new OrderCheckout($_POST['first_name'].' '.$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id'],$str_semi_orders);
                         $ctn->addCheckoutOrder();
                         foreach($semi_orders as $semi_order) {
                          Product::moveSemiOrder($semi_order['id']);
@@ -512,7 +512,7 @@ class UserController
                     if(isset($_POST['card_number']) && !empty($_POST['card_number'])) {
                      if(isset($_POST['expired']) && !empty($_POST['expired'])) {
                       if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
-                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],null);
+                        $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].' '.$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],null);
                         $ctn->addOrderGuest();
                         $product_passed = Product::selectOrdersAndQuantity($id);
                         $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);

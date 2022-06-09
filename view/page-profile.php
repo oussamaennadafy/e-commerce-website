@@ -140,8 +140,9 @@
 			
 			<h3 class="text-xl font-semibold mb-5">Current orders</h3>
 			<?php foreach($all_orders as $order) { ?>
-			<!-- item-order 1 -->
-			<article class="p-3 lg:p-5 mb-5 bg-white border border-blue-600 rounded-md">
+				<!-- item-order 1 -->
+				<article class="p-3 lg:p-5 mb-5 bg-white border border-blue-600 rounded-md">
+				<?php if(isset($order['size'])) {echo 'buy now'; } ?>
 				<header class="lg:flex justify-between mb-4">
 					<div class="mb-4 lg:mb-0">
 						<p class="font-semibold">
@@ -156,7 +157,7 @@
 							<span class="text-green-500"> • Confirmed </span>
 							<?php } ?>
 						</p>
-						<p class="text-gray-500"><?php echo $order['created_at'] ?> </p>
+						<p class="text-gray-500"><?php echo substr(explode('.',$order['created_at'])[0],0,-3) ?> </p>
 					</div>
 					<div>
 						<button class="px-3 py-1 inline-block text-sm text-red-500 border border-gray-300 rounded-md hover:text-red-500 hover:border-red-600">
@@ -172,24 +173,22 @@
 					<div>
 						<p class="text-gray-400 mb-1">Person</p>
 						<ul class="text-gray-600">
-							<li>Mike Johnatan</li>
-							<li>Phone: 371-295-9131</li>
-							<li>Email: info@mywebsite.com</li>
+							<li><?php echo $order['full_name'] ?></li>
+							<li>Phone: <?php echo $order['phone'] ?></li>
+							<li>Email: <?php echo $order['email'] ?></li>
 						</ul>
 					</div> 
 					<div>
 						<p class="text-gray-400 mb-1">Delivery address</p>
 						<ul class="text-gray-600">
-							<li>4715 Madisen Throughway</li>
-							<li>That street 053</li>
-							<li>Palo Alto, California</li>
+							<li><?php echo $order['address'] ?></li>
 						</ul>
 					</div> 
 					<div>
 						<p class="text-gray-400 mb-1">Payment</p>
 						<ul class="text-gray-600">
-							<li class="text-green-400">Visa card **** 4216</li>
-							<li>Shipping fee: $12.00</li>
+							<li class="text-green-400">Credit card **** <?php echo substr($order['card_number'], -4); ?></li>
+							<li>Shipping fee: $0.00</li>
 							<li>Total paid: $412.00</li>
 						</ul>
 					</div> 
