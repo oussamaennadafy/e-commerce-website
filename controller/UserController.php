@@ -174,9 +174,11 @@ class UserController
                 $time[$key]=$value['created_at'];
             }
             array_multisort($time, SORT_DESC, $all_orders);
-            echo '<pre>';
-            print_r($all_orders);
-            echo '</pre>';
+            // echo '<pre>';
+            // print_r($all_orders);
+            // echo '</pre>';
+
+            
 
             require_once __DIR__ . './../view/page-profile.php';
         } else {

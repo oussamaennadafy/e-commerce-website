@@ -143,7 +143,7 @@ class Connection
 	{
 		$query = $this->conn->prepare("SELECT `price_item`,`first_img`,`name_item` FROM `products` where id=$product_id");
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_ASSOC);
+		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
 
@@ -173,6 +173,13 @@ class Connection
 		$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND `user_id` = '$user_id' AND semi_order.status = 'still_on_card'");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function selectSemiOrder($id)
+	{
+		$query = $this->conn->prepare("SELECT semi_order.* , products.name_item , products.first_img , products.price_item FROM `semi_order` , `products` WHERE semi_order.product_id = products.id AND semi_order.id = '$id'");
+		$query->execute();
+		return $query->fetch(PDO::FETCH_ASSOC);
 	}
 
 

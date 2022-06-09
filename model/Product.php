@@ -83,6 +83,12 @@ class Product
     return $ctn->selectSemiOrders($user_id);
   }
 
+  public static function selectSemiOrder($id)
+  {
+    $ctn = new Connection();
+    return $ctn->selectSemiOrder($id);
+  }
+
   public static function selectProductsInCart($user_id)
   {
     $ctn = new Connection();
