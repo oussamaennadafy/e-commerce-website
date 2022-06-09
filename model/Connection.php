@@ -150,7 +150,7 @@ class Connection
 
 	public function selectUserOrders($user_id)
 	{
-		$query = $this->conn->prepare("SELECT * FROM my_order inner join order_checkout ON my_order.user_id = order_checkout.user_id WHERE order.user_id = '$user_id' OR order_checkout.user_id = '$user_id'");
+		$query = $this->conn->prepare("SELECT  my_order.* , order_checkout.* FROM my_order , order_checkout WHERE my_order.user_id = '$user_id' AND order_checkout.user_id = '$user_id'");
 		$query->execute();
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
