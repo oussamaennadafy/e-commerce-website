@@ -150,9 +150,14 @@ class Connection
 
 	public function selectUserOrders($user_id)
 	{
-		$query = $this->conn->prepare("SELECT  my_order.* , order_checkout.* FROM my_order , order_checkout WHERE my_order.user_id = '$user_id' AND order_checkout.user_id = '$user_id'");
+		$query = $this->conn->prepare("SELECT * FROM `my_order` WHERE `user_id` = '$user_id' ORDER BY `created_at` DESC");
 		$query->execute();
-		return $query->fetchAll(PDO::FETCH_ASSOC);
+		$order=$query->fetchAll(PDO::FETCH_ASSOC);
+
+		$query = $this->conn->prepare("SELECT * FROM `order_checkout` WHERE `user_id` = '$user_id' ORDER BY `created_at` DESC");
+		$query->execute();
+		$chechout= $query->fetchAll(PDO::FETCH_ASSOC);
+		return ['orders'=>$order,'checkout'=>$chechout];
 	}
 	
 
