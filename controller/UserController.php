@@ -159,14 +159,14 @@ class UserController
         unset($_SESSION['user']);
         header('Location: http://localhost/fill-rouge/user/index');
     }
-
+    
     public function profile()
     {
         //logic of page
         session_start();
         if (isset($_SESSION['user'])) {
             $userOrders = Product::selectUserOrders($_SESSION['user']['id']);
-          
+            
             $all_orders=array_merge($userOrders['orders'], $userOrders['checkout']);
              
             $time = array();
