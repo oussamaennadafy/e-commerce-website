@@ -88,16 +88,12 @@
 <div class="flex flex-col md:flex-row -mx-4">
 	<aside class="md:w-1/3 lg:w-1/4 px-4">
 		<ul>
-			<li> <a class="block px-3 py-2 text-blue-500 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Account main</a>
+			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/profile">Account main</a>
 			</li>
-			<li> <a id='scroll_to_new_orders' class="cursor-pointer block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md">New orders</a>
-			</li>
-			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/orderHistory">Orders history</a>
+			<li> <a class="block px-3 py-2 text-blue-500 bg-gray-100 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Orders history</a>
 			</li>
 			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/WishedProducts">My wishlist</a>
 			</li>
-			<!-- <li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Transactions</a>
-			</li> -->
 			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Profile setting</a>
 			</li>
 			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/logout">Log out</a>
@@ -107,47 +103,12 @@
 	<main  class="md:w-2/3 lg:w-3/4 px-4">
 		
 		<article class="border border-gray-200 bg-white shadow-sm rounded mb-5 p-3 lg:p-5">
-			
-			<figure class="flex items-start sm:items-center">
-				<img class="w-16 rounded-full mr-4" src="../view/images/avatars/avatar.jpg" alt="">
-				<figcaption>
-					<h5 class="font-semibold text-lg"><?php echo $_SESSION['user']['first_name'].' '.$_SESSION['user']['last_name'] ?></h5>
-					<p>	
-						Email: <a href="mailto:myusername@gmail.com"><?php echo $_SESSION['user']['email'] ?></a> | 
-						Phone: <a href="tel:+1234567890988"><?php echo $_SESSION['user']['code_phone'].$_SESSION['user']['phone'] ?></a>
-					</p>
-				</figcaption>
-			</figure>
-			
-			<hr class="my-4">
-			
-			<p class='text-gray-500 mb-5'>Delivery Address</p>
-			<div class="sm:flex mb-5 gap-4">
-				<figure class="md:w-1/2 flex items-center relative bg-gray-100 p-4 rounded-md">
-					<div class="mr-3">
-						<span class="flex items-center justify-center text-yellow-500 w-12 h-12 bg-white rounded-full shadow"> 
-							<i class="fa fa-map-marker-alt"></i>
-						</span>
-					</div>
-					<figcaption class="text-gray-600">
-						<p> <?php echo $_SESSION['user']['address'] ?> </br>
-							<small class="text-gray-400">(Primary)</small>
-						</p>
-					</figcaption>
-				</figure>
-			</div>
-			<button class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100">
-				<i class="mr-1 fa fa-pen"></i> edit address
-			</button>
-			 
-			<hr class="my-4">
-
-			<h3 id='divId' class="text-xl font-semibold mb-5">Current orders</h3>
+			<h3 id='divId' class="text-xl font-semibold mb-5">orders History</h3>
 			<?php if(count($all_orders) == null) {?>
 				<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
 				<h1 class='text-center w-full my-7 text-3xl font-semibold'> You haven't order yet </h1>
 				<?php } ?>
-			<?php foreach(array_slice($all_orders,0,3)as $order) {
+			<?php foreach($all_orders as $order) {
 				if(isset($order['size'])) { 
 					//semi orders
 					$semi_orders = [1]; }  
@@ -156,7 +117,7 @@
 					$total_price_of_checkout_order = 0;
 				foreach($semi_orders as $semi_order) { 
 					$semi_order_details = Product::selectSemiOrder($semi_order);
-									$total_price_of_checkout_order += $semi_order_details['total_price'];
+					$total_price_of_checkout_order += $semi_order_details['total_price'];
 				}
 					}
 				?>
@@ -184,10 +145,6 @@
 							<input value='<?php if(isset($order['size'])) {echo 'my_order';} else {echo 'order_checkout';} ?>' type="hidden" name="type_of_order">
 							<input value='<?php echo $order['id']; ?>' type="hidden" name="order_id">
 						</form>
-						<!-- <button
-							class="px-3 py-1 inline-block text-white text-sm bg-blue-600 border border-blue-600 rounded-md hover:bg-blue-700">
-							Track order
-						</button> -->
 					</div>
 				</header>
 				<div class="grid md:grid-cols-3 gap-2"> 
@@ -238,15 +195,8 @@
 			</article>
 			<!-- item-order 1 end//-->
 		 <?php } ?>
+
 		</article> <!-- card.// -->
-		<section>
-			<h1>Edit Address</h1>
-			<form action="http://localhost/fill-rouge/user/profile" method="post">
-				<label for="only_address">Address</label>
-				<input type="text" name="only_address" id="only_address">
-				<input type="submit" value="Save" name='save'>
-			</form>
-		</section>
 	</main>
 </div> <!-- grid.// -->
 

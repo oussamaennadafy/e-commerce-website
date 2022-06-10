@@ -183,6 +183,29 @@ class UserController
         }
     }
 
+    public function orderHistory()
+    {
+        //logic of page
+        session_start();
+        if (isset($_SESSION['user'])) {
+            $userOrders = Product::selectUserOrders($_SESSION['user']['id']);
+            $all_orders=array_merge($userOrders['orders'], $userOrders['checkout']);
+            $time = array();
+            foreach ($all_orders as $key => $value) {
+                $time[$key]=$value['created_at'];
+            }
+            array_multisort($time, SORT_DESC, $all_orders);
+            //cancel order
+            if(isset($_POST['cancel_order'])) {
+                Product::cancelOrder($_POST['type_of_order'],$_POST['order_id']);
+                header("Refresh:0");
+            }
+            require_once __DIR__ . './../view/ordersHistory.php';
+        } else {
+            header('Location: http://localhost/fill-rouge/user/index');
+        }
+    }
+
 
     public function details($id)
     {
