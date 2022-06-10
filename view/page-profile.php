@@ -98,7 +98,7 @@
 			</li>
 			<!-- <li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Transactions</a>
 			</li> -->
-			<li> <a id='edit_profile_btn' class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md">Profile setting</a>
+			<li> <a id='edit_profile_btn' class="cursor-pointer block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md">Profile setting</a>
 			</li>
 			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/logout">Log out</a>
 			</li>
@@ -259,7 +259,7 @@
 		</section>
 	<!-- //////// end update address ////////// -->
 			<!--  COMPONENT: SIGN IN -->
-			<div style="max-width:480px" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg opacity-0 invisible pointer-events-none">
+			<div id='profile_form' class="transition fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg opacity-0 invisible pointer-events-none">
 				<!-- ////////////closing icon//////////////// -->
 				<div id='close_edit_form' class='cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-500 absolute right-5 rounded-full bg-gray-100 hover:bg-gray-200 transition'>
 					<i class="px-4 py-3 fa fa-times"></i> 
@@ -397,9 +397,19 @@
 						})
 						////////////////////////////////////////////////
 						////////////show and hide /////////////////////
-						let edit_profile_btn = document.getElementById('edit_profile_btn')
+						let edit_profile_btn = document.getElementById('edit_profile_btn');
+						let close_edit_form = document.getElementById('close_edit_form');
 						edit_profile_btn.addEventListener('click', ()=> {
-							
+							document.getElementById('profile_form').classList.remove('opacity-0');
+							document.getElementById('profile_form').classList.remove('invisible');
+							document.getElementById('profile_form').classList.remove('pointer-events-none');
+							document.getElementById('overlay').classList.remove('opacity-0');
+						})
+						close_edit_form.addEventListener('click', ()=> {
+							document.getElementById('overlay').classList.add('opacity-0');
+							document.getElementById('profile_form').classList.add('opacity-0');
+							document.getElementById('profile_form').classList.add('invisible');
+							document.getElementById('profile_form').classList.add('pointer-events-none');
 						})
 
 					</script>
