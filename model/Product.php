@@ -89,6 +89,12 @@ class Product
     return $ctn->cancelOrder($type_of_order,$order_id);
   }
 
+  public static function updateAddress($new_address,$user_id)
+  {
+    $ctn = new Connection();
+    return $ctn->update('users',['address'],[$new_address],$user_id);
+  }
+
   public static function selectSemiOrder($id)
   {
     $ctn = new Connection();

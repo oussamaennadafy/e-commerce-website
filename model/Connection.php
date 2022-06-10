@@ -249,10 +249,6 @@ class Connection
 	}
 
 
-
-
-//`id`,`name_item`,`price_item`,`first_img`
-
 	public function selectLastProducts($table)
 	{
 		$query = $this->conn->prepare("SELECT `name_item`,`first_img`,`id`,`price_item`,`tages_item`,`description_item` FROM `$table` WHERE quantity > 0 ORDER BY id DESC LIMIT 12");

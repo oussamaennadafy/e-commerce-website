@@ -136,7 +136,7 @@
 					</figcaption>
 				</figure>
 			</div>
-			<button class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100">
+			<button id='edit_address' class="px-4 py-2 inline-block text-blue-600 border border-gray-300 rounded-md hover:bg-gray-100">
 				<i class="mr-1 fa fa-pen"></i> edit address
 			</button>
 			 
@@ -239,15 +239,85 @@
 			<!-- item-order 1 end//-->
 		 <?php } ?>
 		</article> <!-- card.// -->
-		<section>
-			<h1>Edit Address</h1>
+	</main>
+	<!-- //////// update address ////////// -->
+	<div id='overlay' class='fixed transition top-0 left-0 w-screen h-screen bg-gray-300 invisible pointer-events-none opacity-0'>
+		</div>
+		<section id='edit_address_form' class='fixed top-1/2 left-1/2 -translate-x-1/2 w-1/2 -translate-y-1/2 bg-white transition rounded border border-gray-300 p-6 invisible pointer-events-none opacity-0'>
+			<h1 class='text-xl font-semibold mb-4'>Edit Address</h1>
 			<form action="http://localhost/fill-rouge/user/profile" method="post">
-				<label for="only_address">Address</label>
-				<input type="text" name="only_address" id="only_address">
-				<input type="submit" value="Save" name='save'>
+				<div class='flex gap-6 items-center'>
+					<label class='mb-4 inline-block' for="only_address">Address</label>
+					<input class='w-full mb-4 appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400' spellcheck="false" type="text" name="only_address" id="only_address"
+					value='<?php echo $_SESSION['user']['address'] ?>'>
+				</div>
+				<input class='cursor-pointer inline-block rounded bg-blue-500 hover:bg-blue-600 px-4 py-2 text-white' type="submit" value="Save" name='save_address'>
+				<a id='cancel_edit_address' class='cursor-pointer inline-block block mx-auto rounded bg-yellow-500 hover:bg-yellow-600 px-4 py-2 text-white' >
+					Cancel
+				</a>
 			</form>
 		</section>
-	</main>
+	<!-- //////// end update address ////////// -->
+			<!--  COMPONENT: SIGN IN -->
+			<div style="max-width:480px" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg">
+				<form action="http://localhost/fill-rouge/user/profile" method='POST'>
+					<h2 class="mb-5 text-2xl font-semibold">User Profile</h2>
+
+					<div class="grid md:grid-cols-2 gap-x-2">
+						<div class="mb-4">
+					      <label class="block mb-1"> First name </label>
+					      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+											<?php if(isset($_POST['save'])) { if($first_name){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+											" type="text" placeholder="Type here" name="first_name" value="<?php if(isset($_POST['save']) && !empty($_POST['first_name'])) {echo $_POST['first_name']; } elseif(!isset($_POST['save'])) {echo $_SESSION['user']['first_name'];} ?>">
+											<p class='text-red-500 mt-2'> <?php if(isset($_POST['save'])) { if($first_name){echo 'first name is required';}} ?></p>
+					    </div>
+						
+						<div class="mb-4">
+					      <label class="block mb-1"> Last name </label>
+					      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+											<?php if(isset($_POST['save'])) { if($last_name){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+											" type="text" placeholder="Type here" name="last_name" value="<?php if(isset($_POST['save']) && !empty($_POST['last_name'])) {echo $_POST['last_name']; }  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['last_name'];}  ?>">
+											<p class='text-red-500 mt-2'> <?php if(isset($_POST['save'])) { if($last_name){echo 'last name is required';}} ?></p>
+					    </div>
+					</div> <!-- grid -->
+
+					<div>
+				      <label class="block mb-1"> Phone </label>
+
+				      <div class="flex  w-full">
+				      	<input class="appearance-none w-24 border border-gray-200 bg-gray-100 rounded-tl-md rounded-bl-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+											<?php if(isset($_POST['save'])) { if($number){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+											" type="text" placeholder="Code" value="<?php if(isset($_POST['save'])) {if(!empty($_POST['code_number'])) {echo $_POST['code_number'];} else {echo '+212';}}  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['code_phone'];} ?>" name="code_number">
+				      	<input class="appearance-none flex-1 border border-gray-200 bg-gray-100 rounded-tr-md rounded-br-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400
+											<?php if(isset($_POST['save'])) { if($number){echo 'border-red-300 hover:border-red-400 focus:border-red-500';}} ?>
+											" type="number" placeholder="phone number" name="phone_number" value="<?php if(isset($_POST['save']) && !empty($_POST['phone_number'])) {echo $_POST['phone_number']; }  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['phone'];}  ?>">
+				      </div>
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['save'])) { if($number){echo 'invalid number';}} ?></p>
+				    </div>
+
+				    <div class="mb-4">
+				      <label class="block mb-1"> Email </label>
+				      <input class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+										<?php if(isset($_POST['save'])) { if($email){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+										" type="text" placeholder="Type here" name="email" value="<?php if(isset($_POST['save']) && !empty($_POST['email'])) {echo $_POST['email']; }  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['email'];}  ?>">
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['save'])) { if($email){echo 'enter a valid email';}} ?></p>
+				    </div>
+					
+					<div class="mb-4 relative">
+				      <label class="block mb-1"> password </label>
+				      <input id='password_input' class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
+										<?php if(isset($_POST['save'])) { if($password){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
+										" type="password" placeholder="Type here" name="password" value="<?php if(isset($_POST['save']) && !empty($_POST['password'])) {echo $_POST['password']; }  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['password'];}  ?>">
+										<p class='text-red-500 mt-2'> <?php if(isset($_POST['save'])) { if($password){echo 'password is required';}} ?></p>
+										<strong id='hide' class='absolute hidden top-1/2 right-3 cursor-pointer select-none'> Hide</strong>
+										<strong id='show' class='absolute top-1/2 right-3 cursor-pointer select-none'> Show</strong>
+				    </div>
+
+					<button type="submit" name="save" class="my-2 px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"> Save </button>
+				</form>
+			</div>
+			<!--  COMPONENT: SIGN IN //END -->
+
 </div> <!-- grid.// -->
 
 
@@ -262,6 +332,66 @@
 						scroll_btn.addEventListener('click',()=> {
 							document.getElementById("divId").scrollIntoView();
 						});
+						////////////////////////////////////////////////////////////////
+						let edit_address_btn = document.getElementById('edit_address');
+						let cancel_edit_address_btn = document.getElementById('cancel_edit_address');
+						
+						edit_address_btn.addEventListener('click', ()=> {
+
+							document.getElementById('overlay').classList.remove('opacity-0');
+							document.getElementById('overlay').classList.add('opacity-50');
+							document.getElementById('overlay').classList.toggle('pointer-events-none');
+							document.getElementById('overlay').classList.toggle('invisible');
+
+
+							document.getElementById('edit_address_form').classList.toggle('opacity-0');
+							document.getElementById('edit_address_form').classList.toggle('pointer-events-none');
+							document.getElementById('edit_address_form').classList.toggle('invisible');
+						});
+
+						cancel_edit_address_btn.addEventListener('click', ()=> {
+
+							document.getElementById('overlay').classList.add('opacity-0');
+							document.getElementById('overlay').classList.remove('opacity-50');
+							document.getElementById('overlay').classList.toggle('pointer-events-none');
+							document.getElementById('overlay').classList.toggle('invisible');
+
+
+							document.getElementById('edit_address_form').classList.toggle('opacity-0');
+							document.getElementById('edit_address_form').classList.toggle('pointer-events-none');
+							document.getElementById('edit_address_form').classList.toggle('invisible');
+
+						})
+
+						overlay.addEventListener('click', ()=> {
+
+							document.getElementById('overlay').classList.add('opacity-0');
+							document.getElementById('overlay').classList.remove('opacity-50');
+							document.getElementById('overlay').classList.toggle('pointer-events-none');
+							document.getElementById('overlay').classList.toggle('invisible');
+
+
+							document.getElementById('edit_address_form').classList.toggle('opacity-0');
+							document.getElementById('edit_address_form').classList.toggle('pointer-events-none');
+							document.getElementById('edit_address_form').classList.toggle('invisible');
+						})
+						////////////////////////////////////
+						let hide = document.getElementById('hide');
+						let show = document.getElementById('show');
+
+						hide.addEventListener('click', ()=> {
+							hide.classList.add('hidden');
+							show.classList.remove('hidden');
+							document.getElementById('password_input').setAttribute('type', 'password');
+						})
+
+						show.addEventListener('click', ()=> {
+							hide.classList.remove('hidden');
+							show.classList.add('hidden');
+							document.getElementById('password_input').setAttribute('type', 'text');
+						})
+
+
 					</script>
 </body>
 </html>
