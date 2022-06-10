@@ -139,10 +139,25 @@
 
 			
 			<h3 class="text-xl font-semibold mb-5">Current orders</h3>
-			<?php foreach($all_orders as $order) { ?>
+			<?php if(count($all_orders) == null) {?>
+				<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
+				<h1 class='text-center w-full my-7 text-3xl font-semibold'> You haven't order yet </h1>
+				<?php } ?>
+			<?php foreach(array_slice($all_orders,0,3)as $order) {
+				if(isset($order['size'])) { 
+					//semi orders
+					$semi_orders = [1]; }  
+					else {
+					$semi_orders = explode(',',$order['semi_orders']);
+					$total_price_of_checkout_order = 0;
+				foreach($semi_orders as $semi_order) { 
+					$semi_order_details = Product::selectSemiOrder($semi_order);
+									$total_price_of_checkout_order += $semi_order_details['total_price'];
+				}
+					}
+				?>
 				<!-- item-order 1 -->
 				<article class="p-3 lg:p-5 mb-5 bg-white border border-blue-600 rounded-md">
-				<?php if(isset($order['size'])) {echo 'buy now'; } ?>
 				<header class="lg:flex justify-between mb-4">
 					<div class="mb-4 lg:mb-0">
 						<p class="font-semibold">
@@ -160,13 +175,15 @@
 						<p class="text-gray-500"><?php echo substr(explode('.',$order['created_at'])[0],0,-3) ?> </p>
 					</div>
 					<div>
-						<button class="px-3 py-1 inline-block text-sm text-red-500 border border-gray-300 rounded-md hover:text-red-500 hover:border-red-600">
-							Cancel order
-						</button>
-						<button
+						<form action="http://localhost/fill-rouge/user/profile" method="post">
+							<input type='submit' class="px-3 py-1 inline-block text-sm text-red-500 border border-gray-300 rounded-md hover:text-red-500 hover:border-red-600 cursor-pointer" value='Cancel order'name='cancel_order'/>
+							<input value='<?php if(isset($order['size'])) {echo 'my_order';} else {echo 'order_checkout';} ?>' type="hidden" name="type_of_order">
+							<input value='<?php echo $order['id']; ?>' type="hidden" name="order_id">
+						</form>
+						<!-- <button
 							class="px-3 py-1 inline-block text-white text-sm bg-blue-600 border border-blue-600 rounded-md hover:bg-blue-700">
 							Track order
-						</button>
+						</button> -->
 					</div>
 				</header>
 				<div class="grid md:grid-cols-3 gap-2"> 
@@ -189,23 +206,14 @@
 						<ul class="text-gray-600">
 							<li class="text-green-400">Credit card **** <?php echo substr($order['card_number'], -4); ?></li>
 							<li>Shipping fee: $0.00</li>
-							<li>Total paid: <?php if(isset($order['product_id'])) { echo Product::getProductPrice($order['product_id'])['price_item']*$order['quantity'];}?></li>
+							<li>Total paid: $<?php if(isset($order['product_id'])) { echo Product::getProductPrice($order['product_id'])['price_item']*$order['quantity']+0.99;}else { echo $total_price_of_checkout_order+0.99; }?></li>
 						</ul>
 					</div> 
 				</div> <!-- grid.// --> 
 				
 				<hr class="my-4">
 
-				<div class="<?php if(!isset($order['size'])){echo 'grid md:grid-cols-2 lg:grid-cols-3 gap-2';} ?>">
-
-					<?php 
-					if(isset($order['size'])) { 
-						//semi orders
-      $semi_orders = [1]; }  
-						else {
-						$semi_orders = explode(',',$order['semi_orders']);
-						}
-						?>
+				<div class="<?php if(count($semi_orders) != 1){echo 'grid md:grid-cols-2 lg:grid-cols-3 gap-2';} ?>">
 					
 				<?php foreach($semi_orders as $semi_order) { 
 				$semi_order_details = Product::selectSemiOrder($semi_order);
@@ -217,8 +225,8 @@
 							</a>
 						</div>
 						<figcaption  class="ml-3">
-							<p><a href="http://localhost/fill-rouge/user/details/<?php if(isset($order['size'])){echo $order['product_id']; } ?>" class="text-gray-600 hover:text-blue-600"><?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])['name_item'];} ?></a></p>
-							<p class="mt-1 font-semibold"><?php if(isset($order['size'])) {echo $order['quantity'];}  ?>x = $<?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])['price_item']*$order['quantity'];}  ?></p>
+							<p><a href="http://localhost/fill-rouge/user/details/<?php if(isset($order['size'])){echo $order['product_id']; } else {echo $semi_order_details['product_id']; } ?>" class="text-gray-600 hover:text-blue-600"><?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])['name_item'];} else { echo $semi_order_details['name_item']; } ?></a></p>
+							<p class="mt-1 font-semibold"><?php if(isset($order['size'])) {echo $order['quantity'];}  else { echo $semi_order_details['quantity']; }  ?>x = $<?php if(isset($order['size'])) {echo Product::getProductPrice($order['product_id'])['price_item']*$order['quantity'];}  else { echo $semi_order_details['price_item']; }  ?></p>
 						</figcaption>
 					</figure>
 					<?php } ?>

@@ -166,20 +166,17 @@ class UserController
         session_start();
         if (isset($_SESSION['user'])) {
             $userOrders = Product::selectUserOrders($_SESSION['user']['id']);
-            
             $all_orders=array_merge($userOrders['orders'], $userOrders['checkout']);
-             
             $time = array();
             foreach ($all_orders as $key => $value) {
                 $time[$key]=$value['created_at'];
             }
             array_multisort($time, SORT_DESC, $all_orders);
-            // echo '<pre>';
-            // print_r($all_orders);
-            // echo '</pre>';
-
-            
-
+            //cancel order
+            if(isset($_POST['cancel_order'])) {
+                Product::cancelOrder($_POST['type_of_order'],$_POST['order_id']);
+                header("Refresh:0");
+            }
             require_once __DIR__ . './../view/page-profile.php';
         } else {
             header('Location: http://localhost/fill-rouge/user/index');
@@ -282,7 +279,7 @@ class UserController
                         $ctn = new Order($id,$_COOKIE['quantity'],$_COOKIE['size'],$_COOKIE['color'],$_POST['first_name'].' '.$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id']);
                         $ctn->addOrderGuest();
                         $product_passed = Product::selectOrdersAndQuantity($id);
-                        $product_updated = Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
+                        Product::updateProductAfterOrder($id,$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
                         header('Location: http://localhost/fill-rouge/user/index');
                         } else {
                         $cvv = true;
@@ -431,8 +428,14 @@ class UserController
                         if(isset($_POST['cvv']) && !empty($_POST['cvv'])) {
                         $ctn = new OrderCheckout($_POST['first_name'].' '.$_POST['last_name'],$_POST['code_number'].$_POST['phone_number'],$_POST['email'],$_POST['shipping_method'],$_POST['address'],$_POST['zip'],$_POST['other_info'],$_POST['card_number'],$_POST['expired'],$_POST['cvv'],$_SESSION['user']['id'],$str_semi_orders);
                         $ctn->addCheckoutOrder();
+                        //move products from cart user to orders page
                         foreach($semi_orders as $semi_order) {
                          Product::moveSemiOrder($semi_order['id']);
+                        }
+                        // update products quantity and orders number
+                        foreach($semi_orders as $semi_order) {
+                        $product_passed = Product::selectOrdersAndQuantity($semi_order['product_id']);
+                        Product::updateProductAfterOrder($semi_order['product_id'],$product_passed['orders'] + $_COOKIE['quantity'],$product_passed['quantity'] - $_COOKIE['quantity']);
                         }
                         header('Location: http://localhost/fill-rouge/user/index');
                         } else {

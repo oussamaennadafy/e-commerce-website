@@ -17,7 +17,7 @@
           <!-- Brand .//end -->
           <p class="my-4">
             Company name. <br />
-            © 2022- 2023 Templatemount. <br />
+            © 2022- 2023 ENSONE. <br />
             All rights reserved.
           </p>
         </aside>
