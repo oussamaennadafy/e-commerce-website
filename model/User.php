@@ -47,6 +47,12 @@ Class User {
    }
 }
 
+ public static function updateUser($first_name,$last_name,$code_number,$phone_number,$email,$password,$id) {
+  $ctn=new Connection();
+  $query=$ctn->getconn()->prepare("UPDATE `users` SET `first_name`='$first_name',`last_name`='$last_name',`code_number`='$code_number',`phone_number`='$phone_number',`email_address`='$email',`password`='$password' WHERE id=$id");
+	$query->execute();
+}
+
 
 
 

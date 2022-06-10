@@ -164,7 +164,6 @@ class UserController
     {
         //logic of page
         session_start();
-        print_r($_SESSION['user']);
         if (isset($_SESSION['user'])) {
             $userOrders = Product::selectUserOrders($_SESSION['user']['id']);
             $all_orders=array_merge($userOrders['orders'], $userOrders['checkout']);
@@ -195,33 +194,26 @@ class UserController
              $terms = false;
              ////////////////////////////
              if (isset($_POST['save'])) {
-                 if (!empty($_POST['first_name'])) {
-                     if (!empty($_POST['last_name'])) {
-                         if (!empty($_POST['code_number']) && !empty($_POST['phone_number']) && is_numeric($_POST['code_number']) && is_numeric($_POST['phone_number'])) {
-                             if (!empty($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-                                 if (!empty($_POST['address'])) {
-                                     if (!empty($_POST['password'])) {
-                                            echo 'passed';
-                                            //  $user = new User($_POST['first_name'], $_POST['last_name'], $_POST['code_number'],$_POST['phone_number'], $_POST['email'], $_POST['address'], $_POST['password']);
-                                            //  $Lastid = $user->insertUser();
-                                            //  $_SESSION['user'] =
-                                            //      [
-                                            //          'id' => $Lastid,
-                                            //          'first_name' => $_POST['first_name'],
-                                            //          'last_name' => $_POST['last_name'],
-                                            //          'code_phone' => $_POST['code_number'],
-                                            //          'phone' => $_POST['phone_number'],
-                                            //          'email' => $_POST['email'],
-                                            //          'address' => $_POST['address'],
-                                            //          'password' => $_POST['password']
-                                            //      ];
-                                            //  header('Location: http://localhost/fill-rouge/user/index');
+                 if (!empty(trim($_POST['first_name']))) {
+                     if (!empty(trim($_POST['last_name']))) {
+                         if (!empty(trim($_POST['code_number'])) && !empty(trim($_POST['phone_number'])) && is_numeric($_POST['code_number']) && is_numeric($_POST['phone_number'])) {
+                             if (!empty(trim($_POST['email'])) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+                                 if (!empty(trim($_POST['password']))) {
+                                            User::updateUser($_POST['first_name'],$_POST['last_name'],$_POST['code_number'],$_POST['phone_number'],$_POST['email'],$_POST['password'],$_SESSION['user']['id']);
+                                             $_SESSION['user'] =
+                                                 [
+                                                     'id' => $_SESSION['user']['id'],
+                                                     'first_name' => $_POST['first_name'],
+                                                     'last_name' => $_POST['last_name'],
+                                                     'code_phone' => $_POST['code_number'],
+                                                     'phone' => $_POST['phone_number'],
+                                                     'address' => $_SESSION['user']['address'],
+                                                     'email' => $_POST['email'],
+                                                     'password' => $_POST['password']
+                                                 ];
                                      } else {
                                          $password = true;
                                      }
-                                 } else {
-                                     $address = true;
-                                 }
                              } else {
                                  $email = true;
                              }

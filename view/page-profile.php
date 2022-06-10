@@ -98,7 +98,7 @@
 			</li>
 			<!-- <li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Transactions</a>
 			</li> -->
-			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="#">Profile setting</a>
+			<li> <a id='edit_profile_btn' class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md">Profile setting</a>
 			</li>
 			<li> <a class="block px-3 py-2 text-gray-800 hover:bg-blue-100 hover:text-blue-500 rounded-md" href="http://localhost/fill-rouge/user/logout">Log out</a>
 			</li>
@@ -259,7 +259,12 @@
 		</section>
 	<!-- //////// end update address ////////// -->
 			<!--  COMPONENT: SIGN IN -->
-			<div style="max-width:480px" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg">
+			<div style="max-width:480px" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg opacity-0 invisible pointer-events-none">
+				<!-- ////////////closing icon//////////////// -->
+				<div id='close_edit_form' class='cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-500 absolute right-5 rounded-full bg-gray-100 hover:bg-gray-200 transition'>
+					<i class="px-4 py-3 fa fa-times"></i> 
+				</div>
+
 				<form action="http://localhost/fill-rouge/user/profile" method='POST'>
 					<h2 class="mb-5 text-2xl font-semibold">User Profile</h2>
 
@@ -308,10 +313,10 @@
 				      <input id='password_input' class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
 										<?php if(isset($_POST['save'])) { if($password){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
 										" type="password" placeholder="Type here" name="password" value="<?php if(isset($_POST['save']) && !empty($_POST['password'])) {echo $_POST['password']; }  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['password'];}  ?>">
-										<p class='text-red-500 mt-2'> <?php if(isset($_POST['save'])) { if($password){echo 'password is required';}} ?></p>
 										<strong id='hide' class='absolute hidden top-1/2 right-3 cursor-pointer select-none'> Hide</strong>
 										<strong id='show' class='absolute top-1/2 right-3 cursor-pointer select-none'> Show</strong>
-				    </div>
+									</div>
+									<p class='text-red-500 -mt-2'> <?php if(isset($_POST['save'])) { if($password){echo 'password is required';}} ?></p>
 
 					<button type="submit" name="save" class="my-2 px-4 py-2 text-center w-full inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700"> Save </button>
 				</form>
@@ -375,7 +380,7 @@
 							document.getElementById('edit_address_form').classList.toggle('pointer-events-none');
 							document.getElementById('edit_address_form').classList.toggle('invisible');
 						})
-						////////////////////////////////////
+						//////////////show and hide//////////////////////
 						let hide = document.getElementById('hide');
 						let show = document.getElementById('show');
 
@@ -390,7 +395,12 @@
 							show.classList.add('hidden');
 							document.getElementById('password_input').setAttribute('type', 'text');
 						})
-
+						////////////////////////////////////////////////
+						////////////show and hide /////////////////////
+						let edit_profile_btn = document.getElementById('edit_profile_btn')
+						edit_profile_btn.addEventListener('click', ()=> {
+							
+						})
 
 					</script>
 </body>
