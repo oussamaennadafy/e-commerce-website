@@ -437,6 +437,11 @@
 							document.getElementById('overlay1').classList.toggle('invisible');
 						})
 
+
+
+						if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+		}
 					</script>
 </body>
 </html>

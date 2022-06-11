@@ -142,6 +142,10 @@
               </a>
             </div>
           </article>
+          <div class='w-0 lg:w-[36.666667%] h-0 lg:h-auto relative opacity-0 invisible pointer-events-none lg:opacity-100 lg:visible lg:pointer-events-auto'>
+            <div class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gray-300 opacity-50'></div>
+            <img class='absolute' src="./../view/images/hero-img.png" alt="img">
+          </div>
         </div>
       </div>
       <!-- container //end -->

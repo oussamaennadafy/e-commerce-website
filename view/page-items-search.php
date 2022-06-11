@@ -449,6 +449,11 @@
 	<?php include_once 'view\reusables\footer.php'; ?>
 	<!-- footer end -->
 
+	<script>
+				if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+		}
+	</script>
 </body>
 
 </html>
