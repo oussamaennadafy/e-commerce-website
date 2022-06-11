@@ -192,6 +192,9 @@ class UserController
              $address = false;
              $password = false;
              $terms = false;
+             //////
+             $edited_profile = false;
+             //////
              ////////////////////////////
              if (isset($_POST['save'])) {
                  if (!empty(trim($_POST['first_name']))) {
@@ -211,6 +214,7 @@ class UserController
                                                      'email' => $_POST['email'],
                                                      'password' => $_POST['password']
                                                  ];
+                                            $edited_profile = true;
                                      } else {
                                          $password = true;
                                      }

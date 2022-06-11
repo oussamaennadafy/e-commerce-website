@@ -142,12 +142,12 @@
 			 
 			<hr class="my-4">
 
-			<h3 id='divId' class="text-xl font-semibold mb-5">Current orders</h3>
+			<h3 id='divId' class="text-xl font-semibold mb-5">Your Last order</h3>
 			<?php if(count($all_orders) == null) {?>
 				<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
 				<h1 class='text-center w-full my-7 text-3xl font-semibold'> You haven't order yet </h1>
 				<?php } ?>
-			<?php foreach(array_slice($all_orders,0,3)as $order) {
+			<?php foreach(array_slice($all_orders,0,1)as $order) {
 				if(isset($order['size'])) { 
 					//semi orders
 					$semi_orders = [1]; }  
@@ -238,12 +238,17 @@
 			</article>
 			<!-- item-order 1 end//-->
 		 <?php } ?>
+			<?php if(count($all_orders) != null) {?>
+				<a class='underline text-blue-500' href="http://localhost/fill-rouge/user/orderHistory">View all orders</a>
+				<?php } ?>
 		</article> <!-- card.// -->
 	</main>
 	<!-- //////// update address ////////// -->
 	<div id='overlay' class='fixed transition top-0 left-0 w-screen h-screen bg-gray-300 invisible pointer-events-none opacity-0'>
 		</div>
-		<section id='edit_address_form' class='fixed top-1/2 left-1/2 -translate-x-1/2 w-1/2 -translate-y-1/2 bg-white transition rounded border border-gray-300 p-6 invisible pointer-events-none opacity-0'>
+	<div id='overlay1' class='fixed transition top-0 left-0 w-screen h-screen bg-gray-300 <?php if(isset($_POST['save']) && $edited_profile == false) {echo 'opacity-50 visible pointer-events-auto';} else {echo 'opacity-0 invisible pointer-events-none' ;} ?>'>
+		</div>
+		<section id='edit_address_form' class='fixed w-11/12 sm:w-9/12 md:w-7/12 lg:w-1/2 shadow-lg top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white transition rounded border border-gray-300 p-6 invisible pointer-events-none opacity-0'>
 			<h1 class='text-xl font-semibold mb-4'>Edit Address</h1>
 			<form action="http://localhost/fill-rouge/user/profile" method="post">
 				<div class='flex gap-6 items-center'>
@@ -259,7 +264,7 @@
 		</section>
 	<!-- //////// end update address ////////// -->
 			<!--  COMPONENT: SIGN IN -->
-			<div id='profile_form' class="transition fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg opacity-0 invisible pointer-events-none">
+			<div id='profile_form' class="transition fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 md:px-7 md:py-4 mx-auto rounded bg-white shadow-lg <?php if(isset($_POST['save']) && $edited_profile == false) {echo 'opacity-1 visible pointer-events-auto';} else {echo 'opacity-0 invisible pointer-events-none' ;} ?>">
 				<!-- ////////////closing icon//////////////// -->
 				<div id='close_edit_form' class='cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-500 absolute right-5 rounded-full bg-gray-100 hover:bg-gray-200 transition'>
 					<i class="px-4 py-3 fa fa-times"></i> 
@@ -313,8 +318,8 @@
 				      <input id='password_input' class="appearance-none border border-gray-200 bg-gray-100 rounded-md py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400 w-full
 										<?php if(isset($_POST['save'])) { if($password){echo 'border-red-400 hover:border-red-500 focus:border-red-600';}} ?>
 										" type="password" placeholder="Type here" name="password" value="<?php if(isset($_POST['save']) && !empty($_POST['password'])) {echo $_POST['password']; }  elseif(!isset($_POST['save'])) {echo $_SESSION['user']['password'];}  ?>">
-										<strong id='hide' class='absolute hidden top-1/2 right-3 cursor-pointer select-none'> Hide</strong>
-										<strong id='show' class='absolute top-1/2 right-3 cursor-pointer select-none'> Show</strong>
+										<p id='hide' class='absolute font-semibold hidden top-1/2 right-3 cursor-pointer select-none'> Hide</p>
+										<p id='show' class='absolute font-semibold top-1/2 right-3 cursor-pointer select-none'> Show</p>
 									</div>
 									<p class='text-red-500 -mt-2'> <?php if(isset($_POST['save'])) { if($password){echo 'password is required';}} ?></p>
 
@@ -403,13 +408,33 @@
 							document.getElementById('profile_form').classList.remove('opacity-0');
 							document.getElementById('profile_form').classList.remove('invisible');
 							document.getElementById('profile_form').classList.remove('pointer-events-none');
-							document.getElementById('overlay').classList.remove('opacity-0');
+							
+							document.getElementById('overlay1').classList.remove('opacity-0');
+							document.getElementById('overlay1').classList.add('opacity-50');
+							document.getElementById('overlay1').classList.toggle('pointer-events-none');
+							document.getElementById('overlay1').classList.toggle('invisible');
 						})
+
 						close_edit_form.addEventListener('click', ()=> {
-							document.getElementById('overlay').classList.add('opacity-0');
 							document.getElementById('profile_form').classList.add('opacity-0');
 							document.getElementById('profile_form').classList.add('invisible');
 							document.getElementById('profile_form').classList.add('pointer-events-none');
+
+							document.getElementById('overlay1').classList.add('opacity-0');
+							document.getElementById('overlay1').classList.remove('opacity-50');
+							document.getElementById('overlay1').classList.toggle('pointer-events-none');
+							document.getElementById('overlay1').classList.toggle('invisible');
+						})
+
+						overlay1.addEventListener('click', ()=> {
+							document.getElementById('profile_form').classList.add('opacity-0');
+							document.getElementById('profile_form').classList.add('invisible');
+							document.getElementById('profile_form').classList.add('pointer-events-none');
+
+							document.getElementById('overlay1').classList.add('opacity-0');
+							document.getElementById('overlay1').classList.remove('opacity-50');
+							document.getElementById('overlay1').classList.toggle('pointer-events-none');
+							document.getElementById('overlay1').classList.toggle('invisible');
 						})
 
 					</script>
