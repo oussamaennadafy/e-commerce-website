@@ -36,13 +36,9 @@ class UserController
     {
         //logic of page
         session_start();
-        // echo $_POST['search_input'];
-        // if(isset($_POST['search_btn']) and empty(trim($_POST['search_input']))) {
-        //     header('Location: http://localhost/fill-rouge/user/'.$_POST['page_name']);
+        // if(isset($_POST['search_btn']) && !empty(trim($_POST['search_input']))) {
+        //     echo $_POST['search_input'];
         // }
-        if(isset($_POST['search_btn']) && !empty(trim($_POST['search_input']))) {
-            echo $_POST['search_input'];
-        }
 
         $products = Product::selectLastProducts();
         require_once __DIR__ . './../view/page-items-search.php';

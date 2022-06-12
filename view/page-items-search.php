@@ -44,6 +44,9 @@
 									type="text"
 									name="search_input"
 									placeholder="Search"
+									value='<?php if(isset($_POST['search_btn']) && !empty(trim($_POST['search_input']))) {
+            echo $_POST['search_input'];
+        } ?>'
 							/>
 							<button
 									type="submit"
