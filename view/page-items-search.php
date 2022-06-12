@@ -108,19 +108,6 @@
 		<div class="container max-w-screen-xl mx-auto px-4">
 			<!-- breadcrumbs start -->
 			<h2 class="text-3xl font-semibold mb-2">
-				<?php 
-				// if ($category == 'OurSports') {
-				// 	echo 'Our Sports';
-				// } elseif ($category == 'mens') {
-				// 	echo 'Men’s';
-				// } elseif ($category == 'womens') {
-				// 	echo 'Women’s';
-				// } elseif ($category == 'kids') {
-				// 	echo 'Kid’s';
-				// } elseif ($category == 'accessoires') {
-				// 	echo 'Accessoires';
-				// }
-				?>
 			</h2>
 			<ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
 				<li class="inline-flex items-center">
@@ -131,19 +118,6 @@
 					<a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/search">Search</a>
 				</li>
 				<li class="inline-flex items-center">
-					<?php 
-					// if ($category == 'OurSports') {
-					// 	echo 'Our Sports';
-					// } elseif ($category == 'mens') {
-					// 	echo 'Men’s';
-					// } elseif ($category == 'womens') {
-					// 	echo 'Women’s';
-					// } elseif ($category == 'kids') {
-					// 	echo 'Kid’s';
-					// } elseif ($category == 'accessoires') {
-					// 	echo 'Accessoires';
-					// }
-					?>
 				</li>
 			</ol>
 			<!-- breadcrumbs end -->
