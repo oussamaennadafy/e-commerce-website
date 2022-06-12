@@ -165,37 +165,42 @@
 							<ul class="space-y-1">
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="" type="checkbox" class="h-4 w-4">
+										<input name="KALENJI" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> KALENJI </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="" type="checkbox" class="h-4 w-4">
+										<input name="KIPRUN" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> KIPRUN </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="" type="checkbox" class="h-4 w-4">
+										<input name="QUECHUA" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> QUECHUA </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="" type="checkbox" class="h-4 w-4">
+										<input name="KIPSTA" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> KIPSTA </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="" type="checkbox" class="h-4 w-4">
+										<input name="TARMAK" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> TARMAK </span>
 									</label>
 								</li>
-								<li>
-										<input value='apply' name="apply" type="submit" class="bg-blue-500 my-1 text-white rounded px-5 cursor-pointer py-2">
-								</li>
+								<div class='flex '>
+									<li>
+											<input value='apply' name="apply" type="submit" class="bg-blue-500 mb-1 mt-2 text-white rounded px-5 cursor-pointer py-2">
+									</li>
+									<li>
+											<input value='clear' name="clear" type="submit" class="bg-gray-500 ml-5 mb-1 mt-2 text-white rounded px-5 cursor-pointer py-2">
+									</li>
+								</div>
 							</ul>
 						</form>
 

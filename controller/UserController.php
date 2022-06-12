@@ -26,7 +26,16 @@ class UserController
         session_start();
         $products = Product::SelectProductsByCategory($category);
         //////////////////filter/////////////////////
-        
+        if(isset($_POST['apply'])) {
+            if(isset($_POST['KALENJI']) || isset($_POST['KIPRUN']) || isset($_POST['QUECHUA']) || isset($_POST['KIPSTA']) || isset($_POST['TARMAK'])) {
+                
+            }
+            // echo $_POST['KALENJI'];
+            // echo $_POST['KIPRUN'];
+            // echo $_POST['QUECHUA'];
+            // echo $_POST['KIPSTA'];
+            // echo $_POST['TARMAK'];
+        }
         //////////////////filter/////////////////////
         require_once __DIR__ . './../view/page-items-nav.php';
     }
