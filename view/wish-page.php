@@ -32,13 +32,27 @@
 				<!-- Brand .//end -->
 
 				<!-- Search -->
-				<form class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4" action="http://localhost/fill-rouge/user/nav/OurSports" method="POST">
-					<input class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400" type="text" placeholder="Search" name='search_input'>
-					<button type="submit" class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 text-white rounded-md hover:bg-blue-700" name='search_btn'>
-						Search
-					</button>
-				</form>
-				<!-- Search .//end -->
+        <form
+            method="POST"
+            action="http://localhost/fill-rouge/user/search"
+            class="flex flex-nowrap items-center w-full order-last md:order-none mt-5 md:mt-0 md:w-2/4 lg:w-2/4"
+          >
+          <!-- <input type="hidden" name="page_name" value='index'> -->
+            <input
+              class="flex-grow appearance-none border border-gray-200 bg-gray-100 rounded-md mr-2 py-2 px-3 hover:border-gray-400 focus:outline-none focus:border-gray-400"
+              type="text"
+              name="search_input"
+              placeholder="Search"
+            />
+            <button
+              type="submit"
+              name="search_btn"
+              class="px-4 py-2 inline-block text-white border border-transparent bg-blue-600 rounded-md hover:bg-blue-700"
+            >
+              <i class="fa fa-search"></i>
+            </button>
+          </form>
+          <!-- Search .//end -->
 
 				<!-- Actions -->
 				<div class="flex items-center space-x-2 ml-auto">
