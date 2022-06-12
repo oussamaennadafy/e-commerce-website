@@ -96,6 +96,7 @@ class Connection
 	}
 
 
+
 	//`id`,`first_img`,`name_item`,`description_item`,`tages_item`,`price_item`
 
 	public function SelectProductsByCategory($category)
@@ -256,7 +257,12 @@ class Connection
 		return $query->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-
+	public function searchForProduct($sentence)
+	{
+		$query = $this->conn->prepare("SELECT `name_item`,`first_img`,`id`,`price_item`,`tages_item`,`description_item` FROM `products` WHERE quantity > 0 AND name_item LIKE '%$sentence%' OR tages_item LIKE '%$sentence%' OR description_item LIKE '%$sentence%'");
+		$query->execute();
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
 
 
 

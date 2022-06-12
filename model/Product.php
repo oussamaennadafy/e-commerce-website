@@ -83,6 +83,12 @@ class Product
     return $ctn->selectSemiOrders($user_id);
   }
 
+  public static function searchForProduct($sentence)
+  {
+    $ctn = new Connection();
+    return $ctn->searchForProduct($sentence);
+  }
+
   public static function cancelOrder($type_of_order,$order_id)
   {
     $ctn = new Connection();
