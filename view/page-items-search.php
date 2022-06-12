@@ -427,6 +427,11 @@
 						<!-- COMPONENT: PRODUCT ITEM //END -->
 					<?php } ?>
 
+					<?php if(count($products) == 0) { ?>
+				<img class='h-60 rounded-full mx-auto' src='./../view/images/not_found.jpg' alt='not found'></img>
+				<h1 class='text-center w-full my-7 text-3xl font-semibold'> Sorry, we couldn't found any item </h1>
+					<?php } ?>
+
 				</main> <!-- col.// -->
 			</div> <!-- grid.// -->
 

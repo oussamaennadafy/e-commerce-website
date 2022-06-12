@@ -23,10 +23,6 @@ class UserController
 
     public function nav($category)
     {
-        //logic of page
-        // if(isset($_POST['search_btn']) and !empty(trim($_POST['search_input']))) {
-        //     header("Location: http://localhost/fill-rouge/user/search/".$_POST['search_input']);
-        // }
         session_start();
         $products = Product::SelectProductsByCategory($category);
         require_once __DIR__ . './../view/page-items-nav.php';
