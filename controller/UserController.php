@@ -25,6 +25,9 @@ class UserController
     {
         session_start();
         $products = Product::SelectProductsByCategory($category);
+        //////////////////filter/////////////////////
+        
+        //////////////////filter/////////////////////
         require_once __DIR__ . './../view/page-items-nav.php';
     }
 

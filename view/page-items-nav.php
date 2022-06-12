@@ -161,38 +161,43 @@
 						<hr class="my-4">
 
 						<h3 class="font-semibold mb-2">By Brand</h3>
-						<ul class="space-y-1">
-							<li>
-								<label class="flex items-center cursor-pointer">
-									<input name="" type="checkbox" checked="" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> KALENJI </span>
-								</label>
-							</li>
-							<li>
-								<label class="flex items-center cursor-pointer">
-									<input name="" type="checkbox" checked="" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> KIPRUN </span>
-								</label>
-							</li>
-							<li>
-								<label class="flex items-center cursor-pointer">
-									<input name="" type="checkbox" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> QUECHUA </span>
-								</label>
-							</li>
-							<li>
-								<label class="flex items-center cursor-pointer">
-									<input name="" type="checkbox" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> KIPSTA </span>
-								</label>
-							</li>
-							<li>
-								<label class="flex items-center cursor-pointer">
-									<input name="" type="checkbox" class="h-4 w-4">
-									<span class="ml-2 text-gray-500"> TARMAK </span>
-								</label>
-							</li>
-						</ul>
+						<form action="http://localhost/fill-rouge/user/nav/<?php echo $category; ?>" method="post">
+							<ul class="space-y-1">
+								<li>
+									<label class="flex items-center cursor-pointer">
+										<input name="" type="checkbox" class="h-4 w-4">
+										<span class="ml-2 text-gray-500"> KALENJI </span>
+									</label>
+								</li>
+								<li>
+									<label class="flex items-center cursor-pointer">
+										<input name="" type="checkbox" class="h-4 w-4">
+										<span class="ml-2 text-gray-500"> KIPRUN </span>
+									</label>
+								</li>
+								<li>
+									<label class="flex items-center cursor-pointer">
+										<input name="" type="checkbox" class="h-4 w-4">
+										<span class="ml-2 text-gray-500"> QUECHUA </span>
+									</label>
+								</li>
+								<li>
+									<label class="flex items-center cursor-pointer">
+										<input name="" type="checkbox" class="h-4 w-4">
+										<span class="ml-2 text-gray-500"> KIPSTA </span>
+									</label>
+								</li>
+								<li>
+									<label class="flex items-center cursor-pointer">
+										<input name="" type="checkbox" class="h-4 w-4">
+										<span class="ml-2 text-gray-500"> TARMAK </span>
+									</label>
+								</li>
+								<li>
+										<input value='apply' name="apply" type="submit" class="bg-blue-500 my-1 text-white rounded px-5 cursor-pointer py-2">
+								</li>
+							</ul>
+						</form>
 
 						<hr class="my-4">
 
