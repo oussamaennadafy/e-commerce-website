@@ -365,17 +365,27 @@
 											foreach ($product['tages_item'] as $value) {
 												if(!empty($value) && $count < 4) {
 												?>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full">
-												 <?php 
-													echo $value; 
-													$count ++;
-													?> 
-											</span>
+											<form
+            method="POST"
+            action="http://localhost/fill-rouge/user/search"
+												class='inline-block mb-2'
+          	>
+            <input
+              type="hidden"
+														value='<?php echo $value; $count ++; ?>'
+              name="search_input"
+              placeholder="Search"
+            />
+            <button
+              type="submit"
+              name="search_btn"
+              class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full hover:border-blue-600 hover:text-blue-600"
+            >
+												<?php echo $value; ?>
+            </button>
+          </form>
 											 <?php } ?>
 											<?php } ?> 
-											<!-- <span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Pink Color </span>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Retina Screen </span>
-											<span class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full"> Original </span> -->
 										</p>
 									</div>
 								</div> <!-- col.// -->

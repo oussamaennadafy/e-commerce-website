@@ -370,13 +370,25 @@
 											foreach ($product['tages_item'] as $value) {
 												if(!empty($value) && $count < 4) {
 												?>
-											<a name='q' href='http://localhost/fill-rouge/user/search/<?php echo $value ?>'
-											 class="inline-block hover:border-blue-600 hover:text-blue-600 px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full">
-												 <?php 
-													echo $value; 
-													$count ++;
-													?> 
-											</a>
+													<form
+            method="POST"
+            action="http://localhost/fill-rouge/user/search"
+												class='inline-block mb-2'
+          	>
+            <input
+              type="hidden"
+														value='<?php echo $value; $count ++; ?>'
+              name="search_input"
+              placeholder="Search"
+            />
+            <button
+              type="submit"
+              name="search_btn"
+              class="inline-block px-3 text-sm py-1 border border-gray-300 text-gray-400 rounded-full hover:border-blue-600 hover:text-blue-600"
+            >
+												<?php echo $value; ?>
+            </button>
+          </form>
 											 <?php } ?>
 											<?php } ?> 
 										</div>
