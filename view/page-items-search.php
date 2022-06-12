@@ -124,8 +124,11 @@
 			</h2>
 			<ol class="inline-flex flex-wrap text-gray-600 space-x-1 md:space-x-3 items-center">
 				<li class="inline-flex items-center">
-					<a class="text-gray-600 hover:text-blue-600" href="#">Home</a>
+					<a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/index">Home</a>
 					<i class="ml-3 text-gray-400 fa fa-chevron-right"></i>
+				</li>
+				<li class="inline-flex items-center">
+					<a class="text-gray-600 hover:text-blue-600" href="http://localhost/fill-rouge/user/search">Search</a>
 				</li>
 				<li class="inline-flex items-center">
 					<?php 
