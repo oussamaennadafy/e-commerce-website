@@ -193,12 +193,12 @@
 										<span class="ml-2 text-gray-500"> TARMAK </span>
 									</label>
 								</li>
-								<div class='flex '>
-									<li>
-											<input value='apply' name="apply" type="submit" class="bg-blue-500 mb-1 mt-2 text-white rounded px-5 cursor-pointer py-2">
+								<div class='flex w-full justify-between gap-4 mt-3'>
+									<li class='w-full'>
+											<input value='apply' name="apply" type="submit" class="bg-blue-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">
 									</li>
-									<li>
-											<input value='clear' name="clear" type="submit" class="bg-gray-500 ml-5 mb-1 mt-2 text-white rounded px-5 cursor-pointer py-2">
+									<li class='w-full'>
+											<input value='clear' name="clear" type="submit" class="bg-gray-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">
 									</li>
 								</div>
 							</ul>
@@ -226,6 +226,9 @@
 								</li>
 								<li><a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> + $500 </a></li>
 							</div>
+							<li class='mb-1'>
+										<input value='clear' name="clear" type="submit" class="bg-gray-500 w-full mt-3 text-white rounded cursor-pointer py-2">
+							</li>
 						</ul>
 
 
@@ -313,6 +316,9 @@
 									</label>
 								</li>
 							</div>
+							<li class='mb-1'>
+										<input value='clear' name="clear" type="submit" class="bg-gray-500 w-full mt-3 text-white rounded cursor-pointer py-2">
+							</li>
 						</ul>
 
 
@@ -339,6 +345,9 @@
 								</li>
 								<li><a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> 3XL </a></li>
 							</div>
+							<li class='mb-1'>
+										<input value='clear' name="clear" type="submit" class="bg-gray-500 w-full mt-3 text-white rounded cursor-pointer py-2">
+							</li>
 						</ul>
 
 					</div>

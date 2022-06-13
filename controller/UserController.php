@@ -29,20 +29,22 @@ class UserController
         if(isset($_POST['apply'])) {
             // if(isset($_POST['KALENJI']) || isset($_POST['KIPRUN']) || isset($_POST['QUECHUA']) || isset($_POST['KIPSTA']) || isset($_POST['TARMAK'])) {
             // }
-            $array = [];
-                isset($_POST['KALENJI']) ? array_push($array,'KALENJI') : "";
-                isset($_POST['KIPRUN']) ? array_push($array,'KIPRUN') : "";
-                isset($_POST['QUECHUA']) ? array_push($array,'QUECHUA') : "";
-                isset($_POST['KIPSTA']) ? array_push($array,'KIPSTA') : "";
-                isset($_POST['TARMAK']) ? array_push($array,'TARMAK') : "";
-            print_r($array);
-
-            // echo $_POST['KALENJI'];
-            // echo $_POST['KIPRUN'];
-            // echo $_POST['QUECHUA'];
-            // echo $_POST['KIPSTA'];
-            // echo $_POST['TARMAK'];
-        }
+                // $array = [];
+                // isset($_POST['KALENJI']) ? array_push($array,'KALENJI') : "";
+                // isset($_POST['KIPRUN']) ? array_push($array,'KIPRUN') : "";
+                // isset($_POST['QUECHUA']) ? array_push($array,'QUECHUA') : "";
+                // isset($_POST['KIPSTA']) ? array_push($array,'KIPSTA') : "";
+                // isset($_POST['TARMAK']) ? array_push($array,'TARMAK') : "";
+                // $_SESSION['filter_by_brand'] = $array;
+                
+                // echo $_POST['KALENJI'];
+                // echo $_POST['KIPRUN'];
+                // echo $_POST['QUECHUA'];
+                // echo $_POST['KIPSTA'];
+                // echo $_POST['TARMAK'];
+                
+                // print_r($_SESSION['filter_by_brand']);
+            }
         //////////////////filter/////////////////////
         require_once __DIR__ . './../view/page-items-nav.php';
     }
