@@ -165,37 +165,37 @@
 							<ul class="space-y-1">
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="KALENJI" type="checkbox" class="h-4 w-4">
+										<input <?php if(isset($_POST['apply_brand_filter'])) {if(in_array('KALENJI',$array)) {echo 'checked';} } ?> name="KALENJI" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> KALENJI </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="KIPRUN" type="checkbox" class="h-4 w-4">
+										<input <?php if(isset($_POST['apply_brand_filter'])) {if(in_array('KIPRUN',$array)) {echo 'checked';} } ?> name="KIPRUN" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> KIPRUN </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="QUECHUA" type="checkbox" class="h-4 w-4">
+										<input <?php if(isset($_POST['apply_brand_filter'])) {if(in_array('QUECHUA',$array)) {echo 'checked';} } ?> name="QUECHUA" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> QUECHUA </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="KIPSTA" type="checkbox" class="h-4 w-4">
+										<input <?php if(isset($_POST['apply_brand_filter'])) {if(in_array('KIPSTA',$array)) {echo 'checked';} } ?> name="KIPSTA" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> KIPSTA </span>
 									</label>
 								</li>
 								<li>
 									<label class="flex items-center cursor-pointer">
-										<input name="TARMAK" type="checkbox" class="h-4 w-4">
+										<input <?php if(isset($_POST['apply_brand_filter'])) {if(in_array('TARMAK',$array)) {echo 'checked';} } ?> name="TARMAK" type="checkbox" class="h-4 w-4">
 										<span class="ml-2 text-gray-500"> TARMAK </span>
 									</label>
 								</li>
 								<div class='flex w-full justify-between gap-4 mt-3'>
 									<li class='w-full mt-2'>
-											<input value='apply' name="apply" type="submit" class="bg-blue-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">
+											<input value='apply' name="apply_brand_filter" type="submit" class="bg-blue-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">
 									</li>
 									<li class='w-full mt-2'>
 											<input value='clear' name="clear" type="submit" class="bg-gray-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">

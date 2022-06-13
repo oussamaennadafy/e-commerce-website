@@ -26,23 +26,16 @@ class UserController
         session_start();
         $products = Product::SelectProductsByCategory($category);
         //////////////////filter/////////////////////
-        if(isset($_POST['apply'])) {
-            // if(isset($_POST['KALENJI']) || isset($_POST['KIPRUN']) || isset($_POST['QUECHUA']) || isset($_POST['KIPSTA']) || isset($_POST['TARMAK'])) {
-            // }
-                // $array = [];
-                // isset($_POST['KALENJI']) ? array_push($array,'KALENJI') : "";
-                // isset($_POST['KIPRUN']) ? array_push($array,'KIPRUN') : "";
-                // isset($_POST['QUECHUA']) ? array_push($array,'QUECHUA') : "";
-                // isset($_POST['KIPSTA']) ? array_push($array,'KIPSTA') : "";
-                // isset($_POST['TARMAK']) ? array_push($array,'TARMAK') : "";
-                // $_SESSION['filter_by_brand'] = $array;
-                
-                // echo $_POST['KALENJI'];
-                // echo $_POST['KIPRUN'];
-                // echo $_POST['QUECHUA'];
-                // echo $_POST['KIPSTA'];
-                // echo $_POST['TARMAK'];
-                
+        if(isset($_POST['apply_brand_filter'])) {
+                $string = "";
+                isset($_POST['KALENJI']) ? $string.='KALENJI,' : "";
+                isset($_POST['KIPRUN']) ? $string.='KIPRUN,' : "";
+                isset($_POST['QUECHUA']) ? $string.='QUECHUA,' : "";
+                isset($_POST['KIPSTA']) ? $string.='KIPSTA,' : "";
+                isset($_POST['TARMAK']) ? $string.='TARMAK,' : "";
+                echo $string = substr($string,0,-1);
+                $array = explode(',', $string);
+
                 // print_r($_SESSION['filter_by_brand']);
             }
         //////////////////filter/////////////////////
