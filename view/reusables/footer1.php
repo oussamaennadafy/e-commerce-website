@@ -143,11 +143,11 @@
         <!-- col .// -->
         <div class="space-x-6">
           <nav class="text-sm space-x-4">
-            <a href="#" class="opacity-70 hover:opacity-100"> Support </a>
-            <a href="#" class="opacity-70 hover:opacity-100">
+            <a href="http://localhost/fill-rouge/user/terms_and_conditions" class="opacity-70 hover:opacity-100"> Support </a>
+            <a href="http://localhost/fill-rouge/user/terms_and_conditions" class="opacity-70 hover:opacity-100">
               Privacy &amp; Cookies
             </a>
-            <a href="#" class="opacity-70 hover:opacity-100">
+            <a href="http://localhost/fill-rouge/user/terms_and_conditions" class="opacity-70 hover:opacity-100">
               Accessibility
             </a>
           </nav>

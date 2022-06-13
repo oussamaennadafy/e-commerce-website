@@ -142,7 +142,7 @@
 
 					<label class="flex items-center w-max my-4">
 						<input checked name="terms_and_conditions" type="checkbox" class="h-4 w-4">
-						<p class="ml-2 inline-block mr-2 select-none">I agree with</p><a class='text-blue-500 underline' href="#">Terms and Conditions</a>
+						<p class="ml-2 inline-block mr-2 select-none">I agree with</p><a class='text-blue-500 underline' href="http://localhost/fill-rouge/user/terms_and_conditions">Terms and Conditions</a>
 					</label>
 					<p class='text-red-500 mt-2 mb-2'> <?php if(isset($_POST['register'])) { if($terms){echo 'read our Terms and Conditions';}} ?></p>
 
