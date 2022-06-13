@@ -194,10 +194,10 @@
 									</label>
 								</li>
 								<div class='flex w-full justify-between gap-4 mt-3'>
-									<li class='w-full'>
+									<li class='w-full mt-2'>
 											<input value='apply' name="apply" type="submit" class="bg-blue-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">
 									</li>
-									<li class='w-full'>
+									<li class='w-full mt-2'>
 											<input value='clear' name="clear" type="submit" class="bg-gray-500 w-full inline-block text-white rounded px-5 cursor-pointer py-2">
 									</li>
 								</div>
