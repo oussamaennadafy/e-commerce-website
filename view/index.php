@@ -144,7 +144,7 @@
           </article>
           <div class='w-[36%] h-auto hidden lg:block'>
             <div class='relative w-full h-full'>
-              <div class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-gray-300 opacity-50'></div>
+              <div class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-gray-200 opacity-20'></div>
               <img class='absolute' src="./../view/images/hero-img.png" alt="img">
             </div>
           </div>
