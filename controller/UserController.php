@@ -20,7 +20,7 @@ class UserController
         $LastProducts = Product::selectLastProducts();
         include_once __DIR__ . './../view/index.php';
     }
-
+    
     public function nav($category)
     {
         session_start();
@@ -659,6 +659,11 @@ class UserController
         }
         $product = Product::selectOneCopy($id);
         require_once __DIR__ . './../view/page-buy-now.php';
+    }
+    
+    public function terms_and_conditions() {
+        session_start();
+        require_once __DIR__ . './../view/terms_and_conditions.php';
     }
 
 }

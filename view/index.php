@@ -136,7 +136,7 @@
               </a>
               <a
                 class="px-4 py-2 inline-block font-semibold text-blue-600 border border-transparent rounded-md hover:bg-gray-100 bg-white"
-                href="#"
+                href="http://localhost/fill-rouge/user/terms_and_conditions"
               >
                 Learn more
               </a>
