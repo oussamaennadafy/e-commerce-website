@@ -335,7 +335,7 @@
 	</section>
 
     <!-- footer -->
-					<?php include_once 'view\reusables\footer.php'; ?>
+					<?php include_once 'view\reusables\footer1.php'; ?>
     <!-- footer end -->
 					<script>
 						let scroll_btn = document.getElementById('scroll_to_new_orders');

@@ -308,7 +308,7 @@
 	<!--  SECTION-RECOMMENDED  //END -->
 
     <!-- footer -->
-    <?php include_once 'view\reusables\footer.php'; ?>
+    <?php include_once 'view\reusables\footer1.php'; ?>
     <!-- footer end -->
 
 </body>

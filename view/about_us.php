@@ -115,24 +115,36 @@
 		<div class="container max-w-screen-xl mx-auto px-4">
 			<h2 class="text-2xl font-semibold mb-4">About Us</h2>
 			<article>
-				<p class="text-gray-600 mb-2 leading-rolaxed">
-    Welcome to ENSONE!
-				</p>
-				<p class="text-gray-600 mb-2 leading-rolaxed">
-    These terms and conditions outline the rules and regulations for the use of ENSONE's Website, located at www.ENSONE.com.
-				</p>
-				<p class="text-gray-600 mb-2 leading-rolaxed">
-    By accessing this website we assume you accept these terms and conditions. Do not continue to use ENSONE if you do not agree to take all of the terms and conditions stated on this page.
-				</p>
-				<p class="text-gray-600 mb-2 leading-rolaxed">
-				The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
-				</p>
-				<p class="text-gray-600 mb-2 leading-rolaxed">
-				We employ the use of cookies. By accessing ENSONE, you agreed to use cookies in agreement with the ENSONE's Privacy Policy.
-				</p>
-				<p class="text-gray-600 mb-2 leading-rolaxed">
-				Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
-				</p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    Since our inception in 2012, ENSONE has set out to disrupt the HR & Talent/Staffing Management industry.
+    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    Purposefully designed by our founders (Amrita Grewal and Julie Dacar) to connect great companies and great talent, we have become a white glove boutique firm known for our agility and high operational excellence standards.    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    ENSONE offers unprecedented customer service by developing customized, worry-free, cost-effective and time-saving HR & Talent/Staffing Management Models for our valued clients – building thoughtful solutions based on our clients’ unique needs.    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    Our reputation of disrupting the norm, serving as an agile and lean recruiting provider and employer of record has contributed to our notable growth of 4,900% over three years.    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    With a diverse workforce of over 500+ and annual revenue right under $50M in 2018, ENSONE is a Women’s Business Enterprise (WBE, WBENC, WSOB) certified, a minority-owned organization that is committed to our clients and truly talking the talk and walking the walk of diversity and inclusion.
+    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    With a diverse workforce of over 500+ and annual revenue right under $50M in 2018, ENSONE is a Women’s Business Enterprise (WBE, WBENC, WSOB) certified, a minority-owned organization that is committed to our clients and truly talking the talk and walking the walk of diversity and inclusion.
+    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    With a diverse workforce of over 500+ and annual revenue right under $50M in 2018, ENSONE is a Women’s Business Enterprise (WBE, WBENC, WSOB) certified, a minority-owned organization that is committed to our clients and truly talking the talk and walking the walk of diversity and inclusion.
+    </p>
+    <p class="text-gray-600 mb-2 leading-rolaxed">
+    Dedicated to bringing diversity of thought and talent to the workforce to enhance how business is done, ENSONE makes connections, solves problems and serves as a partner clients can trust.
+    </p>
+
+     
+
+     
+
+     
+
+     
+     
 			</article>
 		</div>
 	</section>

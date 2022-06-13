@@ -50,7 +50,7 @@
           <h3 class="font-semibold">About</h3>
           <ul class="mt-2 space-y-1">
             <li>
-              <a href="#" class="opacity-70 hover:opacity-100">
+              <a href="http://localhost/fill-rouge/user/about_us" class="opacity-70 hover:opacity-100">
                 About us
               </a>
             </li>
@@ -96,16 +96,16 @@
           <h3 class="font-semibold">Links</h3>
           <ul class="mt-2 space-y-1">
             <li>
-              <a href="#" class="opacity-70 hover:opacity-100">
+              <a href="http://localhost/fill-rouge/user/terms_and_conditions" class="opacity-70 hover:opacity-100">
                 Our terms
               </a>
             </li>
             <li>
-              <a href="#" class="opacity-70 hover:opacity-100">
+              <a href="http://localhost/fill-rouge/user/terms_and_conditions" class="opacity-70 hover:opacity-100">
                 Privacy setting</a>
             </li>
             <li>
-              <a href="#" class="opacity-70 hover:opacity-100"> Sign up </a>
+              <a href="http://localhost/fill-rouge/user/signUp" class="opacity-70 hover:opacity-100"> Sign up </a>
             </li>
           </ul>
         </aside>

@@ -133,6 +133,18 @@
 				<p class="text-gray-600 mb-2 leading-rolaxed">
 				Most interactive websites use cookies to let us retrieve the user’s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.
 				</p>
+				<p class="text-gray-600 mb-2 leading-rolaxed">
+    Unless otherwise stated, ENSONE and/or its licensors own the intellectual property rights for all material on ENSONE. All intellectual property rights are reserved. You may access this from ENSONE for your own personal use subjected to restrictions set in these terms and conditions.
+				</p>
+				<p class="text-gray-600 mb-2 leading-rolaxed">
+    You must not:
+    <br>
+    <ul class='list-disc text-gray-600 mb-2 leading-rolaxed'>
+     <li class='ml-2 block'>Republish material from ENSONE</li>
+     <li class='ml-2 block'>Sell, rent or sub-license material from ENSONE</li>
+     <li class='ml-2 block'>Redistribute content from ENSONE</li>
+    </ul>
+				</p>
 			</article>
 		</div>
 	</section>
