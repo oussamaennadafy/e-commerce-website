@@ -113,7 +113,7 @@
 
 	<section class="bg-gray-100 py-10">
 		<div class="container max-w-screen-xl mx-auto px-4">
-			<h2 class="text-2xl font-semibold mb-4">Our Terms And Conditions</h2>
+			<h2 class="text-2xl font-semibold mb-4">About Us</h2>
 			<article>
 				<p class="text-gray-600 mb-2 leading-rolaxed">
     Welcome to ENSONE!
