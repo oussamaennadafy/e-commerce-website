@@ -210,6 +210,9 @@
 						<ul class="text-gray-500 space-y-1">
 							<div class='flex justify-between'>
 								<li class='mb-4'>
+									<form action="http://localhost/fill-rouge/user/nav/<?php echo $category; ?>" method="post">
+										<input type="hidden" name="">
+									</form>
 									<a class="text-center w-28 w-full block hover:bg-gray-200 transition rounded py-2 bg-gray-100 border border-gray-200" href="#">0 - $20 </a>
 								</li>
 								<li class='mb-4'><a class="text-center w-28 hover:bg-gray-200 block transition rounded py-2 bg-gray-100 border border-gray-200" href="#"> $20 - $50 </a></li>
