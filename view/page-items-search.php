@@ -193,44 +193,7 @@
 										</p>
 										<p class="text-green-500">Free Shipping</p>
 										<div class="my-3">
-											<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700" href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>"> Buy now </a>
-											<?php if(isset($_SESSION['user'])) { ?>
-                  <?php if(wished_products::checkIfProductIsWished($_SESSION['user']['id'],$product['id']) == 0) { ?>
-                  <form class='inline-block' action="http://localhost/fill-rouge/user/WishProduct" method="POST">
-                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
-                    <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'search' ?>'>
-                    <button
-                      type='submit'
-                      class="px-3 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 cursor-pointer select-none"
-                      id="heart_link"
-                    >
-                      <i id="heart_icon" class="fa fa-heart"></i>
-                    </button>
-                  </form>
-                  <?php } else { ?>
-                    <form class='inline-block' action="http://localhost/fill-rouge/user/UnWishProduct" method="POST">
-                    <input type="hidden" name="user_id" value='<?php echo $_SESSION['user']['id'] ?>'>
-                    <input type="hidden" name="product_id" value='<?php echo $product['id'] ?>'>
-                    <input type="hidden" name="current_page" value='<?php echo 'search/'.$searchSentence ?>'>
-                    <button
-                      type='submit'
-                      class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
-                      id="heart_link"
-                    >
-                      <i id="heart_icon" class="fa fa-heart"></i>
-                    </button>
-                  </form>
-                  <?php } ?>
-                  <?php } else { ?>
-                    <a
-                      href='http://localhost/fill-rouge/user/signIn'
-                      class="px-3 py-2 inline-block text-blue-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 cursor-pointer select-none"
-                      id="heart_link"
-                    >
-                      <i id="heart_icon" class="fa fa-heart"></i>
-                    </a>
-                  <?php } ?>
+											<a class="px-4 py-2 inline-block text-white bg-blue-600 border border-transparent rounded-md hover:bg-blue-700 w-36 text-center" href="http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>"> Buy now </a>
 										</div>
 
 										<a class="px-6 py-2 inline-block text-white bg-green-600 border border-transparent rounded-md hover:bg-green-700" href='http://localhost/fill-rouge/user/details/<?php echo $product['id'] ?>'>+ add to cart </a>
