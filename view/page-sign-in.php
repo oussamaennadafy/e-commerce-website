@@ -103,7 +103,7 @@
 						<span class="px-3 bg-white text-gray-400">or</span>
 					</div>
 
-					<a href="#" class="mb-2 px-4 py-2 w-full flex items-center justify-center text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600">
+					<!-- <a href="#" class="mb-2 px-4 py-2 w-full flex items-center justify-center text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600">
 						<img src="../view/images/icons/social/google.svg" class="mr-3" width="20" height="20"> 
 						Continue with Google
 					</a>
@@ -111,7 +111,7 @@
 					<a href="#" class="mb-2 px-4 py-2 w-full flex items-center justify-center text-center text-gray-700 bg-white shadow-sm border border-gray-200 rounded-md hover:bg-gray-100 hover:text-blue-600">
 						<img src="../view/images/icons/social/facebook.svg" class="mr-3" width="20" height="20"> 
 						Continue with Facebook
-					</a>
+					</a> -->
 
 					<p class="text-center mt-5">
 						Don’t have an account?  <a class="text-blue-500" href="http://localhost/fill-rouge/user/signUp">Sign up</a>

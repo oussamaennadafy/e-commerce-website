@@ -436,7 +436,7 @@
                 </li>
               </ul>
 
-              <hr class="my-4" />
+              <!-- <hr class="my-4" />
 
               <div class="flex gap-3">
                 <input
@@ -450,7 +450,7 @@
                 >
                   Apply
                 </button>
-              </div>
+              </div> -->
 
               <hr class="my-4" />
 
