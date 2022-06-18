@@ -386,7 +386,6 @@
 			})
 		})
 		//////////////////////////////////////////
-
 		const container = document.querySelector(".ctn");
 		container.addEventListener("mousemove", onZoom);
 		container.addEventListener("mouseover", onZoom);
